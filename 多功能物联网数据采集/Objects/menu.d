@@ -29,3 +29,5 @@
 .\objects\menu.o: .\library\stm32f10x_wwdg.h
 .\objects\menu.o: .\library\misc.h
 .\objects\menu.o: HW\OLED.h
+.\objects\menu.o: HW\K.h
+.\objects\menu.o: .\dl\Delay.h

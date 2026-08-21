@@ -30,3 +30,4 @@
 .\objects\main.o: .\library\misc.h
 .\objects\main.o: .\dl\Delay.h
 .\objects\main.o: .\HW\OLED.h
+.\objects\main.o: .\HW\Menu.h

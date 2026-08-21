@@ -715,6 +715,16 @@
               <FileType>5</FileType>
               <FilePath>.\HW\Menu.h</FilePath>
             </File>
+            <File>
+              <FileName>K.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HW\K.c</FilePath>
+            </File>
+            <File>
+              <FileName>K.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\HW\K.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
