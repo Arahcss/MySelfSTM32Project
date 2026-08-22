@@ -31,3 +31,5 @@
 .\objects\menu.o: HW\OLED.h
 .\objects\menu.o: HW\K.h
 .\objects\menu.o: .\dl\Delay.h
+.\objects\menu.o: HW\AD.h
+.\objects\menu.o: HW\CountS.h

@@ -4,8 +4,8 @@
 #include "Menu.h"
 int main(void)
 {
-	OLED_Init();
-
+	Menu_AllInit();
+	
 	while(1)
 	{
 		Menu_Start();

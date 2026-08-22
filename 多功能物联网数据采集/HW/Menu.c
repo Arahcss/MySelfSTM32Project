@@ -2,8 +2,36 @@
 #include "OLED.h"
 #include "K.h"
 #include "Delay.h"
+#include "AD.h"
+#include "CountS.h"
 
 uint8_t Line=1;
+
+void Menu_AllInit()
+{
+	OLED_Init();
+	K_Init();
+	AD1_Init();
+	CountS_Init();
+}
+
+void Menu_ADCStart()
+{
+	OLED_ShowNum(1,1,AD1_GetValue(ADC_Channel_0),4);
+	OLED_ShowNum(2,1,AD1_GetValue(ADC_Channel_1),4);
+	OLED_ShowNum(3,1,AD1_GetValue(ADC_Channel_2),4);
+	OLED_ShowNum(4,1,AD1_GetValue(ADC_Channel_3),4);
+	Delay_ms(100);
+}
+
+void Menu_Enter()
+{
+	switch(Line)
+	{
+		case 1: Menu_ADCStart();break;
+		
+	}
+}
 
 void Menu_ShowCursor()
 {
@@ -17,6 +45,7 @@ void Menu_ShowCursor()
 void Menu_ShowLine()
 {
 	uint8_t LineNum=1,nextLine= ((Line)/4>=1)?(Line%4):0;
+	OLED_Clear();//擦除
 	for(uint8_t i =0;i<4;i++)
 	{
 		switch(i+nextLine)
@@ -33,19 +62,40 @@ void Menu_ShowLine()
 
 void Menu_Start()
 {
-	K_Init();
 	Menu_ShowLine();
 	Menu_ShowCursor();
 	while(1)
 	{
 		uint8_t KNum=Key_Scan();
-		Delay_ms(10);
+		Delay_ms(5);
 		if(KNum==1)
 		{
+			CountS_Count=1;
 			KeyAction=0;
 			Line=(Line)%6 +1;	
-			Menu_ShowCursor();
 			Menu_ShowLine();
+			Menu_ShowCursor();
+			Delay_ms(80);
+		}
+		else if(KNum==2)
+		{
+			Delay_ms(100);//防抖
+			CountS_Count=1;
+			KeyAction=0;
+			OLED_Clear();
+			while(1)
+			{
+				Menu_Enter();
+				KNum=Key_Scan();
+				Delay_ms(5);
+				if(CountS_Count==0)
+				{
+					KeyAction=0;
+					CountS_Count=1;
+					break;
+				}
+					
+			}
 		}
 	}
 	

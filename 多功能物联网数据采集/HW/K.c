@@ -8,7 +8,7 @@
 
 #define KEY_SHAKE_TIME     5   // 消抖时间，单位：循环周期（约5ms）
 #define KEY_LONG_PRESS_TIME 80 // 长按时间，单位：循环周期（约200ms = 1秒）
-#define KEY_DOUBLE_TIME    20  // 双击间隔时间，单位：循环周期
+#define KEY_DOUBLE_TIME    50  // 双击间隔时间，单位：循环周期
 
 // 全局变量，供主循环调用
   // 0=无动作，1=单击，2=双击，3=长按
