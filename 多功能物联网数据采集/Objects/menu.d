@@ -33,3 +33,4 @@
 .\objects\menu.o: .\dl\Delay.h
 .\objects\menu.o: HW\AD.h
 .\objects\menu.o: HW\CountS.h
+.\objects\menu.o: HW\PWM.h
