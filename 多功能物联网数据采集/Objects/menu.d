@@ -34,3 +34,4 @@
 .\objects\menu.o: HW\AD.h
 .\objects\menu.o: HW\CountS.h
 .\objects\menu.o: HW\PWM.h
+.\objects\menu.o: HW\MPU6050.h

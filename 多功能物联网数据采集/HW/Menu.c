@@ -5,8 +5,30 @@
 #include "AD.h"
 #include "CountS.h"
 #include "PWM.h"
+#include "MPU6050.h"
 
+int16_t AX,AY,AZ,GX,GY,GZ;
 uint8_t Line=1;
+
+void Menu_MPU6050Remind()
+{
+	OLED_ShowString(1,1,"    A       G");
+	OLED_ShowString(2,1,"X       X");
+	OLED_ShowString(3,1,"Y       Y");
+	OLED_ShowString(4,1,"Z       Z");
+}
+
+void Menu_MPU6050Start()
+{
+		MPU6050_GetData(&AX,&AY,&AZ,&GX,&GY,&GZ);
+		OLED_ShowSignedNum(2,2,AX,5);
+		OLED_ShowSignedNum(3,2,AY,5);
+		OLED_ShowSignedNum(4,2,AZ,5);
+		OLED_ShowSignedNum(2,10,GX,5);
+		OLED_ShowSignedNum(3,10,GY,5);
+		OLED_ShowSignedNum(4,10,GZ,5);
+		Delay_ms(50);
+}
 
 void Menu_AllInit()
 {
@@ -15,6 +37,7 @@ void Menu_AllInit()
 	AD1_Init();
 	CountS_Init();
 	PWM_Init();
+	MPU6050_Init();
 }
 
 void Menu_ADCStart()
@@ -42,10 +65,10 @@ void Menu_PWMRemind()
 void Menu_PWMContolStart()
 {
 	for(uint8_t i=0;i<=180;i+=30)
-		{
-			PWM_SetCompare1(i);
-			Delay_ms(80);
-		}
+	{
+		PWM_SetCompare1(i);
+		Delay_ms(80);
+	}
 }
 
 void Menu_Enter()
@@ -54,6 +77,7 @@ void Menu_Enter()
 	{
 		case 1: Menu_ADCStart();break;
 		case 2: Menu_PWMContolStart();break;
+		case 3: Menu_MPU6050Start();break;
 	}
 }
 
@@ -72,6 +96,7 @@ void Menu_ShowTest()
 	{
 		case 1:Menu_ADCRemind();break;
 		case 2:Menu_PWMRemind();break;
+		case 3:Menu_MPU6050Remind();break;
 	}
 }
 
