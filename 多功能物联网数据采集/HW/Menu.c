@@ -6,9 +6,43 @@
 #include "CountS.h"
 #include "PWM.h"
 #include "MPU6050.h"
+#include "W25Q64.h"
 
+//W25Q64
+uint8_t MID;
+uint16_t DID;
+uint8_t ArrayWrite[]={0x01,0x01,0x04,0x05};
+uint8_t ArrayRead[4];
+
+//MPU6050
 int16_t AX,AY,AZ,GX,GY,GZ;
+
+//Menu
 uint8_t Line=1;
+
+void Menu_SPIFlashStart()
+{
+	W25Q64_SectorErase(0x000000);//最好对齐6位
+	W25Q64_PageProgram(0x000000,ArrayWrite,4);
+	
+	W25Q64_ReadData(0x000000,ArrayRead,4);
+	
+	for(int i=0;i<4;i++)
+		OLED_ShowHexNum(2,(i+1)*3,ArrayWrite[i],2);
+	
+	for(int i=0;i<4;i++)
+		OLED_ShowHexNum(3,(i+1)*3,ArrayRead[i],2);
+}
+
+void Menu_SPIFlashRemind()
+{
+	OLED_ShowString(1,1,"MID:   DID:");
+	OLED_ShowString(2,1,"W:");
+	OLED_ShowString(3,1,"R:");
+	W25Q64_ReadID(&MID,&DID);
+	OLED_ShowHexNum(1,5,MID,2);
+	OLED_ShowHexNum(1,12,DID,4);
+}
 
 void Menu_MPU6050Remind()
 {
@@ -38,6 +72,8 @@ void Menu_AllInit()
 	CountS_Init();
 	PWM_Init();
 	MPU6050_Init();
+	W25Q64_Init();
+	
 }
 
 void Menu_ADCStart()
@@ -78,6 +114,8 @@ void Menu_Enter()
 		case 1: Menu_ADCStart();break;
 		case 2: Menu_PWMContolStart();break;
 		case 3: Menu_MPU6050Start();break;
+		case 4: Menu_SPIFlashStart();break;
+		
 	}
 }
 
@@ -97,6 +135,7 @@ void Menu_ShowTest()
 		case 1:Menu_ADCRemind();break;
 		case 2:Menu_PWMRemind();break;
 		case 3:Menu_MPU6050Remind();break;
+		case 4:Menu_SPIFlashRemind();break;
 	}
 }
 

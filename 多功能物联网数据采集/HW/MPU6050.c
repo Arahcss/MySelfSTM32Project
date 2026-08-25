@@ -9,20 +9,9 @@ void MPU6050_WaitEvent(I2C_TypeDef* I2Cx,uint32_t I2C_EVENT)
 		while( I2C_CheckEvent(I2Cx,I2C_EVENT) != SUCCESS)//因为硬件配置不自带延时所以需要接收EVE5成功条件
 		if(TimOut--==0)break;
 }
-	
 
 void MPU6050_WriteReg(uint8_t RegAddress,uint8_t Data)
 {
-	
-	
-//	MyI2C_Start();
-//	MyI2C_SendByte(MPU6050_ADDRESS);//指定设备
-//	MyI2C_ReceiveAck();//应答位，判断是否收到数据
-//	MyI2C_SendByte(RegAddress);//指定地址
-//	MyI2C_ReceiveAck();
-//	MyI2C_SendByte(Data);//指定数据
-//	MyI2C_ReceiveAck();
-//	MyI2C_Stop();
 	uint32_t TimOut=10000;
 	I2C_GenerateSTART(I2C2,ENABLE);
 	while( I2C_CheckEvent(I2C2,I2C_EVENT_MASTER_MODE_SELECT) != SUCCESS)//因为硬件配置不自带延时所以需要接收EVE5成功条件
@@ -44,19 +33,6 @@ void MPU6050_WriteReg(uint8_t RegAddress,uint8_t Data)
 uint8_t MPU6050_ReadReg(uint8_t RegAddress)
 {
 		uint8_t Data;
-//	MyI2C_Start();
-//	MyI2C_SendByte(MPU6050_ADDRESS);//指定设备
-//	MyI2C_ReceiveAck();//应答位，判断是否收到数据
-//	MyI2C_SendByte(RegAddress);//指定地址
-//	MyI2C_ReceiveAck();
-//	
-//	MyI2C_Start();//重复起始
-//	MyI2C_SendByte(MPU6050_ADDRESS|0x01);
-//	MyI2C_ReceiveAck();
-//	Data = MyI2C_ReceiveByte();
-//	MyI2C_SendAck(1);//是否继续从机应答
-//	MyI2C_Stop();
-//	return Data;
 	I2C_GenerateSTART(I2C2,ENABLE);
 	while( I2C_CheckEvent(I2C2,I2C_EVENT_MASTER_MODE_SELECT) != SUCCESS);//因为硬件配置不自带延时所以需要接收EVE5成功条件
 	

@@ -35,3 +35,4 @@
 .\objects\menu.o: HW\CountS.h
 .\objects\menu.o: HW\PWM.h
 .\objects\menu.o: HW\MPU6050.h
+.\objects\menu.o: HW\W25Q64.h
