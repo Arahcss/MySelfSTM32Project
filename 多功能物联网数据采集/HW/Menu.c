@@ -7,6 +7,11 @@
 #include "PWM.h"
 #include "MPU6050.h"
 #include "W25Q64.h"
+#include "Serial.h"
+#include "stdio.h"
+
+//USARTSend
+uint8_t Serial_TxFlag;
 
 //W25Q64
 uint8_t MID;
@@ -19,6 +24,29 @@ int16_t AX,AY,AZ,GX,GY,GZ;
 
 //Menu
 uint8_t Line=1;
+
+void Menu_USARTSendRemind()
+{
+	OLED_ShowString(1,1,"TxPacket");
+	OLED_ShowString(3,1,"RxPacket");
+}
+
+void Menu_USARTSend()
+{
+	if(Serial_TxFlag==1)
+	{
+		OLED_ShowString(2,1,"                  ");
+		OLED_ShowString(2,1,"InputDataOver");
+		Serial_SendString("Input test\r\n");
+		Serial_TxFlag=0;
+	}
+	 if(Serial_RxFlag==1)
+	{
+		OLED_ShowString(4,1,"                ");//用于擦除
+		OLED_ShowString(4,1,Serial_RxPacket);
+		Serial_RxFlag=0;
+	}	
+}
 
 void Menu_SPIFlashStart()
 {
@@ -73,6 +101,7 @@ void Menu_AllInit()
 	PWM_Init();
 	MPU6050_Init();
 	W25Q64_Init();
+	Serial_Init();
 	
 }
 
@@ -115,6 +144,7 @@ void Menu_Enter()
 		case 2: Menu_PWMContolStart();break;
 		case 3: Menu_MPU6050Start();break;
 		case 4: Menu_SPIFlashStart();break;
+		case 5: Menu_USARTSend();break;
 		
 	}
 }
@@ -136,6 +166,7 @@ void Menu_ShowTest()
 		case 2:Menu_PWMRemind();break;
 		case 3:Menu_MPU6050Remind();break;
 		case 4:Menu_SPIFlashRemind();break;
+		case 5:Menu_USARTSendRemind();break;
 	}
 }
 
@@ -177,6 +208,7 @@ void Menu_Start()
 		else if(KNum==2)
 		{
 			Delay_ms(150);//防抖
+			Serial_TxFlag=1;
 			CountS_Count=1;
 			KeyAction=0;
 			OLED_Clear();//用前清屏

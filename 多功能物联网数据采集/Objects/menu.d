@@ -36,3 +36,5 @@
 .\objects\menu.o: HW\PWM.h
 .\objects\menu.o: HW\MPU6050.h
 .\objects\menu.o: HW\W25Q64.h
+.\objects\menu.o: HW\Serial.h
+.\objects\menu.o: D:\32\ARM\ARMCC\Bin\..\include\stdio.h
