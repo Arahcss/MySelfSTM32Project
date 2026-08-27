@@ -805,6 +805,16 @@
               <FileType>5</FileType>
               <FilePath>.\HW\Serial.h</FilePath>
             </File>
+            <File>
+              <FileName>M_RTC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HW\M_RTC.c</FilePath>
+            </File>
+            <File>
+              <FileName>M_RTC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\HW\M_RTC.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

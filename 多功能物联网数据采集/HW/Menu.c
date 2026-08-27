@@ -9,6 +9,7 @@
 #include "W25Q64.h"
 #include "Serial.h"
 #include "stdio.h"
+#include "M_RTC.h"
 
 //USARTSend
 uint8_t Serial_TxFlag;
@@ -24,6 +25,25 @@ int16_t AX,AY,AZ,GX,GY,GZ;
 
 //Menu
 uint8_t Line=1;
+
+void Menu_TimeStart()
+{
+	M_RTC_ReadTime();
+	OLED_ShowNum(1,6,M_RTCNum[0],4);
+	OLED_ShowNum(1,11,M_RTCNum[1],2);
+	OLED_ShowNum(1,14,M_RTCNum[2],2);
+	OLED_ShowNum(2,6,M_RTCNum[3],2);
+	OLED_ShowNum(2,9,M_RTCNum[4],2);
+	OLED_ShowNum(2,12,M_RTCNum[5],2);
+	OLED_ShowNum(3,6,RTC_GetCounter(),10);
+}
+
+void Menu_TimeRemind()
+{
+	OLED_ShowString(1,1,"Date:XXXX-XX-XX");
+	OLED_ShowString(2,1,"Time:XX:XX:XX");
+	OLED_ShowString(3,1,"CNT:");
+}
 
 void Menu_USARTSendRemind()
 {
@@ -102,6 +122,7 @@ void Menu_AllInit()
 	MPU6050_Init();
 	W25Q64_Init();
 	Serial_Init();
+	M_RTC_Init();
 	
 }
 
@@ -145,7 +166,7 @@ void Menu_Enter()
 		case 3: Menu_MPU6050Start();break;
 		case 4: Menu_SPIFlashStart();break;
 		case 5: Menu_USARTSend();break;
-		
+		case 6: Menu_TimeStart();break;
 	}
 }
 
@@ -167,6 +188,7 @@ void Menu_ShowTest()
 		case 3:Menu_MPU6050Remind();break;
 		case 4:Menu_SPIFlashRemind();break;
 		case 5:Menu_USARTSendRemind();break;
+		case 6:Menu_TimeRemind();break;
 	}
 }
 

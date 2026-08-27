@@ -38,3 +38,4 @@
 .\objects\menu.o: HW\W25Q64.h
 .\objects\menu.o: HW\Serial.h
 .\objects\menu.o: D:\32\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\menu.o: HW\M_RTC.h
