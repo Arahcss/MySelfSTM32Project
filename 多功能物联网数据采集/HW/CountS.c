@@ -1,7 +1,7 @@
 #include "stm32f10x.h"                  // Device header
 #include "Delay.h"
 
-extern uint16_t CountS_Count=1;
+uint16_t Menu_ExitFlag =1;
 void CountS_Init(void)
 {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,ENABLE);//启用端口时钟
@@ -30,16 +30,16 @@ void CountS_Init(void)
 	NVIC_Init(&NVIC_InitStructure);
 }
 
-uint16_t CountS_Get(void)
+uint16_t Menu_ExitFlag_Get(void)
 {
-	return CountS_Count;
+	return Menu_ExitFlag ;
 }
 
 void EXTI15_10_IRQHandler(void)//不用声明，不需要调用自动执行
 {
 	if(EXTI_GetITStatus(EXTI_Line12)==SET)
 	{
-		CountS_Count=0;
+		Menu_ExitFlag =0;
 		EXTI_ClearITPendingBit(EXTI_Line12);//记得清0，不然会一直中断
 	}
 }

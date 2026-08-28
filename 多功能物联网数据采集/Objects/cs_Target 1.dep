@@ -874,7 +874,7 @@ I (.\library\misc.h)(0x4D783BB4)
 I (HW\OLED_Font.h)(0x63087D23)
 F (.\HW\OLED.h)(0x63087D1F)()
 F (.\HW\OLED_Font.h)(0x63087D23)()
-F (.\HW\Menu.c)(0x6A90661B)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\st -I .\library -I .\user -I .\dl -I .\HW-I.\RTE\_Target_1-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\32\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\menu.o --omf_browse .\objects\menu.crf --depend .\objects\menu.d)
+F (.\HW\Menu.c)(0x6A91B8C3)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\st -I .\library -I .\user -I .\dl -I .\HW-I.\RTE\_Target_1-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\32\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\menu.o --omf_browse .\objects\menu.crf --depend .\objects\menu.d)
 I (.\st\stm32f10x.h)(0x4D783CB4)
 I (.\st\core_cm3.h)(0x4D523B58)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -907,7 +907,7 @@ I (HW\OLED.h)(0x63087D1F)
 I (HW\K.h)(0x6A887303)
 I (.\dl\Delay.h)(0x6130920D)
 I (HW\AD.h)(0x6A51044B)
-I (HW\CountS.h)(0x6A89CC75)
+I (HW\CountS.h)(0x6A91B838)
 I (HW\PWM.h)(0x6A8B0752)
 I (HW\MPU6050.h)(0x6A62499B)
 I (HW\W25Q64.h)(0x6A6A314F)
@@ -915,7 +915,7 @@ I (HW\Serial.h)(0x6A5DCBB9)
 I (D:\32\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (HW\M_RTC.h)(0x6A6F7816)
 F (.\HW\Menu.h)(0x6A89C839)()
-F (.\HW\K.c)(0x6A8948FC)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\st -I .\library -I .\user -I .\dl -I .\HW-I.\RTE\_Target_1-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\32\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\k.o --omf_browse .\objects\k.crf --depend .\objects\k.d)
+F (.\HW\K.c)(0x6A91BC14)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\st -I .\library -I .\user -I .\dl -I .\HW-I.\RTE\_Target_1-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\32\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\k.o --omf_browse .\objects\k.crf --depend .\objects\k.d)
 I (.\st\stm32f10x.h)(0x4D783CB4)
 I (.\st\core_cm3.h)(0x4D523B58)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -976,7 +976,7 @@ I (.\library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\library\misc.h)(0x4D783BB4)
 F (.\HW\AD.h)(0x6A51044B)()
-F (.\HW\CountS.c)(0x6A89CC75)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\st -I .\library -I .\user -I .\dl -I .\HW-I.\RTE\_Target_1-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\32\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\counts.o --omf_browse .\objects\counts.crf --depend .\objects\counts.d)
+F (.\HW\CountS.c)(0x6A91B838)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\st -I .\library -I .\user -I .\dl -I .\HW-I.\RTE\_Target_1-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\32\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\counts.o --omf_browse .\objects\counts.crf --depend .\objects\counts.d)
 I (.\st\stm32f10x.h)(0x4D783CB4)
 I (.\st\core_cm3.h)(0x4D523B58)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -1006,7 +1006,7 @@ I (.\library\stm32f10x_usart.h)(0x4D783BB4)
 I (.\library\stm32f10x_wwdg.h)(0x4D783BB4)
 I (.\library\misc.h)(0x4D783BB4)
 I (.\dl\Delay.h)(0x6130920D)
-F (.\HW\CountS.h)(0x6A89CC75)()
+F (.\HW\CountS.h)(0x6A91B838)()
 F (.\HW\PWM.h)(0x6A8B0752)()
 F (.\HW\PWM.c)(0x6A8DAEB7)(--c99 -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\st -I .\library -I .\user -I .\dl -I .\HW-I.\RTE\_Target_1-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-ID:\32\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d)
 I (.\st\stm32f10x.h)(0x4D783CB4)

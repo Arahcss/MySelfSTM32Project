@@ -214,13 +214,14 @@ void Menu_Start()
 {
 	Menu_ShowLine();
 	Menu_ShowCursor();
-	while(1)
+	uint16_t BreakTime=10000;
+	while(BreakTime--)
 	{
 		uint8_t KNum=Key_Scan();
 		Delay_ms(5);
 		if(KNum==1)
 		{
-			CountS_Count=1;
+			Menu_ExitFlag =1;
 			KeyAction=0;
 			Line=(Line)%6 +1;	
 			Menu_ShowLine();
@@ -231,19 +232,19 @@ void Menu_Start()
 		{
 			Delay_ms(150);//防抖
 			Serial_TxFlag=1;
-			CountS_Count=1;
+			Menu_ExitFlag =1;
 			KeyAction=0;
 			OLED_Clear();//用前清屏
 			Menu_ShowTest();//显示提示文字
-			while(1)
+			while(BreakTime)
 			{
 				Menu_Enter();
 				KNum=Key_Scan();
 				Delay_ms(5);
-				if(CountS_Count==0)
+				if(Menu_ExitFlag ==0)
 				{
 					KeyAction=0;
-					CountS_Count=1;
+					Menu_ExitFlag =1;
 					break;
 				}
 			}
