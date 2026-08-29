@@ -214,13 +214,14 @@ void Menu_Start()
 {
 	Menu_ShowLine();
 	Menu_ShowCursor();
-	uint16_t BreakTime=10000;
+	uint16_t BreakTime=1000;
 	while(BreakTime--)
 	{
 		uint8_t KNum=Key_Scan();
 		Delay_ms(5);
 		if(KNum==1)
 		{
+			BreakTime=1000;
 			Menu_ExitFlag =1;
 			KeyAction=0;
 			Line=(Line)%6 +1;	
@@ -236,7 +237,7 @@ void Menu_Start()
 			KeyAction=0;
 			OLED_Clear();//用前清屏
 			Menu_ShowTest();//显示提示文字
-			while(BreakTime)
+			while(1)
 			{
 				Menu_Enter();
 				KNum=Key_Scan();
@@ -251,7 +252,8 @@ void Menu_Start()
 			
 		}
 	}
-	
+	OLED_Clear();
+	__WFI();//中断唤醒的睡眠模式
 }
 
 
