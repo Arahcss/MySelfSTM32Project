@@ -163,6 +163,70 @@
           <ExecCommand></ExecCommand>
           <Expression>\\cs\HW/Menu.c\79</Expression>
         </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>242</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223652</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>D:\zhuomian\32project\澶氬姛鑳界墿鑱旂綉鏁版嵁閲囬泦\HW\Menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\cs\HW/Menu.c\242</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>11</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134228172</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>D:\zhuomian\32project\澶氬姛鑳界墿鑱旂綉鏁版嵁閲囬泦\user\main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\cs\user/main.c\11</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>224</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223564</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>D:\zhuomian\32project\澶氬姛鑳界墿鑱旂綉鏁版嵁閲囬泦\HW\Menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\cs\HW/Menu.c\224</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>221</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223554</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>D:\zhuomian\32project\澶氬姛鑳界墿鑱旂綉鏁版嵁閲囬泦\HW\Menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\cs\HW/Menu.c\221</Expression>
+        </Bp>
       </Breakpoint>
       <Tracepoint>
         <THDelay>0</THDelay>

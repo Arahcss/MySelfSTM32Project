@@ -239,6 +239,7 @@ void Menu_Start()
 			Menu_ShowTest();//显示提示文字
 			while(1)
 			{
+				BreakTime=1000;
 				Menu_Enter();
 				KNum=Key_Scan();
 				Delay_ms(5);
