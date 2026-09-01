@@ -1,0 +1,1 @@
+freertoslearn2_noostest\startup_stm32f103xb.o: startup_stm32f103xb.s
