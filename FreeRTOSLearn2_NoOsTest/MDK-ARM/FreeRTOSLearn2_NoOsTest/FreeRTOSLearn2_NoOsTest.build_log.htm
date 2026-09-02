@@ -22,12 +22,27 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 D:\zhuomian\32project\CubeMXTest\FreeRTOSLearn2_NoOsTest\MDK-ARM\FreeRTOSLearn2_NoOsTest.uvprojx
-Project File Date:  09/02/2026
+Project File Date:  09/03/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\32\ARM\ARMCC\Bin'
 Build target 'FreeRTOSLearn2_NoOsTest'
-"FreeRTOSLearn2_NoOsTest\FreeRTOSLearn2_NoOsTest.axf" - 0 Error(s), 0 Warning(s).
+compiling Task.c...
+Task.c(16): warning:  #188-D: enumerated type mixed with another type
+  		HAL_GPIO_WritePin(
+PIOC,
+PIO_PIN_13,0);
+Task.c(20): warning:  #188-D: enumerated type mixed with another type
+  		HAL_GPIO_WritePin(
+PIOC,
+PIO_PIN_13,1);
+Task.c(65): warning:  #940-D: missing return statement at end of non-void function "fputc" 
+  }
+Task.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=5308 RO-data=312 RW-data=36 ZI-data=1172  
+FromELF: creating hex file...
+"FreeRTOSLearn2_NoOsTest\FreeRTOSLearn2_NoOsTest.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,7 +65,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

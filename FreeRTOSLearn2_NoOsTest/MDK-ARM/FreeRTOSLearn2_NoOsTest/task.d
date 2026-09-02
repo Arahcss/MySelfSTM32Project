@@ -24,5 +24,7 @@ freertoslearn2_noostest\task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ha
 freertoslearn2_noostest\task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn2_noostest\task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn2_noostest\task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+freertoslearn2_noostest\task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+freertoslearn2_noostest\task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 freertoslearn2_noostest\task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 freertoslearn2_noostest\task.o: D:\32\ARM\ARMCC\Bin\..\include\stdio.h
