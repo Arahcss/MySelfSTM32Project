@@ -1,0 +1,14 @@
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+freertoslearn4_schedulertest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn4_schedulertest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn4_schedulertest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn4_schedulertest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h
