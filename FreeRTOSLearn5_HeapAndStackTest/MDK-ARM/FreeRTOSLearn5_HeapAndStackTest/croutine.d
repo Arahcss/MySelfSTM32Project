@@ -1,0 +1,14 @@
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn5_heapandstacktest\croutine.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn5_heapandstacktest\croutine.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn5_heapandstacktest\croutine.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+freertoslearn5_heapandstacktest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
