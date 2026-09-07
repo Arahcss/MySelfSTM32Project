@@ -1,0 +1,12 @@
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn6_queuetest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn6_queuetest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn6_queuetest\port.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn6_queuetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
