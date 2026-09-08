@@ -8,29 +8,57 @@
 
 extern UART_HandleTypeDef huart1;
 extern osMessageQueueId_t ButtonQueueHandle;
+extern osMessageQueueId_t TimerQueueHandle;
+extern osMessageQueueId_t PrintQueueHandle;
+
+static const uint8_t sc_aucButtonStringUp[] = 				"[Up]Pussing\n\r";
+static const uint8_t sc_aucButtonStringDown[] = 		"[Down]Pussing\n\r";
+static const uint8_t sc_aucButtonStringEnter[] = 			"[Enter]Pussing\n\r";
+static const uint8_t sc_aucButtonStringCancel[] = 		"[Cancel]Pussing\n\r";
 
 void vButtonScan()
 {
 	uint8_t ucButtonValueCurrent;			//当前按键值
 	static uint8_t s_ucButtonValueLast;	//上次按键值
+	const uint8_t* c_pucSendString;
 	
 	ucButtonValueCurrent = 0;
 	
 	if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_1) == 0)
 	{
 		ucButtonValueCurrent |= 0x01;
+		if((s_ucButtonValueLast & 0x01) == 0)
+		{
+			c_pucSendString = sc_aucButtonStringUp;
+			xQueueSend(PrintQueueHandle,&c_pucSendString,0);
+		}
 	}
 	if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_0) == 0)
 	{
 		ucButtonValueCurrent |= 0x02;
+		if((s_ucButtonValueLast & 0x02) == 0)
+		{
+			c_pucSendString = sc_aucButtonStringDown;
+			xQueueSend(PrintQueueHandle,&c_pucSendString,0);
+		}
 	}
 	if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_15) == 0)
 	{
 		ucButtonValueCurrent |= 0x04;
+		if((s_ucButtonValueLast & 0x04) == 0)
+		{
+			c_pucSendString = sc_aucButtonStringEnter;
+			xQueueSend(PrintQueueHandle,&c_pucSendString,0);
+		}
 	}
 	if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_14) == 0)
 	{
 		ucButtonValueCurrent |= 0x08;
+		if((s_ucButtonValueLast & 0x08) == 0)
+		{
+			c_pucSendString = sc_aucButtonStringCancel;
+			xQueueSend(PrintQueueHandle,&c_pucSendString,0);
+		}
 	}
 	
 	if(ucButtonValueCurrent != s_ucButtonValueLast)
@@ -44,44 +72,64 @@ void vButtonScan()
 	
 }
 
+void vPrintButtionString()
+{
+	uint8_t* p;
+	
+	xQueueReceive(PrintQueueHandle,&p,portMAX_DELAY);
+
+	printf("%s",p);
+	vTaskDelay(1000);
+}
+
 void vLedExcute()
 {
 	uint8_t ucButtonValue;
+	uint16_t ucTimerValue;
 	
-	if((ucButtonValue & 0x01) == 0)
+	//接收到按键的值就执行点亮对于LED
+	if(xQueueReceive(ButtonQueueHandle,&ucButtonValue,0))
 	{
-		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,GPIO_PIN_SET);
+		if((ucButtonValue & 0x01) == 0)
+		{
+			HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,GPIO_PIN_RESET);
+		}
+		if((ucButtonValue & 0x02) == 0)
+		{
+			HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_RESET);
+		}
+		if((ucButtonValue & 0x04) == 0)
+		{
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_RESET);
+		}
+		if((ucButtonValue & 0x08) == 0)
+		{
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_RESET);
+		}
 	}
-	else
+	//接收到定时器的值后翻转LED
+	if(xQueueReceive(TimerQueueHandle,&ucTimerValue,0))
 	{
-		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_1,GPIO_PIN_RESET);
-	}
-	if((ucButtonValue & 0x02) == 0)
-	{
-		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_SET);
-	}
-	else
-	{
-		HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,GPIO_PIN_RESET);
-	}
-	if((ucButtonValue & 0x04) == 0)
-	{
-		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_SET);
-	}
-	else
-	{
-		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_RESET);
-	}
-	if((ucButtonValue & 0x08) == 0)
-	{
-		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_SET);
-	}
-	else
-	{
-		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,GPIO_PIN_RESET);
+		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
 	}
 	
-	xQueueReceive(ButtonQueueHandle,&ucButtonValue,portMAX_DELAY);
+	vTaskDelay(10);
 }
 
 int fputc(int ch,FILE *f)

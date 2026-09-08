@@ -39,4 +39,4 @@ freertoslearn6_queuetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/incl
 freertoslearn6_queuetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 freertoslearn6_queuetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertoslearn6_queuetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-freertoslearn6_queuetest\main.o: ..\User\UserTask.h
+freertoslearn6_queuetest\main.o: ../User/UserTask.h

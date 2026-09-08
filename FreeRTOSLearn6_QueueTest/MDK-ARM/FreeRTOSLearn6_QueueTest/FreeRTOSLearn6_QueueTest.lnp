@@ -30,7 +30,7 @@
 "freertoslearn6_queuetest\cmsis_os2.o"
 "freertoslearn6_queuetest\heap_4.o"
 "freertoslearn6_queuetest\port.o"
---strict --scatter "FreeRTOSLearn6_QueueTest\FreeRTOSLearn6_QueueTest.sct"
+--library_type=microlib --strict --scatter "FreeRTOSLearn6_QueueTest\FreeRTOSLearn6_QueueTest.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "FreeRTOSLearn6_QueueTest.map" -o FreeRTOSLearn6_QueueTest\FreeRTOSLearn6_QueueTest.axf

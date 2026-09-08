@@ -66,10 +66,10 @@ const osThreadAttr_t LEDTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for myTask01 */
-osThreadId_t myTask01Handle;
-const osThreadAttr_t myTask01_attributes = {
-  .name = "myTask01",
+/* Definitions for StartTask1 */
+osThreadId_t StartTask1Handle;
+const osThreadAttr_t StartTask1_attributes = {
+  .name = "StartTask1",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
@@ -77,6 +77,16 @@ const osThreadAttr_t myTask01_attributes = {
 osMessageQueueId_t ButtonQueueHandle;
 const osMessageQueueAttr_t ButtonQueue_attributes = {
   .name = "ButtonQueue"
+};
+/* Definitions for TimerQueue */
+osMessageQueueId_t TimerQueueHandle;
+const osMessageQueueAttr_t TimerQueue_attributes = {
+  .name = "TimerQueue"
+};
+/* Definitions for PrintQueue */
+osMessageQueueId_t PrintQueueHandle;
+const osMessageQueueAttr_t PrintQueue_attributes = {
+  .name = "PrintQueue"
 };
 /* USER CODE BEGIN PV */
 
@@ -90,7 +100,7 @@ static void MX_TIM1_Init(void);
 void StartDefaultTask(void *argument);
 void vButtonTask(void *argument);
 void vLEDTask(void *argument);
-void StartTask01(void *argument);
+void vStartTask1(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -155,6 +165,12 @@ int main(void)
   /* creation of ButtonQueue */
   ButtonQueueHandle = osMessageQueueNew (1, sizeof(uint8_t), &ButtonQueue_attributes);
 
+  /* creation of TimerQueue */
+  TimerQueueHandle = osMessageQueueNew (1, sizeof(uint16_t), &TimerQueue_attributes);
+
+  /* creation of PrintQueue */
+  PrintQueueHandle = osMessageQueueNew (16, sizeof(uint8_t *), &PrintQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -169,8 +185,8 @@ int main(void)
   /* creation of LEDTask */
   LEDTaskHandle = osThreadNew(vLEDTask, NULL, &LEDTask_attributes);
 
-  /* creation of myTask01 */
-  myTask01Handle = osThreadNew(StartTask01, NULL, &myTask01_attributes);
+  /* creation of StartTask1 */
+  StartTask1Handle = osThreadNew(vStartTask1, NULL, &StartTask1_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -440,22 +456,22 @@ void vLEDTask(void *argument)
   /* USER CODE END vLEDTask */
 }
 
-/* USER CODE BEGIN Header_StartTask01 */
+/* USER CODE BEGIN Header_vStartTask1 */
 /**
-* @brief Function implementing the myTask01 thread.
+* @brief Function implementing the StartTask1 thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartTask01 */
-void StartTask01(void *argument)
+/* USER CODE END Header_vStartTask1 */
+void vStartTask1(void *argument)
 {
-  /* USER CODE BEGIN StartTask01 */
+  /* USER CODE BEGIN vStartTask1 */
   /* Infinite loop */
   for(;;)
   {
-    ;
+    vPrintButtionString();
   }
-  /* USER CODE END StartTask01 */
+  /* USER CODE END vStartTask1 */
 }
 
 /**

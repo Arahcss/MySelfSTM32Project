@@ -24,6 +24,8 @@
 #include "task.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "queue.h"
+#include "cmsis_os.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,24 +56,12 @@
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-const uint32_t c_ulButtonCountThreshold = 20;
-const uint32_t c_ulUartCountThreshold = 1000;
-const uint32_t c_ulAdcCountThreshold = 500;
-
-uint32_t ulButtonCount;
-uint32_t ulUartCount;
-uint32_t ulAdcCount;
-
-uint8_t ucButtonFlag;
-uint8_t ucUartFlag;
-uint8_t ucAdcFlag;
-
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
 extern TIM_HandleTypeDef htim1;
 /* USER CODE BEGIN EV */
-
+extern osMessageQueueId_t TimerQueueHandle;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -200,31 +190,19 @@ void SysTick_Handler(void)
 void TIM1_UP_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_UP_IRQn 0 */
-	ulButtonCount++;
-	ulUartCount++;
-	ulAdcCount++;
-	
-	if(ulButtonCount >= c_ulButtonCountThreshold)
-	{
-		ulButtonCount = 0;
-		ucButtonFlag = 1;
-	}
-	
-	if(ulUartCount >= c_ulUartCountThreshold)
-	{
-		ulUartCount = 0;
-		ucUartFlag = 1;
-	}
-	
-	if(ulAdcCount >= c_ulAdcCountThreshold)
-	{
-		ulAdcCount = 0;
-		ucAdcFlag = 1;
-	}
+	static uint16_t s_usCount = 0;
+		
   /* USER CODE END TIM1_UP_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_IRQn 1 */
-
+	
+	s_usCount++;
+	if(s_usCount >= 1000)
+	{
+		s_usCount = 0;
+		xQueueSendFromISR(TimerQueueHandle,&s_usCount,NULL);
+	}
+	
   /* USER CODE END TIM1_UP_IRQn 1 */
 }
 

@@ -38,3 +38,6 @@ freertoslearn6_queuetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Sou
 freertoslearn6_queuetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 freertoslearn6_queuetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 freertoslearn6_queuetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn6_queuetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+freertoslearn6_queuetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
+freertoslearn6_queuetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
