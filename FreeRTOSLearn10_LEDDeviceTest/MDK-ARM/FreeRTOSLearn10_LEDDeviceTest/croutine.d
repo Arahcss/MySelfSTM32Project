@@ -1,0 +1,14 @@
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn10_leddevicetest\croutine.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn10_leddevicetest\croutine.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn10_leddevicetest\croutine.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+freertoslearn10_leddevicetest\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
