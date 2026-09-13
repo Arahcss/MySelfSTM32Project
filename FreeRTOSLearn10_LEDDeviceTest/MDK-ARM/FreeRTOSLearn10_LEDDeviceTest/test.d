@@ -25,7 +25,5 @@ freertoslearn10_leddevicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f
 freertoslearn10_leddevicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn10_leddevicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn10_leddevicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-freertoslearn10_leddevicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
-freertoslearn10_leddevicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 freertoslearn10_leddevicetest\test.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
 freertoslearn10_leddevicetest\test.o: ..\User\App\Test.h

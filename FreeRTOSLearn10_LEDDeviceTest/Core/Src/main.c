@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "LedDevice.h"
+#include "Task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,50 +42,12 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-TIM_HandleTypeDef htim1;
-
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for HighTask */
-osThreadId_t HighTaskHandle;
-const osThreadAttr_t HighTask_attributes = {
-  .name = "HighTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityHigh,
-};
-/* Definitions for MidTask */
-osThreadId_t MidTaskHandle;
-const osThreadAttr_t MidTask_attributes = {
-  .name = "MidTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for LowtTask1 */
-osThreadId_t LowtTask1Handle;
-const osThreadAttr_t LowtTask1_attributes = {
-  .name = "LowtTask1",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityLow,
-};
-/* Definitions for ButtonQueue */
-osMessageQueueId_t ButtonQueueHandle;
-const osMessageQueueAttr_t ButtonQueue_attributes = {
-  .name = "ButtonQueue"
-};
-/* Definitions for TimerQueue */
-osMessageQueueId_t TimerQueueHandle;
-const osMessageQueueAttr_t TimerQueue_attributes = {
-  .name = "TimerQueue"
-};
-/* Definitions for PrintQueue */
-osMessageQueueId_t PrintQueueHandle;
-const osMessageQueueAttr_t PrintQueue_attributes = {
-  .name = "PrintQueue"
 };
 /* Definitions for myMutex01 */
 osMutexId_t myMutex01Handle;
@@ -108,11 +71,7 @@ const osSemaphoreAttr_t myCountingSem01_attributes = {
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_TIM1_Init(void);
 void StartDefaultTask(void *argument);
-void vHighTask(void *argument);
-void vMidTask(void *argument);
-void vLowTask1(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -140,7 +99,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+	vLedInit();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -152,7 +111,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -182,16 +140,6 @@ int main(void)
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
-  /* Create the queue(s) */
-  /* creation of ButtonQueue */
-  ButtonQueueHandle = osMessageQueueNew (1, sizeof(uint8_t), &ButtonQueue_attributes);
-
-  /* creation of TimerQueue */
-  TimerQueueHandle = osMessageQueueNew (1, sizeof(uint16_t), &TimerQueue_attributes);
-
-  /* creation of PrintQueue */
-  PrintQueueHandle = osMessageQueueNew (10, sizeof(uint8_t *), &PrintQueue_attributes);
-
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -199,15 +147,6 @@ int main(void)
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
-
-  /* creation of HighTask */
-  HighTaskHandle = osThreadNew(vHighTask, NULL, &HighTask_attributes);
-
-  /* creation of MidTask */
-  MidTaskHandle = osThreadNew(vMidTask, NULL, &MidTask_attributes);
-
-  /* creation of LowtTask1 */
-  LowtTask1Handle = osThreadNew(vLowTask1, NULL, &LowtTask1_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -271,53 +210,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-}
-
-/**
-  * @brief TIM1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM1_Init(void)
-{
-
-  /* USER CODE BEGIN TIM1_Init 0 */
-
-  /* USER CODE END TIM1_Init 0 */
-
-  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-
-  /* USER CODE BEGIN TIM1_Init 1 */
-
-  /* USER CODE END TIM1_Init 1 */
-  htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 9;
-  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 7200-1;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM1_Init 2 */
-	__HAL_TIM_ENABLE_IT(&htim1,TIM_IT_UPDATE);//开启中断
-HAL_TIM_Base_Start(&htim1);//配置定时器
-  /* USER CODE END TIM1_Init 2 */
-
 }
 
 /**
@@ -409,60 +301,6 @@ void StartDefaultTask(void *argument)
 		vTaskExecute();
   }
   /* USER CODE END 5 */
-}
-
-/* USER CODE BEGIN Header_vHighTask */
-/**
-* @brief Function implementing the HighTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vHighTask */
-void vHighTask(void *argument)
-{
-  /* USER CODE BEGIN vHighTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    ;
-  }
-  /* USER CODE END vHighTask */
-}
-
-/* USER CODE BEGIN Header_vMidTask */
-/**
-* @brief Function implementing the MidTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vMidTask */
-void vMidTask(void *argument)
-{
-  /* USER CODE BEGIN vMidTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    ;
-  }
-  /* USER CODE END vMidTask */
-}
-
-/* USER CODE BEGIN Header_vLowTask1 */
-/**
-* @brief Function implementing the LowtTask1 thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vLowTask1 */
-void vLowTask1(void *argument)
-{
-  /* USER CODE BEGIN vLowTask1 */
-  /* Infinite loop */
-  for(;;)
-  {
-    ;
-  }
-  /* USER CODE END vLowTask1 */
 }
 
 /**
