@@ -1,0 +1,16 @@
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+freertoslearn11_leddeviceupgradetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn11_leddeviceupgradetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn11_leddeviceupgradetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn11_leddeviceupgradetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+freertoslearn11_leddeviceupgradetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h
