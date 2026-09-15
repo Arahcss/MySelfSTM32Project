@@ -36,4 +36,4 @@ freertoslearn11_leddeviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRTOS
 freertoslearn11_leddeviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 freertoslearn11_leddeviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertoslearn11_leddeviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-freertoslearn11_leddeviceupgradetest\main.o: ..\User\Device\LedDevice.h
+freertoslearn11_leddeviceupgradetest\main.o: ../User/Device/LedDevice.h

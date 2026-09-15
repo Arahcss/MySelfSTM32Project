@@ -1,20 +1,36 @@
 #include "LedDevice.h"
 #include "string.h"
 
-stLedDeviceParamTdf astLedDeviceParam[LED_DEV_NUM];		//0为半载LED,1-8为外部LED
+stLedDeviceParamTdf	astLedDeviceParam[LED_DEV_NUM];
+
+const stLedDeviceParamTdf	*c_pstGetLedDeviceParam(emLedDevNumTdf emDevNum)
+{
+	return &astLedDeviceParam[emDevNum];
+}
+
+void vLedUpdatePinLevel(emLedDevNumTdf	emDevNum)
+{
+	uint8_t ucOutput;
+	
+	//计算输出引脚电频
+	ucOutput = !(astLedDeviceParam[emDevNum].stStaticParam.emOnLevel ^ astLedDeviceParam[emDevNum].stRunningParam.emCurrentStatus);
+	
+	//更新LED输出电频
+	HAL_GPIO_WritePin(astLedDeviceParam[emDevNum].stStaticParam.pstGpioBase,astLedDeviceParam[emDevNum].stStaticParam.usGpioPin,(GPIO_PinState)ucOutput);
+}
 
 ///	@brief				LED设备初始化
 ///
 ///	@param			psInit				:	初始化参数结构体的首地址
 ///	@param			emDevNum		:	设备编号
 ///	@note
-void vLedDeviceInit(stLedDeviceParamTdf *pstInit,emLedDevNumTdf emDevNum)
+void vLedDeviceInit(stLedStaticParamTdf *pstInit,emLedDevNumTdf emDevNum)
 {
-//	astLedDeviceParam[emDevNum].pstGpioBase = pstInit ->pstGpioBase;
-//	astLedDeviceParam[emDevNum].emOnLevel = pstInit ->emOnLevel;
-//	astLedDeviceParam[emDevNum].usGpioPin = pstInit ->usGpioPin;
+//	stLedDeviceParamTdf[emDevNum].pstGpioBase = pstInit ->pstGpioBase;
+//	stLedDeviceParamTdf[emDevNum].emOnLevel = pstInit ->emOnLevel;
+//	stLedDeviceParamTdf[emDevNum].usGpioPin = pstInit ->usGpioPin;
 
-	memcpy(&astLedDeviceParam[emDevNum],pstInit,sizeof(stLedDeviceParamTdf)	/	sizeof(uint8_t));
+	memcpy(&astLedDeviceParam[emDevNum].stStaticParam,pstInit,sizeof(stLedStaticParamTdf)	/	sizeof(uint8_t));
 }
 
 ///	@brief				LED点亮
@@ -24,14 +40,19 @@ void vLedDeviceInit(stLedDeviceParamTdf *pstInit,emLedDevNumTdf emDevNum)
 ///	@note
 void vLedOn(emLedDevNumTdf emDevNum)
 {
-	if(astLedDeviceParam[emDevNum].emOnLevel == 0)
-	{
-		HAL_GPIO_WritePin(astLedDeviceParam[emDevNum].pstGpioBase,astLedDeviceParam[emDevNum].usGpioPin,GPIO_PIN_RESET);
-	}
-	else
-	{
-		HAL_GPIO_WritePin(astLedDeviceParam[emDevNum].pstGpioBase,astLedDeviceParam[emDevNum].usGpioPin,GPIO_PIN_SET);
-	}
+//	if(stLedDeviceParamTdf[emDevNum].emOnLevel == 0)
+//	{
+//		HAL_GPIO_WritePin(stLedDeviceParamTdf[emDevNum].pstGpioBase,stLedDeviceParamTdf[emDevNum].usGpioPin,GPIO_PIN_RESET);
+//	}
+//	else
+//	{
+//		HAL_GPIO_WritePin(stLedDeviceParamTdf[emDevNum].pstGpioBase,stLedDeviceParamTdf[emDevNum].usGpioPin,GPIO_PIN_SET);
+//	}
+	//设置当前状态
+	astLedDeviceParam [emDevNum].stRunningParam.emCurrentStatus = emLedStatus_ON;
+	
+	//根据当前状态更新输出引脚电频
+	vLedUpdatePinLevel(emDevNum);
 }
 
 ///	@brief				LED熄灭
@@ -41,12 +62,18 @@ void vLedOn(emLedDevNumTdf emDevNum)
 ///	@note
 void vLedOFF(emLedDevNumTdf emDevNum)
 {
-	if(astLedDeviceParam[emDevNum].emOnLevel == 0)
-	{
-		HAL_GPIO_WritePin(astLedDeviceParam[emDevNum].pstGpioBase,astLedDeviceParam[emDevNum].usGpioPin,GPIO_PIN_SET);
-	}
-	else
-	{
-		HAL_GPIO_WritePin(astLedDeviceParam[emDevNum].pstGpioBase,astLedDeviceParam[emDevNum].usGpioPin,GPIO_PIN_RESET);
-	}
+//	if(stLedDeviceParamTdf[emDevNum].emOnLevel == 0)
+//	{
+//		HAL_GPIO_WritePin(stLedDeviceParamTdf[emDevNum].pstGpioBase,stLedDeviceParamTdf[emDevNum].usGpioPin,GPIO_PIN_SET);
+//	}
+//	else
+//	{
+//		HAL_GPIO_WritePin(stLedDeviceParamTdf[emDevNum].pstGpioBase,stLedDeviceParamTdf[emDevNum].usGpioPin,GPIO_PIN_RESET);
+//	}
+	
+		//设置当前状态
+	astLedDeviceParam[emDevNum].stRunningParam.emCurrentStatus = emLedStatus_OFF;
+	
+	//根据当前状态更新输出引脚电频
+	vLedUpdatePinLevel(emDevNum);
 }

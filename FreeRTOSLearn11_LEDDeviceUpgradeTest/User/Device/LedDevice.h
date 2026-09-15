@@ -3,6 +3,19 @@
 
 #include "stm32f1xx_hal.h"
 
+///	@brief					LED状态枚举
+///
+///	@note
+typedef enum
+{
+	emLedStatus_OFF			=	0,
+	emLedStatus_ON,
+}
+emLedStatusTdf;
+
+///	@brief					LED ON时的电平枚举
+///
+///	@note
 typedef enum
 {
 	emLedOnLevel_Low			=	0,
@@ -38,9 +51,7 @@ typedef enum
 #define LED7						emLedDevNum7
 #define LED8						emLedDevNum8
 
-
-
-///	@brief			结构参数定义
+///	@brief			静态参数定义
 ///	
 ///	@note
 typedef struct
@@ -49,10 +60,27 @@ typedef struct
 	uint16_t										usGpioPin;			//	使用的GPIO_PIN_x
 	emLedOnLevelTdf						emOnLevel;			//	LED点亮时的电频
 }
-stLedDeviceParamTdf;
+stLedStaticParamTdf;
+
+///	@brief			运行参数定义
+///	
+///	@note
+typedef struct
+{
+	emLedStatusTdf							emCurrentStatus;//	LED当前状态
+}
+stLedRunningParamTdf;
+
+typedef struct
+{
+	stLedRunningParamTdf stRunningParam;		//静态参数
+	stLedStaticParamTdf stStaticParam;					//动态参数
+}stLedDeviceParamTdf;
 
 void vLedOn(emLedDevNumTdf emDevNum); 
 void vLedOFF(emLedDevNumTdf emDevNum);
-void vLedDeviceInit(stLedDeviceParamTdf *pstInit,emLedDevNumTdf emDevNum);
+void vLedDeviceInit(stLedStaticParamTdf *pstInit,emLedDevNumTdf emDevNum);
+const stLedDeviceParamTdf	*c_pstGetLedDeviceParam(emLedDevNumTdf emDevNum);
+
 
 #endif

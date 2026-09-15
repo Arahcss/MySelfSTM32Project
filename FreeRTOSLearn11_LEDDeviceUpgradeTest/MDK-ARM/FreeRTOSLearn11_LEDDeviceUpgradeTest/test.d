@@ -1,5 +1,5 @@
 freertoslearn11_leddeviceupgradetest\test.o: ..\User\App\Test.c
-freertoslearn11_leddeviceupgradetest\test.o: ..\User\Device\LedDevice.h
+freertoslearn11_leddeviceupgradetest\test.o: ../User/Device/LedDevice.h
 freertoslearn11_leddeviceupgradetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 freertoslearn11_leddeviceupgradetest\test.o: ../Core/Inc/stm32f1xx_hal_conf.h
 freertoslearn11_leddeviceupgradetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h

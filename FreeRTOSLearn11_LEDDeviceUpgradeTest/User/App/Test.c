@@ -4,7 +4,7 @@
 
 void vLedInit(void)
 {
-	stLedDeviceParamTdf stInit;
+	stLedStaticParamTdf stInit;
 	
 	stInit.pstGpioBase	= GPIOC;
 	stInit.emOnLevel		= emLedOnLevel_Low;
@@ -58,14 +58,15 @@ void vLedInit(void)
 ///	@note				实现测试功能
 void vTaskExecute(void)
 {
+	vLedOFF(0);//板载LED好闪眼睛。。。
 	uint8_t i;
-	for(i=0;i<9;i++)
+	for(i=1;i<9;i++)
 	{
 		vLedOn(i);
-		HAL_Delay(500);
+		HAL_Delay(100);
 		
 		vLedOFF(i);
-		HAL_Delay(500);
+		HAL_Delay(100);
 	}
 	
 	
