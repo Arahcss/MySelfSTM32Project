@@ -17,6 +17,8 @@
 "freertoslearn12_leddeviceextensiontest\stm32f1xx_hal_flash.o"
 "freertoslearn12_leddeviceextensiontest\stm32f1xx_hal_flash_ex.o"
 "freertoslearn12_leddeviceextensiontest\stm32f1xx_hal_exti.o"
+"freertoslearn12_leddeviceextensiontest\stm32f1xx_hal_tim.o"
+"freertoslearn12_leddeviceextensiontest\stm32f1xx_hal_tim_ex.o"
 "freertoslearn12_leddeviceextensiontest\system_stm32f1xx.o"
 "freertoslearn12_leddeviceextensiontest\croutine.o"
 "freertoslearn12_leddeviceextensiontest\event_groups.o"

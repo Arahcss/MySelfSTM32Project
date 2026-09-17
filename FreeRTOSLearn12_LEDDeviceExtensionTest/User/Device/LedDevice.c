@@ -3,6 +3,42 @@
 
 stLedDeviceParamTdf	astLedDeviceParam[LED_DEV_NUM];
 
+///	@brief				LED呼吸灯执行
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				
+void	vLedDeviceBreathExecute(emLedDevNumTdf	emDevNum)
+{	
+	uint32_t ulBreathCountMax;
+	uint32_t ulBlinkPeriod;
+	static uint32_t s_ulBreathCount;
+	
+	vLedDeviceBlinkExecute(emDevNum);
+	
+	//赋值闪烁周期
+	ulBlinkPeriod = astLedDeviceParam[emDevNum].stRunningParam. ulOnCountThreshold + astLedDeviceParam[emDevNum].stRunningParam.ulOffCountThreshold;
+	
+	//计算呼吸灯周期内的最大计数
+	ulBreathCountMax = astLedDeviceParam[emDevNum].stRunningParam.ulBreathPeriod / ulBlinkPeriod;
+	
+	//闪烁周期开始时重新计算 ON持续时间和OFF持续时间
+	if(astLedDeviceParam[emDevNum].stRunningParam.ulCurrentCount == 0)
+	{
+		astLedDeviceParam[emDevNum].stRunningParam.ulOnCountThreshold = ulBlinkPeriod * sin(PI * s_ulBreathCount / ulBreathCountMax) * sin(PI * s_ulBreathCount / ulBreathCountMax);
+	
+		astLedDeviceParam[emDevNum].stRunningParam.ulOffCountThreshold = ulBlinkPeriod - astLedDeviceParam[emDevNum].stRunningParam.ulOnCountThreshold;
+	
+		s_ulBreathCount++;
+		
+		//清零
+		if(s_ulBreathCount >= ulBreathCountMax)
+		{
+			s_ulBreathCount = 0;
+		}
+	}
+}
+
 ///	@brief				LED闪烁执行
 ///
 ///	@param			emDevNum		:	设备编号
@@ -44,6 +80,11 @@ void vLedDevicePeriodExecute(emLedDevNumTdf	emDevNum)
 		case emLedMode_Blink:
 		{
 			vLedDeviceBlinkExecute(emDevNum);
+			break;
+		}
+		case emLedMode_Breath:
+		{
+			vLedDeviceBreathExecute(emDevNum);
 			break;
 		}
 		default:

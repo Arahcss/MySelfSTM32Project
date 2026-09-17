@@ -1,5 +1,5 @@
 freertoslearn12_leddeviceextensiontest\test.o: ..\User\App\Test.c
-freertoslearn12_leddeviceextensiontest\test.o: ..\User\Device\LedDevice.h
+freertoslearn12_leddeviceextensiontest\test.o: ../User/Device/LedDevice.h
 freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 freertoslearn12_leddeviceextensiontest\test.o: ../Core/Inc/stm32f1xx_hal_conf.h
 freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -25,5 +25,8 @@ freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/I
 freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+freertoslearn12_leddeviceextensiontest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+freertoslearn12_leddeviceextensiontest\test.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
 freertoslearn12_leddeviceextensiontest\test.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
 freertoslearn12_leddeviceextensiontest\test.o: ..\User\App\Test.h

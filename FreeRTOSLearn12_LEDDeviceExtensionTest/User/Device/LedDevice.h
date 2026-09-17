@@ -2,6 +2,9 @@
 #define _LED_DEVICE_H_
 
 #include "stm32f1xx_hal.h"
+#include "math.h"
+
+#define	PI	3.141592653
 
 ///	@brief					LED模式枚举
 ///
@@ -10,6 +13,7 @@ typedef enum
 {
 	emLedMode_Static			=	0,
 	emLedMode_Blink,
+	emLedMode_Breath,
 }
 emLedModeTdf;
 
@@ -83,6 +87,8 @@ typedef struct
 	uint32_t								ulCurrentCount;				//当前计数
 	uint32_t								ulOnCountThreshold;		//ON	计数阈值
 	uint32_t								ulOffCountThreshold;		//OFF	计数阈值
+
+	uint32_t								ulBreathPeriod;				//呼吸周期
 }
 stLedRunningParamTdf;
 
@@ -99,5 +105,7 @@ const stLedDeviceParamTdf	*c_pstGetLedDeviceParam(emLedDevNumTdf emDevNum);
 void vLedToggle(emLedDevNumTdf emDevNum);
 void vLedDeviceRunningParamInit(stLedRunningParamTdf *pstInit,emLedDevNumTdf emDevNum);
 void vLedDevicePeriodExecute(emLedDevNumTdf	emDevNum);
+void	vLedDeviceBlinkExecute(emLedDevNumTdf	emDevNum);
+
 
 #endif

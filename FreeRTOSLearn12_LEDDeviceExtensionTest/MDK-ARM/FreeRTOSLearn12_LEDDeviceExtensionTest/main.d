@@ -25,6 +25,8 @@ freertoslearn12_leddeviceextensiontest\main.o: ../Drivers/STM32F1xx_HAL_Driver/I
 freertoslearn12_leddeviceextensiontest\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn12_leddeviceextensiontest\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn12_leddeviceextensiontest\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+freertoslearn12_leddeviceextensiontest\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+freertoslearn12_leddeviceextensiontest\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 freertoslearn12_leddeviceextensiontest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 freertoslearn12_leddeviceextensiontest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 freertoslearn12_leddeviceextensiontest\main.o: ../Core/Inc/FreeRTOSConfig.h
@@ -36,4 +38,5 @@ freertoslearn12_leddeviceextensiontest\main.o: ../Middlewares/Third_Party/FreeRT
 freertoslearn12_leddeviceextensiontest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 freertoslearn12_leddeviceextensiontest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertoslearn12_leddeviceextensiontest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-freertoslearn12_leddeviceextensiontest\main.o: ..\User\Device\LedDevice.h
+freertoslearn12_leddeviceextensiontest\main.o: ../User/Device/LedDevice.h
+freertoslearn12_leddeviceextensiontest\main.o: D:\32\ARM\ARMCC\Bin\..\include\math.h

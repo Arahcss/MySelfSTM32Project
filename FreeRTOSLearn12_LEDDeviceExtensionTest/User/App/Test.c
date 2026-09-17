@@ -7,10 +7,11 @@ void vLedInit(void)
 	stLedStaticParamTdf 		stStaticInit;
 	stLedRunningParamTdf	stRunningInit;
 	
-	stRunningInit.emMode						= emLedMode_Blink;
+	stRunningInit.emMode						= emLedMode_Breath;
 	stRunningInit.ulCurrentCount			= 0;
-	stRunningInit.ulOnCountThreshold	= 1000;
-	stRunningInit.ulOffCountThreshold	=	500;
+	stRunningInit.ulOnCountThreshold	= 100;
+	stRunningInit.ulOffCountThreshold	=	100;
+	stRunningInit.ulBreathPeriod				= 10000;
 	vLedDeviceRunningParamInit(&stRunningInit,LED_BOARD);
 	
 	stStaticInit.pstGpioBase	= GPIOC;
@@ -66,7 +67,7 @@ void vLedInit(void)
 void vTaskExecute(void)
 {
 //	vLedOFF(0);//板载LED好闪眼睛。。。
-	uint8_t i;
+//	uint8_t i;
 //	for(i=1;i<9;i++)
 //	{
 //		vLedOn(i);
@@ -81,7 +82,8 @@ void vTaskExecute(void)
 //		vLedToggle((emLedDevNumTdf)i);
 //		HAL_Delay(100);
 //	}
-	vLedDevicePeriodExecute(LED_BOARD);
-	HAL_Delay(0);
+	
+//	vLedDevicePeriodExecute(LED_BOARD);
+//	HAL_Delay(0);
 }
 

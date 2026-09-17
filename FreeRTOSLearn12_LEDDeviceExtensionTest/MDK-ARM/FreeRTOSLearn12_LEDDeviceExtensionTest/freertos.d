@@ -34,3 +34,5 @@ freertoslearn12_leddeviceextensiontest\freertos.o: ../Drivers/STM32F1xx_HAL_Driv
 freertoslearn12_leddeviceextensiontest\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn12_leddeviceextensiontest\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn12_leddeviceextensiontest\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+freertoslearn12_leddeviceextensiontest\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+freertoslearn12_leddeviceextensiontest\freertos.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
