@@ -10,7 +10,7 @@
 
 void vTaskExecute(void);
 void vLedInit(void);
-
+void vDht11Init(void);
 
 
 #endif

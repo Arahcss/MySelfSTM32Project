@@ -25,8 +25,6 @@ freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
-freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Core/Inc/stm32f1xx_it.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Core/Inc/FreeRTOSConfig.h
@@ -41,6 +39,6 @@ freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeR
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
-freertoslearn13_dht11devicetest\stm32f1xx_it.o: ..\User\App\Test.h
-freertoslearn13_dht11devicetest\stm32f1xx_it.o: ..\User\Device\LedDevice.h
+freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../User/App/Test.h
+freertoslearn13_dht11devicetest\stm32f1xx_it.o: ../User/Device/LedDevice.h
 freertoslearn13_dht11devicetest\stm32f1xx_it.o: D:\32\ARM\ARMCC\Bin\..\include\math.h

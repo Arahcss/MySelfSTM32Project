@@ -1,6 +1,7 @@
 #include "LedDevice.h"
 #include "string.h"
 #include "Test.h"
+#include "DHT11Device.h"
 
 void vLedInit(void)
 {
@@ -61,12 +62,21 @@ void vLedInit(void)
 	
 }
 
+void vDht11Init(void)
+{
+	stDht11StaticParamTdf stInit;
+	
+	stInit.pstGpioBase		=	GPIOB;
+	stInit.usGpioPin			=	GPIO_PIN_12;
+	vDht11DeviceInit(&stInit,DHT11);
+}
+
 ///	@brief				测试执行
 ///
 ///	@note				实现测试功能
 void vTaskExecute(void)
 {
-//	vLedOFF(0);//板载LED好闪眼睛。。。
+	vLedOFF(0);//板载LED好闪眼睛。。。
 //	uint8_t i;
 //	for(i=1;i<9;i++)
 //	{
@@ -85,5 +95,8 @@ void vTaskExecute(void)
 	
 //	vLedDevicePeriodExecute(LED_BOARD);
 //	HAL_Delay(0);
+	
+	ucDht11ReadData(DHT11);
+	HAL_Delay(2000);
 }
 

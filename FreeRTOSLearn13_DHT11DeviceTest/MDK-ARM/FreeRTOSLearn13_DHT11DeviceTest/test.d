@@ -1,5 +1,5 @@
 freertoslearn13_dht11devicetest\test.o: ..\User\App\Test.c
-freertoslearn13_dht11devicetest\test.o: ..\User\Device\LedDevice.h
+freertoslearn13_dht11devicetest\test.o: ../User/Device/LedDevice.h
 freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 freertoslearn13_dht11devicetest\test.o: ../Core/Inc/stm32f1xx_hal_conf.h
 freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -25,8 +25,7 @@ freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm3
 freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
-freertoslearn13_dht11devicetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 freertoslearn13_dht11devicetest\test.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
 freertoslearn13_dht11devicetest\test.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
 freertoslearn13_dht11devicetest\test.o: ..\User\App\Test.h
+freertoslearn13_dht11devicetest\test.o: ../User/Device/DHT11Device.h

@@ -9,15 +9,7 @@
 ///	@note
 typedef enum
 {
-	emDht11DevNum0				=	0,
-	emDht11DevNum1,
-	emDht11DevNum2,
-	emDht11DevNum3,
-	emDht11DevNum4,
-	emDht11DevNum5,
-	emDht11DevNum6,
-	emDht11DevNum7,
-	emDht11DevNum8,
+	emDht11DevNum0				=	12,
 }emDht11DevNumTdf;
 
 #define DHT11_DEV_NUM		1
@@ -49,6 +41,8 @@ typedef struct
 	stDht11StaticParamTdf stStaticParam;					//动态参数
 }stDht11DeviceParamTdf;
 
+void vDht11DeviceInit(stDht11StaticParamTdf *pstInit,emDht11DevNumTdf emDevNum);
+uint8_t ucDht11ReadData(emDht11DevNumTdf emDevNum);
 
 
 #endif
