@@ -1,0 +1,81 @@
+<html>
+<body>
+<pre>
+<h1>�Vision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ��Vision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: jk admin, yg, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.24.1
+Toolchain Path:  D:\32\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
+Dialog DLL:      TCM.DLL V1.32.0.0
+ 
+<h2>Project:</h2>
+D:\zhuomian\32project\CubeMXTest\FreeRTOSLearn14_DHT11DeviceUpGradeTest\MDK-ARM\FreeRTOSLearn14_DHT11DeviceUpGradeTest.uvprojx
+Project File Date:  09/21/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\32\ARM\ARMCC\Bin'
+Build target 'FreeRTOSLearn14_DHT11DeviceUpGradeTest'
+compiling Test.c...
+..\User\Device\DHT11Device.h(50): error:  #77-D: this declaration has no storage class or type specifier
+  	stDht11FsmParamTdf;			//状态机参数
+..\User\App\Test.c(79): warning:  #188-D: enumerated type mixed with another type
+  	vLedOFF(0);//板载LED好闪眼睛。。�?
+..\User\App\Test.c: 1 warning, 1 error
+compiling DHT11Device.c...
+..\User\Device\Dht11Device.h(50): error:  #77-D: this declaration has no storage class or type specifier
+  	stDht11FsmParamTdf;			//状态机参数
+..\User\Device\DHT11Device.c(280): warning:  #177-D: variable "c_ulCountThreshold"  was declared but never referenced
+  	const uint32_t c_ulCountThreshold = 2 * 1000 * 1000 / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
+..\User\Device\DHT11Device.c(290): error:  #136: struct "<unnamed>"  has no field "stFsmParam"
+  	stDht11FsmParamTdf *pstFsmParam = &astDht11DeviceParam[emDevNum].stRunningParam.stFsmParam;
+..\User\Device\DHT11Device.c: 1 warning, 2 errors
+compiling main.c...
+..\User\Device\DHT11Device.h(50): error:  #77-D: this declaration has no storage class or type specifier
+  	stDht11FsmParamTdf;			//状态机参数
+../Core/Src/main.c(103): warning:  #223-D: function "vLedInit" declared implicitly
+  	vLedInit();
+../Core/Src/main.c(104): warning:  #223-D: function "vDht11Init" declared implicitly
+  	vDht11Init();
+../Core/Src/main.c(303): warning:  #223-D: function "vTaskExecute" declared implicitly
+  		vTaskExecute();
+../Core/Src/main.c: 3 warnings, 1 error
+"FreeRTOSLearn14_DHT11DeviceUpGradeTest\FreeRTOSLearn14_DHT11DeviceUpGradeTest.axf" - 4 Error(s), 5 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
+                ARM.CMSIS.5.0.1
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.1
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
+                Keil.STM32F1xx_DFP.2.2.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_FreeRTOSLearn14_DHT11DeviceUpGradeTest
+  D:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  D:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.1
+Target not created.
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

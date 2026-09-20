@@ -1,0 +1,1 @@
+freertoslearn14_dht11deviceupgradetest\startup_stm32f103xb.o: startup_stm32f103xb.s
