@@ -36,6 +36,6 @@ freertoslearn14_dht11deviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRT
 freertoslearn14_dht11deviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 freertoslearn14_dht11deviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertoslearn14_dht11deviceupgradetest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-freertoslearn14_dht11deviceupgradetest\main.o: ..\User\Device\LedDevice.h
+freertoslearn14_dht11deviceupgradetest\main.o: ../User/Device/LedDevice.h
 freertoslearn14_dht11deviceupgradetest\main.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
-freertoslearn14_dht11deviceupgradetest\main.o: ..\User\Device\DHT11Device.h
+freertoslearn14_dht11deviceupgradetest\main.o: ../User/Device/DHT11Device.h

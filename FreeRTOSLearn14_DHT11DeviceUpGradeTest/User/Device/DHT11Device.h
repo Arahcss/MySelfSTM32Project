@@ -36,9 +36,19 @@ typedef struct
 {
 	GPIO_TypeDef								*pstGpioBase;		//	使用的GPIOx
 	uint16_t										usGpioPin;			//	使用的GPIO_PIN_x
-	uint32_t								ulTimerPeriorUs;		//定时器周期
+	uint32_t										ulTimerPeriorUs;		//定时器周期
 }
 stDht11StaticParamTdf;
+
+typedef struct
+{
+	emDht11FsmStateTdf			emState;					//状态机当前状态
+	uint32_t								ulTimerCount;			//定时器计数
+	uint32_t								ulLowLevelCount;	//低电平时间计数
+	uint32_t								ulHighLevelCount;	//高电平时间计数
+	uint8_t								ucBitCount;				//接收bits计数
+}stDht11FsmParamTdf;
+
 
 ///	@brief			运行参数定义
 ///	
@@ -47,7 +57,7 @@ typedef struct
 {
 	int8_t acHumidity[2];			//湿度原始数据
 	int8_t acTemperature[2];	//温度原始数据
-	stDht11FsmParamTdf;			//状态机参数
+	stDht11FsmParamTdf stFsmParam;			//状态机参数
 }
 stDht11RunningParamTdf;
 
@@ -57,11 +67,6 @@ typedef struct
 	stDht11StaticParamTdf stStaticParam;					//动态参数
 }stDht11DeviceParamTdf;
 
-typedef struct
-{
-	emDht11FsmStateTdf			emState;					//状态机当前状态
-	uint32_t								ulTimerCount;			//定时器计数
-}stDht11FsmParamTdf;
 
 void vDht11DeviceInit(stDht11StaticParamTdf *pstInit,emDht11DevNumTdf emDevNum);
 uint8_t ucDht11ReadData(emDht11DevNumTdf emDevNum);

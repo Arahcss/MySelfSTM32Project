@@ -274,7 +274,7 @@ uint8_t ucDht11ReadData(emDht11DevNumTdf emDevNum)
 ///
 ///	@param			emDevNum		:	设备编号
 ///
-///	@note	
+///	@note				执行完后转到 开始低状态
 void vDht11StatusExecute_Idle(emDht11DevNumTdf emDevNum)
 {
 	const uint32_t c_ulCountThreshold = 2 * 1000 * 1000 / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
@@ -295,6 +295,174 @@ void vDht11StatusExecute_Idle(emDht11DevNumTdf emDevNum)
 	}
 }
 
+///	@brief				执行 开始低状态
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				执行完后转到 开始高状态
+void vDht11StatusExecute_StartLow(emDht11DevNumTdf emDevNum)
+{
+	const uint32_t c_ulCountThreshold = 20 * 1000  / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
+	stDht11FsmParamTdf *pstFsmParam = &astDht11DeviceParam[emDevNum].stRunningParam.stFsmParam;
+	
+	pstFsmParam -> ulTimerCount++;
+	
+	if(pstFsmParam -> ulTimerCount >= c_ulCountThreshold)
+	{
+		//计数器清零
+		pstFsmParam->ulTimerCount = 0;
+		
+		//状态转换
+		pstFsmParam->emState = emDht11FsmState_StartHigh;
+		
+		vDht11SetPinDirOutput(emDevNum);
+		vDht11SetPinHigh(emDevNum);
+	}
+}
+
+///	@brief				执行 开始高状态
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				执行完后转到 等待应答高状态
+void vDht11StatusExecute_StartHigh(emDht11DevNumTdf emDevNum)
+{
+	const uint32_t c_ulCountThreshold = 15  / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
+	stDht11FsmParamTdf *pstFsmParam = &astDht11DeviceParam[emDevNum].stRunningParam.stFsmParam;
+	
+	pstFsmParam -> ulTimerCount++;
+	
+	if(pstFsmParam -> ulTimerCount >= c_ulCountThreshold)
+	{
+		//计数器清零
+		pstFsmParam->ulTimerCount = 0;
+		
+		//状态转换
+		pstFsmParam->emState = emDht11FsmState_WaitAckLow;
+		
+		vDht11SetPinDirInput(emDevNum);
+	}
+}
+
+///	@brief				执行 应答低状态
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				执行完后转到 等待 应答高状态
+void vDht11StatusExecute_WaitAckLow(emDht11DevNumTdf emDevNum)
+{
+	const uint32_t c_ulCountThreshold = 100  / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
+	stDht11FsmParamTdf *pstFsmParam = &astDht11DeviceParam[emDevNum].stRunningParam.stFsmParam;
+	
+	pstFsmParam -> ulTimerCount++;
+	
+	//如果通信时间超过阈值则出错，清零进入空闲状态
+	if(pstFsmParam -> ulTimerCount >= c_ulCountThreshold)
+	{
+		//计数器清零
+		pstFsmParam->ulTimerCount = 0;
+		
+		//状态转换
+		pstFsmParam->emState = emDht11FsmState_Idle;
+		
+		vDht11SetPinDirOutput(emDevNum);
+		vDht11SetPinHigh(emDevNum);
+	}
+	
+	if(GPIO_PIN_RESET == HAL_GPIO_ReadPin(astDht11DeviceParam[emDevNum].stStaticParam.pstGpioBase,
+																			astDht11DeviceParam[emDevNum].stStaticParam.usGpioPin))
+	{
+		pstFsmParam -> ulTimerCount = 0;
+		
+		pstFsmParam -> emState =  emDht11FsmState_WaitAckHigh;
+	}
+}
+
+///	@brief				执行 应答高状态
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				执行完后转到 等待可以读取
+void vDht11StatusExecute_WaitAckHigh(emDht11DevNumTdf emDevNum)
+{
+	const uint32_t c_ulCountThreshold = 100  / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
+	stDht11FsmParamTdf *pstFsmParam = &astDht11DeviceParam[emDevNum].stRunningParam.stFsmParam;
+	
+	pstFsmParam -> ulTimerCount++;
+	
+	//如果通信时间超过阈值则出错，清零进入空闲状态
+	if(pstFsmParam -> ulTimerCount >= c_ulCountThreshold)
+	{
+		//计数器清零
+		pstFsmParam->ulTimerCount = 0;
+		
+		//状态转换
+		pstFsmParam->emState = emDht11FsmState_Idle;
+		
+		vDht11SetPinDirOutput(emDevNum);
+		vDht11SetPinHigh(emDevNum);
+	}
+	
+	if(GPIO_PIN_SET == HAL_GPIO_ReadPin(astDht11DeviceParam[emDevNum].stStaticParam.pstGpioBase,
+																			astDht11DeviceParam[emDevNum].stStaticParam.usGpioPin))
+	{
+		pstFsmParam -> ulTimerCount = 0;
+		
+		pstFsmParam -> emState =  emDht11FsmState_WaitReadStart;
+	}
+}
+
+///	@brief				执行 等待可以读取
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				执行完后转到 读取
+void vDht11StatusExecute_WaitReadStart(emDht11DevNumTdf emDevNum)
+{
+	const uint32_t c_ulCountThreshold = 100  / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
+	stDht11FsmParamTdf *pstFsmParam = &astDht11DeviceParam[emDevNum].stRunningParam.stFsmParam;
+	
+	pstFsmParam -> ulTimerCount++;
+	
+	//如果通信时间超过阈值则出错，清零进入空闲状态
+	if(pstFsmParam -> ulTimerCount >= c_ulCountThreshold)
+	{
+		//计数器清零
+		pstFsmParam->ulTimerCount = 0;
+		
+		//状态转换
+		pstFsmParam->emState = emDht11FsmState_Idle;
+		
+		vDht11SetPinDirOutput(emDevNum);
+		vDht11SetPinHigh(emDevNum);
+	}
+	
+	if(GPIO_PIN_RESET == HAL_GPIO_ReadPin(astDht11DeviceParam[emDevNum].stStaticParam.pstGpioBase,
+																			astDht11DeviceParam[emDevNum].stStaticParam.usGpioPin))
+	{
+		pstFsmParam -> ulTimerCount = 0;
+		
+		pstFsmParam -> emState =  emDht11FsmState_WaitReadStart;
+	}
+}
+
+///	@brief				执行 读取状态
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				执行完后转到 空闲状态
+void vDht11StatusExecute_Reading(emDht11DevNumTdf emDevNum)
+{
+	const uint32_t c_ulCountThreshold = 100  / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
+	stDht11FsmParamTdf *pstFsmParam = &astDht11DeviceParam[emDevNum].stRunningParam.stFsmParam;
+	
+	
+	pstFsmParam -> ulTimerCount++;
+	
+	//记录低电平持续时间
+	
+}
+
 ///	@brief				状态机回调参数
 ///
 ///	@param			emDevNum		:	设备编号
@@ -308,8 +476,42 @@ void vDht11FsmCallback(emDht11DevNumTdf emDevNum)
 	{
 		case emDht11FsmState_Idle:
 		{
-			vDht11StatusExecute_Idle();
+			vDht11StatusExecute_Idle(emDevNum);
 			break;
+		}
+		case emDht11FsmState_StartLow:
+		{
+			vDht11StatusExecute_StartLow(emDevNum);
+			break;
+		}
+		case emDht11FsmState_StartHigh:
+		{
+			vDht11StatusExecute_StartHigh(emDevNum);
+			break;
+		}
+		case emDht11FsmState_WaitAckLow:
+		{
+			vDht11StatusExecute_WaitAckLow(emDevNum);
+			break;
+		}
+		case emDht11FsmState_WaitAckHigh:
+		{
+			vDht11StatusExecute_WaitAckHigh(emDevNum);
+			break;
+		}
+		case emDht11FsmState_WaitReadStart:
+		{
+			vDht11StatusExecute_WaitReadStart(emDevNum);
+			break;
+		}
+		case emDht11FsmState_Reading:
+		{
+			vDht11StatusExecute_Reading(emDevNum);
+			break;
+		}
+		default:
+		{
+			break ;
 		}
 	}
 }

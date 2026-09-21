@@ -1,5 +1,5 @@
 freertoslearn14_dht11deviceupgradetest\test.o: ..\User\App\Test.c
-freertoslearn14_dht11deviceupgradetest\test.o: ..\User\Device\LedDevice.h
+freertoslearn14_dht11deviceupgradetest\test.o: ../User/Device/LedDevice.h
 freertoslearn14_dht11deviceupgradetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 freertoslearn14_dht11deviceupgradetest\test.o: ../Core/Inc/stm32f1xx_hal_conf.h
 freertoslearn14_dht11deviceupgradetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -28,4 +28,4 @@ freertoslearn14_dht11deviceupgradetest\test.o: ../Drivers/STM32F1xx_HAL_Driver/I
 freertoslearn14_dht11deviceupgradetest\test.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
 freertoslearn14_dht11deviceupgradetest\test.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
 freertoslearn14_dht11deviceupgradetest\test.o: ..\User\App\Test.h
-freertoslearn14_dht11deviceupgradetest\test.o: ..\User\Device\DHT11Device.h
+freertoslearn14_dht11deviceupgradetest\test.o: ../User/Device/DHT11Device.h
