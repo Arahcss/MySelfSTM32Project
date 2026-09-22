@@ -47,6 +47,7 @@ typedef struct
 	uint32_t								ulLowLevelCount;	//低电平时间计数
 	uint32_t								ulHighLevelCount;	//高电平时间计数
 	uint8_t								ucBitCount;				//接收bits计数
+	uint8_t								aucDataTemp[5];			//临时数据
 }stDht11FsmParamTdf;
 
 
@@ -70,6 +71,6 @@ typedef struct
 
 void vDht11DeviceInit(stDht11StaticParamTdf *pstInit,emDht11DevNumTdf emDevNum);
 uint8_t ucDht11ReadData(emDht11DevNumTdf emDevNum);
-
+void vDht11FsmCallback(emDht11DevNumTdf emDevNum);
 
 #endif

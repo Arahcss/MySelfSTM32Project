@@ -442,7 +442,7 @@ void vDht11StatusExecute_WaitReadStart(emDht11DevNumTdf emDevNum)
 	{
 		pstFsmParam -> ulTimerCount = 0;
 		
-		pstFsmParam -> emState =  emDht11FsmState_WaitReadStart;
+		pstFsmParam -> emState =  emDht11FsmState_Reading;
 	}
 }
 
@@ -460,6 +460,93 @@ void vDht11StatusExecute_Reading(emDht11DevNumTdf emDevNum)
 	pstFsmParam -> ulTimerCount++;
 	
 	//记录低电平持续时间
+	if(pstFsmParam->ulLowLevelCount == 0)
+	{
+		if(GPIO_PIN_SET == HAL_GPIO_ReadPin(	astDht11DeviceParam[emDevNum].stStaticParam.pstGpioBase,
+																			astDht11DeviceParam[emDevNum].stStaticParam.usGpioPin))
+		{
+			pstFsmParam->ulLowLevelCount = pstFsmParam->ulTimerCount;
+			pstFsmParam->ulTimerCount = 0;
+		}
+		
+		//如果通信时间超过阈值则出错，清零进入空闲状态
+		if(pstFsmParam -> ulTimerCount >= c_ulCountThreshold)
+		{
+			//状态机参数清零
+			pstFsmParam->ulTimerCount = 0;
+			pstFsmParam->ulLowLevelCount = 0;
+			pstFsmParam->ulHighLevelCount = 0;
+			pstFsmParam->ucBitCount = 0;
+			
+			//状态转换
+			pstFsmParam->emState = emDht11FsmState_Idle;
+			
+			vDht11SetPinDirOutput(emDevNum);
+			vDht11SetPinHigh(emDevNum);
+		}
+	}
+	//高电平持续时间
+	else
+	{
+		if(GPIO_PIN_RESET == HAL_GPIO_ReadPin(	astDht11DeviceParam[emDevNum].stStaticParam.pstGpioBase,
+																			astDht11DeviceParam[emDevNum].stStaticParam.usGpioPin))
+		{
+			pstFsmParam->ulHighLevelCount = pstFsmParam->ulTimerCount;
+			
+			//将高电平和低电平时间比较存在临时变量数组
+			if(pstFsmParam->ulHighLevelCount > pstFsmParam->ulLowLevelCount )
+			{
+				pstFsmParam->aucDataTemp[pstFsmParam->ucBitCount / 8] |= 0x01 << (7 - (pstFsmParam->ucBitCount % 8));
+			}
+			else
+			{
+				pstFsmParam->aucDataTemp[pstFsmParam->ucBitCount / 8] &= ~(0x01 << (7 - (pstFsmParam->ucBitCount % 8)));
+			}
+			
+			pstFsmParam->ulTimerCount = 0;
+			pstFsmParam->ulLowLevelCount = 0;
+			pstFsmParam->ulHighLevelCount = 0;
+			
+			//接收位计数更新
+			pstFsmParam->ucBitCount++;
+		}
+		
+		//如果通信时间超过阈值则出错，清零进入空闲状态
+		if(pstFsmParam -> ulTimerCount >= c_ulCountThreshold)
+		{
+			//状态机参数清零
+			pstFsmParam->ulTimerCount = 0;
+			pstFsmParam->ulLowLevelCount = 0;
+			pstFsmParam->ulHighLevelCount = 0;
+			pstFsmParam->ucBitCount = 0;
+			
+			//状态转换
+			pstFsmParam->emState = emDht11FsmState_Idle;
+			
+			vDht11SetPinDirOutput(emDevNum);
+			vDht11SetPinHigh(emDevNum);
+		}
+	}
+	
+	//校验累加和
+	if(pstFsmParam ->ucBitCount >= 40)
+	{
+		pstFsmParam->ucBitCount = 0;
+		
+		if(pstFsmParam->aucDataTemp[4] == (pstFsmParam->aucDataTemp[0] + pstFsmParam->aucDataTemp[1] + 
+																		pstFsmParam->aucDataTemp[2] + pstFsmParam->aucDataTemp[3]))
+		{
+			astDht11DeviceParam[emDevNum].stRunningParam.acHumidity[0]				=	pstFsmParam->aucDataTemp[0];
+			astDht11DeviceParam[emDevNum].stRunningParam.acHumidity[1]				=	pstFsmParam->aucDataTemp[1];
+			astDht11DeviceParam[emDevNum].stRunningParam.acTemperature[0]		=	pstFsmParam->aucDataTemp[2];
+			astDht11DeviceParam[emDevNum].stRunningParam.acTemperature[1]		=	pstFsmParam->aucDataTemp[3];
+		}
+		//循环结束状态重置
+		pstFsmParam->emState = emDht11FsmState_Idle;
+		
+		vDht11SetPinDirOutput(emDevNum);
+		vDht11SetPinHigh(emDevNum);
+	}
 	
 }
 

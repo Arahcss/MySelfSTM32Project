@@ -25,6 +25,8 @@ freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Core/Inc/stm32f1xx_it.h
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Core/Inc/FreeRTOSConfig.h
@@ -42,3 +44,4 @@ freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../Middlewares/Third_Part
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../User/App/Test.h
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../User/Device/LedDevice.h
 freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
+freertoslearn14_dht11deviceupgradetest\stm32f1xx_it.o: ../User/Device/DHT11Device.h

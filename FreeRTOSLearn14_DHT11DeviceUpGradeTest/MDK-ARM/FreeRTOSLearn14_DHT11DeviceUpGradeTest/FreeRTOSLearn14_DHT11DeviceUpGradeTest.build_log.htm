@@ -22,31 +22,24 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 D:\zhuomian\32project\CubeMXTest\FreeRTOSLearn14_DHT11DeviceUpGradeTest\MDK-ARM\FreeRTOSLearn14_DHT11DeviceUpGradeTest.uvprojx
-Project File Date:  09/21/2026
+Project File Date:  09/23/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\32\ARM\ARMCC\Bin'
 Build target 'FreeRTOSLearn14_DHT11DeviceUpGradeTest'
-compiling Test.c...
-..\User\App\Test.c(79): warning:  #188-D: enumerated type mixed with another type
-  	vLedOFF(0);//板载LED好闪眼睛。。�?
-..\User\App\Test.c: 1 warning, 0 errors
-compiling DHT11Device.c...
-..\User\Device\DHT11Device.c(456): warning:  #177-D: variable "c_ulCountThreshold"  was declared but never referenced
-  	const uint32_t c_ulCountThreshold = 100  / astDht11DeviceParam[emDevNum].stStaticParam.ulTimerPeriorUs;
-..\User\Device\DHT11Device.c: 1 warning, 0 errors
+assembling startup_stm32f103xb.s...
 compiling main.c...
-../Core/Src/main.c(103): warning:  #223-D: function "vLedInit" declared implicitly
+../Core/Src/main.c(106): warning:  #223-D: function "vLedInit" declared implicitly
   	vLedInit();
-../Core/Src/main.c(104): warning:  #223-D: function "vDht11Init" declared implicitly
+../Core/Src/main.c(107): warning:  #223-D: function "vDht11Init" declared implicitly
   	vDht11Init();
-../Core/Src/main.c(303): warning:  #223-D: function "vTaskExecute" declared implicitly
+../Core/Src/main.c(353): warning:  #223-D: function "vTaskExecute" declared implicitly
   		vTaskExecute();
 ../Core/Src/main.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=14096 RO-data=452 RW-data=160 ZI-data=8696  
+Program Size: Code=15976 RO-data=452 RW-data=160 ZI-data=8768  
 FromELF: creating hex file...
-"FreeRTOSLearn14_DHT11DeviceUpGradeTest\FreeRTOSLearn14_DHT11DeviceUpGradeTest.axf" - 0 Error(s), 5 Warning(s).
+"FreeRTOSLearn14_DHT11DeviceUpGradeTest\FreeRTOSLearn14_DHT11DeviceUpGradeTest.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

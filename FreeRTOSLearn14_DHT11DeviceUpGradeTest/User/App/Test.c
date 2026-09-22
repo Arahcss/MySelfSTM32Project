@@ -68,6 +68,7 @@ void vDht11Init(void)
 	
 	stInit.pstGpioBase		=	GPIOB;
 	stInit.usGpioPin			=	GPIO_PIN_12;
+	stInit.ulTimerPeriorUs = 5;
 	vDht11DeviceInit(&stInit,DHT11);
 }
 
@@ -96,7 +97,7 @@ void vTaskExecute(void)
 //	vLedDevicePeriodExecute(LED_BOARD);
 //	HAL_Delay(0);
 	
-	ucDht11ReadData(DHT11);
-	HAL_Delay(2000);
+//	ucDht11ReadData(DHT11);
+//	HAL_Delay(2000);
 }
 
