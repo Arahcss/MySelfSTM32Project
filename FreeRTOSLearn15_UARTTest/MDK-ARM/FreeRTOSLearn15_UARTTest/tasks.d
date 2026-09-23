@@ -1,0 +1,16 @@
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+freertoslearn15_uarttest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn15_uarttest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn15_uarttest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn15_uarttest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn15_uarttest\tasks.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+freertoslearn15_uarttest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h

@@ -1,0 +1,13 @@
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
+freertoslearn15_uarttest\heap_4.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn15_uarttest\heap_4.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn15_uarttest\heap_4.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn15_uarttest\heap_4.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn15_uarttest\heap_4.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
