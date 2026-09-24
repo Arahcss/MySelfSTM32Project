@@ -122,8 +122,8 @@ int main(void)
   MX_TIM2_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-//	__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_UPDATE);	//开启UPDATE中断
-//	HAL_TIM_Base_Start(&htim2);
+	__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_UPDATE);	//开启UPDATE中断
+	HAL_TIM_Base_Start(&htim2);
   /* USER CODE END 2 */
 
   /* Init scheduler */

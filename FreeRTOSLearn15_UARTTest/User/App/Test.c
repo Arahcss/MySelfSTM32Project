@@ -71,6 +71,7 @@ void vLedInit(void)
 	stStaticInit.usGpioPin 		= GPIO_PIN_7;
 	vLedDeviceInit(&stStaticInit,LED8);
 	
+		vLedOFF(0);//板载LED好闪眼睛。。。
 }
 
 void vDht11Init(void)
@@ -88,7 +89,7 @@ void vDht11Init(void)
 ///	@note				实现测试功能
 void vTaskExecute(void)
 {
-	vLedOFF(0);//板载LED好闪眼睛。。。
+
 //	uint8_t i;
 //	for(i=1;i<9;i++)
 //	{
@@ -115,11 +116,29 @@ void vTaskExecute(void)
 	{
 		ucUartRxComplete = FALSE;
 		
-		//当两个是相等的时候
+		//DHT11控制
 		if(memcmp(c_aucCmdDht11Read,aucUartRxBuffer,sizeof(c_aucCmdDht11Read) / sizeof(uint8_t) ) == 0)
 		{
 			//发送
+			aucAckDht11[14] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] / 10 + '0';
+			aucAckDht11[15] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] % 10 + '0';
+			aucAckDht11[17] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[1] % 10 + '0';
+			
+			aucAckDht11[31] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] / 10+ '0';
+			aucAckDht11[32] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] % 10+ '0';			
 			HAL_UART_Transmit(&huart1,aucAckDht11,sizeof(aucAckDht11) , 10);
+		}
+		if(memcmp(c_aucCmdLedOn0,aucUartRxBuffer,sizeof(c_aucCmdLedOn0) / sizeof(uint8_t) ) == 0)
+		{
+			vLedOn(LED_BOARD);
+			//发送
+			HAL_UART_Transmit(&huart1,c_aucCmdLedOn0,sizeof(c_aucCmdLedOn0) , 10);
+		}
+		if(memcmp(c_aucCmdLedOff0,aucUartRxBuffer,sizeof(c_aucCmdLedOff0) / sizeof(uint8_t) ) == 0)
+		{
+			vLedOFF(LED_BOARD);
+			//发送
+			HAL_UART_Transmit(&huart1,c_aucCmdLedOff0,sizeof(c_aucCmdLedOff0) , 10);
 		}
 	}
 }

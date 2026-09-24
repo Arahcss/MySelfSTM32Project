@@ -415,6 +415,16 @@
               <FileType>5</FileType>
               <FilePath>..\User\Device\LedDevice.h</FilePath>
             </File>
+            <File>
+              <FileName>RingBufferDevice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\RingBufferDevice.c</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferDevice.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Device\RingBufferDevice.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -2,6 +2,7 @@
 "freertoslearn15_uarttest\test.o"
 "freertoslearn15_uarttest\dht11device.o"
 "freertoslearn15_uarttest\leddevice.o"
+"freertoslearn15_uarttest\ringbufferdevice.o"
 "freertoslearn15_uarttest\startup_stm32f103xb.o"
 "freertoslearn15_uarttest\main.o"
 "freertoslearn15_uarttest\freertos.o"

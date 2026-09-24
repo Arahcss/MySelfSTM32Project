@@ -72,5 +72,6 @@ typedef struct
 void vDht11DeviceInit(stDht11StaticParamTdf *pstInit,emDht11DevNumTdf emDevNum);
 uint8_t ucDht11ReadData(emDht11DevNumTdf emDevNum);
 void vDht11FsmCallback(emDht11DevNumTdf emDevNum);
+const stDht11DeviceParamTdf	*c_pstGetDht11DeviceParam(emDht11DevNumTdf emDevNum);
 
 #endif
