@@ -22,6 +22,9 @@ typedef enum
 	emRingBufferDevNum8,
 }emRingBufferDevNumTdf;
 
+///	@brief			状态定义
+///	
+///	@note
 typedef enum
 {
 	emRingBufferStatus_Empty						=0,	//空
@@ -29,6 +32,16 @@ typedef enum
 	emRingBufferStatus_NotEmptyNotFull	=2,	//非空非满
 }emRingBufferStatusTdf;
 
+///	@brief			错误编码定义
+///	
+///	@note
+typedef enum
+{
+	emRingBufferError_None						=0,	//无错误
+	emRingBufferError_WriteFull					=1,	//已写入满
+	emRingBufferError_ReadEmpty				=2,	//读取空
+}
+emRingBufferErrorCodeTdf;
 
 ///	@brief			静态参数定义
 ///	
@@ -37,8 +50,9 @@ typedef struct
 {
 	void					*pvHead;				//缓冲区头部
 	void					*pvTail;				//缓冲区尾部
-	uint32_t			ulElenetLength;	//元素长度
-}stRingBufferStaticParamTdf;
+	uint32_t			ulElementLength;	//元素长度
+}
+stRingBufferStaticParamTdf;
 
 ///	@brief			运行参数定义
 ///	
