@@ -32,3 +32,4 @@ freertoslearn15_uarttest\test.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
 freertoslearn15_uarttest\test.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
 freertoslearn15_uarttest\test.o: ..\User\App\Test.h
 freertoslearn15_uarttest\test.o: ../User/Device/DHT11Device.h
+freertoslearn15_uarttest\test.o: ../User/Device/RingBufferDevice.h

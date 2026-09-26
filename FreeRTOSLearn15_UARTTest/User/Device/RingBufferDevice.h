@@ -71,5 +71,11 @@ typedef struct
 	stRingBufferStaticParamTdf stStaticParam;					//动态参数
 }stRingBufferDeviceParamTdf;
 
+const stRingBufferDeviceParamTdf	*c_pstGetRingBufferDeviceParam(emRingBufferDevNumTdf emDevNum);
+void *pvRingBufferFindElementFirstPosition(void *c_pvTargetElement,emRingBufferDevNumTdf emDevNum);
+emRingBufferErrorCodeTdf emRingBufferReadSingleElement(void *pvElement , emRingBufferDevNumTdf emDevNum);
+emRingBufferErrorCodeTdf emRingBufferWriteSingleElement(void *pvElement , emRingBufferDevNumTdf emDevNum);
+void vRingBufferDeviceInit(stRingBufferStaticParamTdf *pstInit,emRingBufferDevNumTdf emDevNum);
+
 
 #endif

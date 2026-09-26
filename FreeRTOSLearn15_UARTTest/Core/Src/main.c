@@ -108,6 +108,7 @@ int main(void)
   /* USER CODE BEGIN Init */
 	vLedInit();
 	vDht11Init();
+	vLedOFF(0);//板载LED好闪眼睛。。。
   /* USER CODE END Init */
 
   /* Configure the system clock */
