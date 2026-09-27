@@ -150,18 +150,34 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>237</LineNumber>
+          <LineNumber>33</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134222902</Address>
+          <Address>134223094</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>../Core/Src/stm32f1xx_it.c</Filename>
+          <Filename>..\User\Device\RingBufferDevice.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\FreeRTOSLearn15_UARTTest\../Core/Src/stm32f1xx_it.c\237</Expression>
+          <Expression>\\FreeRTOSLearn15_UARTTest\../User/Device/RingBufferDevice.c\33</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>103</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223062</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\User\Device\RingBufferDevice.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\FreeRTOSLearn15_UARTTest\../User/Device/RingBufferDevice.c\103</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -174,6 +190,16 @@
           <count>1</count>
           <WinNumber>1</WinNumber>
           <ItemText>ucUartRxComplete</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>astRingBufferDeviceParam,0x0A</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pvTemp,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

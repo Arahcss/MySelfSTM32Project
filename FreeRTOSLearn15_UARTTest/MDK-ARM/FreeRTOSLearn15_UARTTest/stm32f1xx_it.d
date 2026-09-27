@@ -46,3 +46,4 @@ freertoslearn15_uarttest\stm32f1xx_it.o: ../User/App/Test.h
 freertoslearn15_uarttest\stm32f1xx_it.o: ../User/Device/LedDevice.h
 freertoslearn15_uarttest\stm32f1xx_it.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
 freertoslearn15_uarttest\stm32f1xx_it.o: ../User/Device/DHT11Device.h
+freertoslearn15_uarttest\stm32f1xx_it.o: ../User/Device/RingBufferDevice.h

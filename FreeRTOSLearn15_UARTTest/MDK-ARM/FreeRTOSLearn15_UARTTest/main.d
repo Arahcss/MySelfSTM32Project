@@ -42,3 +42,4 @@ freertoslearn15_uarttest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSI
 freertoslearn15_uarttest\main.o: ../User/Device/LedDevice.h
 freertoslearn15_uarttest\main.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
 freertoslearn15_uarttest\main.o: ../User/Device/DHT11Device.h
+freertoslearn15_uarttest\main.o: ../User/Device/RingBufferDevice.h

@@ -10,8 +10,8 @@ uint8_t aucUartRxBuffer[20];					//UART接收缓存区
 uint8_t ucUartRxComplete = FALSE;			//UART接收完成标准
 
 const uint8_t c_aucCmdDht11Read[]	= "DHT11Read\r\n";
-const uint8_t c_aucCmdLedOn0[]			="LED_ON0\r\n";
-const uint8_t c_aucCmdLedOff0[]			="LED_OFF0\r\n";
+const uint8_t c_aucCmdLedOn0[]			="LED_ON_0\r\n";
+const uint8_t c_aucCmdLedOff0[]			="LED_OFF_0\r\n";
 
 uint8_t aucAckDht11[] = "Temperature : 00.0			Humidity: 00.0\r\n";
 
@@ -103,7 +103,7 @@ void vTaskExecute(void)
 {
 	void *pvTemp;
 	const uint8_t pucEndChar = '\n';
-	uint8_t aucCmdBuffer[15];
+	uint8_t aucCmdBuffer[30];
 	uint8_t i;
 	
 	//接收首位地址
@@ -118,10 +118,12 @@ void vTaskExecute(void)
 			emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
 			i++;
 		}
-	}
+		emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
+		i++;
+		aucCmdBuffer[i] = '\0';
 	
 		//DHT11控制
-		if(memcmp(c_aucCmdDht11Read,aucUartRxBuffer,sizeof(c_aucCmdDht11Read) / sizeof(uint8_t) ) == 0)
+		if(memcmp(c_aucCmdDht11Read,aucCmdBuffer,sizeof(c_aucCmdDht11Read) / sizeof(uint8_t) ) == 0)
 		{
 			//发送
 			aucAckDht11[14] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] / 10 + '0';
@@ -132,18 +134,22 @@ void vTaskExecute(void)
 			aucAckDht11[32] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] % 10+ '0';			
 			HAL_UART_Transmit(&huart1,aucAckDht11,sizeof(aucAckDht11) , 10);
 		}
-		if(memcmp(c_aucCmdLedOn0,aucUartRxBuffer,sizeof(c_aucCmdLedOn0) / sizeof(uint8_t) ) == 0)
+		
+		if(memcmp(c_aucCmdLedOn0,aucCmdBuffer,sizeof(c_aucCmdLedOn0) / sizeof(uint8_t) ) == 0)
 		{
 			vLedOn(LED_BOARD);
 			//发送
 			HAL_UART_Transmit(&huart1,c_aucCmdLedOn0,sizeof(c_aucCmdLedOn0) , 10);
 		}
-		if(memcmp(c_aucCmdLedOff0,aucUartRxBuffer,sizeof(c_aucCmdLedOff0) / sizeof(uint8_t) ) == 0)
+		
+		if(memcmp(c_aucCmdLedOff0,aucCmdBuffer,sizeof(c_aucCmdLedOff0) / sizeof(uint8_t) ) == 0)
 		{
 			vLedOFF(LED_BOARD);
 			//发送
 			HAL_UART_Transmit(&huart1,c_aucCmdLedOff0,sizeof(c_aucCmdLedOff0) , 10);
 		}
+	}
+	HAL_Delay(5);
 }
 
 

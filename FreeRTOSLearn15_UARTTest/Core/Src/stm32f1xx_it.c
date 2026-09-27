@@ -30,6 +30,7 @@
 #include "Test.h"
 #include "LedDevice.h"
 #include "DHT11Device.h"
+#include "RingBufferDevice.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -225,17 +226,19 @@ void USART1_IRQHandler(void)
 	ucRxData = USART1->DR;
 	USART1->SR &= ~UART_FLAG_RXNE;
 	
-	//收到数据存入缓冲区
-	aucUartRxBuffer[s_ucCount] = ucRxData;
-	s_ucCount++;
+//	//收到数据存入缓冲区
+//	aucUartRxBuffer[s_ucCount] = ucRxData;
+//	s_ucCount++;
+//	
+//	//接收结束后在末尾加\0表示字符串结束
+//	if(ucRxData == '\n')
+//	{
+//		aucUartRxBuffer[s_ucCount] = '\0';
+//		ucUartRxComplete = TRUE;
+//		s_ucCount = 0;
+//	}
 	
-	//接收结束后在末尾加\0表示字符串结束
-	if(ucRxData == '\n')
-	{
-		aucUartRxBuffer[s_ucCount] = '\0';
-		ucUartRxComplete = TRUE;
-		s_ucCount = 0;
-	}
+	emRingBufferWriteSingleElement(&ucRxData,UART_RX_BUFFER);
 	
 	return ;
   /* USER CODE END USART1_IRQn 0 */

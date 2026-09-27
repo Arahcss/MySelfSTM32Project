@@ -25,6 +25,7 @@
 #include "LedDevice.h"
 #include "Task.h"
 #include "DHT11Device.h"
+#include "RingBufferDevice.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,11 +104,12 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+   HAL_Init();
 
   /* USER CODE BEGIN Init */
 	vLedInit();
 	vDht11Init();
+	vRingBufferInit();
 	vLedOFF(0);//板载LED好闪眼睛。。。
   /* USER CODE END Init */
 

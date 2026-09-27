@@ -28,7 +28,7 @@ emRingBufferErrorCodeTdf emRingBufferWriteSingleElement(void *pvElement , emRing
 	uint32_t i;
 	
 	//如果为满返回错误
-	if(astRingBufferDeviceParam[emDevNum].stRunningParam.emStatus == emRingBufferStatus_Empty)
+	if(astRingBufferDeviceParam[emDevNum].stRunningParam.emStatus == emRingBufferStatus_Full)
 	{
 		return emRingBufferError_WriteFull;
 	}
@@ -79,7 +79,7 @@ emRingBufferErrorCodeTdf emRingBufferReadSingleElement(void *pvElement , emRingB
 	//读取数据
 	for(i = 0;i < astRingBufferDeviceParam[emDevNum].stStaticParam.ulElementLength ; i++)
 	{
-		*((uint8_t *)(pvElement) + i)   =   *((uint8_t *) (astRingBufferDeviceParam[emDevNum].stRunningParam.pvWrite) + i) ;
+		*((uint8_t *)(pvElement) + i)   =   *((uint8_t *) (astRingBufferDeviceParam[emDevNum].stRunningParam.pvRead) + i) ;
 	}
 	
 	//如果超出尾指针则更新头指针
@@ -113,7 +113,7 @@ emRingBufferErrorCodeTdf emRingBufferReadSingleElement(void *pvElement , emRingB
 ///	@note			
 void *pvRingBufferFindElementFirstPosition(void *c_pvTargetElement,emRingBufferDevNumTdf emDevNum)
 {
-	void *p = astRingBufferDeviceParam[emDevNum].stRunningParam.pvWrite;
+	void *p = astRingBufferDeviceParam[emDevNum].stRunningParam.pvRead;
 	while(p != astRingBufferDeviceParam[emDevNum].stRunningParam.pvWrite)
 	{
 		if(memcmp(p,c_pvTargetElement,astRingBufferDeviceParam[emDevNum].stStaticParam.ulElementLength) == 0)
@@ -139,4 +139,8 @@ void *pvRingBufferFindElementFirstPosition(void *c_pvTargetElement,emRingBufferD
 void vRingBufferDeviceInit(stRingBufferStaticParamTdf *pstInit,emRingBufferDevNumTdf emDevNum)
 {
 	memcpy(&astRingBufferDeviceParam[emDevNum].stStaticParam,pstInit,sizeof(stRingBufferStaticParamTdf)	/	sizeof(uint8_t));
+	
+	astRingBufferDeviceParam[emDevNum].stRunningParam.emStatus	=	emRingBufferStatus_Empty;
+	astRingBufferDeviceParam[emDevNum].stRunningParam.pvRead		=	astRingBufferDeviceParam[emDevNum].stStaticParam.pvHead;
+	astRingBufferDeviceParam[emDevNum].stRunningParam.pvWrite	=	astRingBufferDeviceParam[emDevNum].stStaticParam.pvHead;
 }
