@@ -42,8 +42,8 @@ freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../Middlewares/Third_Part
 freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
-freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ..\User\App\Test.h
-freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ..\User\Device\LedDevice.h
+freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../User/App/Test.h
+freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../User/Device/LedDevice.h
 freertoslearn16_commandinterpretertest\stm32f1xx_it.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
-freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ..\User\Device\DHT11Device.h
-freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ..\User\Device\RingBufferDevice.h
+freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../User/Device/DHT11Device.h
+freertoslearn16_commandinterpretertest\stm32f1xx_it.o: ../User/Device/RingBufferDevice.h

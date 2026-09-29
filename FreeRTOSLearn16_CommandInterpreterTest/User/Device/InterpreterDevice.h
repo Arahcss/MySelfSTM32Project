@@ -22,7 +22,9 @@ typedef enum
 	emInterpreterDevNum8,
 }emInterpreterDevNumTdf;
 
-#define INTERPRETER_DEV_NUM		1
+#define INTERPRETER_DEV_NUM									1
+#define CMD_INTERPRETER_DILIVERY_NUM_MAX		5
+#define CMD_INTERPRETER_DILIVER_STRING				"_"
 
 #define INTERPRETER_BOARD			emInterpreterDevNum0
 #define INTERPRETER1						emInterpreterDevNum1
@@ -44,14 +46,17 @@ typedef struct
 	const uint8_t					*c_pucParam;			//参数
 	const uint8_t					c_ucParamNum;		//参数数量
 }
-stInterpreterStaticParamTdf;
+stInterpreterListTdf;
+
+
 
 ///	@brief			静态参数定义
 ///	
 ///	@note
 typedef struct
 {
-	uint8_t			i;
+	stInterpreterListTdf			*pstList;					//命令结构表指针
+	uint32_t							ulListSize;				//命令结构表大小
 }
 stInterpreterStaticParamTdf;
 

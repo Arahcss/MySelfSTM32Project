@@ -39,7 +39,7 @@ freertoslearn16_commandinterpretertest\main.o: ../Middlewares/Third_Party/FreeRT
 freertoslearn16_commandinterpretertest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 freertoslearn16_commandinterpretertest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertoslearn16_commandinterpretertest\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-freertoslearn16_commandinterpretertest\main.o: ..\User\Device\LedDevice.h
+freertoslearn16_commandinterpretertest\main.o: ../User/Device/LedDevice.h
 freertoslearn16_commandinterpretertest\main.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
-freertoslearn16_commandinterpretertest\main.o: ..\User\Device\DHT11Device.h
-freertoslearn16_commandinterpretertest\main.o: ..\User\Device\RingBufferDevice.h
+freertoslearn16_commandinterpretertest\main.o: ../User/Device/DHT11Device.h
+freertoslearn16_commandinterpretertest\main.o: ../User/Device/RingBufferDevice.h

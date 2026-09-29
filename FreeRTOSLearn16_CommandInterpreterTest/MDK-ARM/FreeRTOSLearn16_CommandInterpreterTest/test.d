@@ -1,5 +1,5 @@
 freertoslearn16_commandinterpretertest\test.o: ..\User\App\Test.c
-freertoslearn16_commandinterpretertest\test.o: ..\User\Device\LedDevice.h
+freertoslearn16_commandinterpretertest\test.o: ../User/Device/LedDevice.h
 freertoslearn16_commandinterpretertest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 freertoslearn16_commandinterpretertest\test.o: ../Core/Inc/stm32f1xx_hal_conf.h
 freertoslearn16_commandinterpretertest\test.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -31,5 +31,6 @@ freertoslearn16_commandinterpretertest\test.o: ../Drivers/STM32F1xx_HAL_Driver/I
 freertoslearn16_commandinterpretertest\test.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
 freertoslearn16_commandinterpretertest\test.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
 freertoslearn16_commandinterpretertest\test.o: ..\User\App\Test.h
-freertoslearn16_commandinterpretertest\test.o: ..\User\Device\DHT11Device.h
-freertoslearn16_commandinterpretertest\test.o: ..\User\Device\RingBufferDevice.h
+freertoslearn16_commandinterpretertest\test.o: ../User/Device/DHT11Device.h
+freertoslearn16_commandinterpretertest\test.o: ../User/Device/RingBufferDevice.h
+freertoslearn16_commandinterpretertest\test.o: ../User/Device/InterpreterDevice.h

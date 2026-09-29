@@ -3,6 +3,7 @@
 #include "Test.h"
 #include "DHT11Device.h"
 #include "RingBufferDevice.h"
+#include "InterpreterDevice.h"
 
 extern UART_HandleTypeDef huart1;
 
@@ -14,6 +15,22 @@ const uint8_t c_aucCmdLedOn0[]			="LED_ON_0\r\n";
 const uint8_t c_aucCmdLedOff0[]			="LED_OFF_0\r\n";
 
 uint8_t aucAckDht11[] = "Temperature : 00.0			Humidity: 00.0\r\n";
+
+uint8_t aucListString_Led[]			= "LED";
+uint8_t aucListString_On[]				=	"ON";
+uint8_t aucListString_Off[]			=	"OFF";
+uint8_t aucListString_Param1[]		=	"1";
+uint8_t aucListString_Param2[]		=	"2";
+
+stInterpreterListTdf astList [] =
+{
+	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_On , .c_pucParam = aucListString_Param1, .c_ucParamNum = 1},
+	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_On , .c_pucParam = aucListString_Param2, .c_ucParamNum = 1},
+
+	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_Off , .c_pucParam = aucListString_Param1, .c_ucParamNum = 1},
+	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_Off , .c_pucParam = aucListString_Param2, .c_ucParamNum = 1},
+
+};
 
 void vLedInit(void)
 {
