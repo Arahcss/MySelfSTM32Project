@@ -13,5 +13,7 @@ void vTaskExecute(void);
 void vLedInit(void);
 void vDht11Init(void);
 void vRingBufferInit(void);
+void vCmdInterpreterInit(void);
+
 
 #endif

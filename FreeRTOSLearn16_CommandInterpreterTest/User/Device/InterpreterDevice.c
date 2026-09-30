@@ -30,13 +30,34 @@ void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 	//2匹配字符串
 	for(i = 0 ; i < astInterpreterDeviceParam[emDevNum].stStaticParam.ulListSize;i++)
 	{
+		//匹配参数个数
 		if((ucDeLiveryStringNum - 2) != astInterpreterDeviceParam[emDevNum].stStaticParam.pstList -> c_ucParamNum)
 		{
 			continue;
 		}
+		//匹配对象
+		if(strcmp(apcString[0], astInterpreterDeviceParam[emDevNum].stStaticParam.pstList-> c_pcObject) != 0 )
+		{
+			continue;
+		}
+		//匹配命令
+		if(strcmp(apcString[0], astInterpreterDeviceParam[emDevNum].stStaticParam.pstList-> c_pcCmd) != 0 )
+		{
+			continue;
+		}
 		
-		
+		break;
 	}
+	
+	//i等于字符串大小说明没走到break跳出，所以出错
+	if(i == astInterpreterDeviceParam[emDevNum].stStaticParam.ulListSize)
+	{
+		return;
+	}
+	
+	//无出错转到回调函数
+	astInterpreterDeviceParam[emDevNum].stStaticParam.pstList -> pvfCallBack(apcString);
+	
 }
 
 const stInterpreterDeviceParamTdf	*c_pstGetInterpreterDeviceParam(emInterpreterDevNumTdf emDevNum)

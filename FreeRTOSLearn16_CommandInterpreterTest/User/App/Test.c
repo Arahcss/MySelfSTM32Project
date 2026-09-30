@@ -16,22 +16,25 @@ const uint8_t c_aucCmdLedOff0[]			="LED_OFF_0\r\n";
 
 uint8_t aucAckDht11[] = "Temperature : 00.0			Humidity: 00.0\r\n";
 
-uint8_t aucListString_Led[]			= "LED";
-uint8_t aucListString_On[]				=	"ON";
-uint8_t aucListString_Off[]			=	"OFF";
-uint8_t aucListString_Param1[]		=	"1";
-uint8_t aucListString_Param2[]		=	"2";
+char acListString_Led[]			= "LED";
+char acListString_On[]				=	"ON";
+char acListString_Off[]			=	"OFF";
+char acListString_Param1[]		=	"1";
+char acListString_Param2[]		=	"2";
 
 stInterpreterListTdf astList [] =
 {
-	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_On , .c_pucParam = aucListString_Param1, .c_ucParamNum = 1},
-	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_On , .c_pucParam = aucListString_Param2, .c_ucParamNum = 1},
+	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_On , .c_pcParam = acListString_Param1, .c_ucParamNum = 1},
+	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_On , .c_pcParam = acListString_Param2, .c_ucParamNum = 1},
 
-	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_Off , .c_pucParam = aucListString_Param1, .c_ucParamNum = 1},
-	{.c_pucObject = aucListString_Led , .c_pucCmd = aucListString_Off , .c_pucParam = aucListString_Param2, .c_ucParamNum = 1},
+	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_Off , .c_pcParam = acListString_Param1, .c_ucParamNum = 1},
+	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_Off , .c_pcParam = acListString_Param2, .c_ucParamNum = 1},
 
 };
 
+///	@brief			LED初始化
+///
+///	@note
 void vLedInit(void)
 {
 	stLedStaticParamTdf 		stStaticInit;
@@ -92,6 +95,9 @@ void vLedInit(void)
 	
 }
 
+///	@brief			DHT11初始化
+///
+///	@note
 void vDht11Init(void)
 {
 	stDht11StaticParamTdf stInit;
@@ -102,6 +108,9 @@ void vDht11Init(void)
 	vDht11DeviceInit(&stInit,DHT11);
 }
 
+///	@brief			环形缓冲区初始化
+///
+///	@note
 void vRingBufferInit(void)
 {
 	stRingBufferStaticParamTdf stInit;
@@ -111,6 +120,19 @@ void vRingBufferInit(void)
 	stInit.ulElementLength	= sizeof(aucUartRxBuffer[0]);
 
 	vRingBufferDeviceInit(&stInit,UART_RX_BUFFER); 	
+}
+
+///	@brief			命令解释器初始化
+///
+///	@note
+void vCmdInterpreterInit(void)
+{
+	stInterpreterStaticParamTdf stInit;
+	
+	stInit.pstList						=	astList;
+	stInit.ulListSize				=	sizeof(astList)	/	sizeof(stInterpreterDeviceParamTdf);
+	
+	vInterpreterDeviceInit(&stInit,emInterpreterDevNum0);
 }
 
 ///	@brief				测试执行
@@ -123,9 +145,10 @@ void vTaskExecute(void)
 	uint8_t aucCmdBuffer[30];
 	uint8_t i;
 	
-	//接收首位地址
+	//轮询是否收到了'\n'
 	pvTemp = pvRingBufferFindElementFirstPosition((void *)&pucEndChar , UART_RX_BUFFER);
 	
+	//接收到了则读出接收到的数据
 	if(pvTemp != NULL)
 	{
 		i=0;
@@ -168,6 +191,62 @@ void vTaskExecute(void)
 	}
 	HAL_Delay(5);
 }
+
+/////	@brief				测试执行
+/////
+/////	@note				实现测试功能
+//void vTaskExecute(void)
+//{
+//	void *pvTemp;
+//	const uint8_t pucEndChar = '\n';
+//	uint8_t aucCmdBuffer[30];
+//	uint8_t i;
+//	
+//	//接收首位地址
+//	pvTemp = pvRingBufferFindElementFirstPosition((void *)&pucEndChar , UART_RX_BUFFER);
+//	
+//	if(pvTemp != NULL)
+//	{
+//		i=0;
+//		
+//		while(c_pstGetRingBufferDeviceParam(UART_RX_BUFFER)->stRunningParam.pvRead != pvTemp)
+//		{
+//			emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
+//			i++;
+//		}
+//		emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
+//		i++;
+//		aucCmdBuffer[i] = '\0';
+//	
+//		//DHT11控制
+//		if(memcmp(c_aucCmdDht11Read,aucCmdBuffer,sizeof(c_aucCmdDht11Read) / sizeof(uint8_t) ) == 0)
+//		{
+//			//发送
+//			aucAckDht11[14] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] / 10 + '0';
+//			aucAckDht11[15] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] % 10 + '0';
+//			aucAckDht11[17] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[1] % 10 + '0';
+//			
+//			aucAckDht11[31] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] / 10+ '0';
+//			aucAckDht11[32] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] % 10+ '0';			
+//			HAL_UART_Transmit(&huart1,aucAckDht11,sizeof(aucAckDht11) , 10);
+//		}
+//		
+//		if(memcmp(c_aucCmdLedOn0,aucCmdBuffer,sizeof(c_aucCmdLedOn0) / sizeof(uint8_t) ) == 0)
+//		{
+//			vLedOn(LED_BOARD);
+//			//发送
+//			HAL_UART_Transmit(&huart1,c_aucCmdLedOn0,sizeof(c_aucCmdLedOn0) , 10);
+//		}
+//		
+//		if(memcmp(c_aucCmdLedOff0,aucCmdBuffer,sizeof(c_aucCmdLedOff0) / sizeof(uint8_t) ) == 0)
+//		{
+//			vLedOFF(LED_BOARD);
+//			//发送
+//			HAL_UART_Transmit(&huart1,c_aucCmdLedOff0,sizeof(c_aucCmdLedOff0) , 10);
+//		}
+//	}
+//	HAL_Delay(5);
+//}
 
 
 /////	@brief				测试执行

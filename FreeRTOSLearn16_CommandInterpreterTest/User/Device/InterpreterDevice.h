@@ -36,15 +36,22 @@ typedef enum
 #define INTERPRETER7						emInterpreterDevNum7
 #define INTERPRETER8						emInterpreterDevNum8
 
+///	@brief			回调函数指针类型定义
+///	
+///
+///	@note
+typedef void vfCmdInterpreterCallbackTdf(char **p2ucString);
+
 ///	@brief			命令结构表定义
 ///	
 ///	@note
 typedef struct
 {
-	const uint8_t					*c_pucObject;			//对象
-	const uint8_t					*c_pucCmd;			//命令
-	const uint8_t					*c_pucParam;			//参数
-	const uint8_t					c_ucParamNum;		//参数数量
+	const char									*c_pcObject;			//对象
+	const char									*c_pcCmd;				//命令
+	const char									*c_pcParam;			//参数
+	const uint8_t								c_ucParamNum;		//参数数量
+	vfCmdInterpreterCallbackTdf		*pvfCallBack;			//回调函数指针
 }
 stInterpreterListTdf;
 
@@ -74,6 +81,11 @@ typedef struct
 	stInterpreterRunningParamTdf stRunningParam;		//静态参数
 	stInterpreterStaticParamTdf stStaticParam;					//动态参数
 }stInterpreterDeviceParamTdf;
+
+void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum);
+const stInterpreterDeviceParamTdf	*c_pstGetInterpreterDeviceParam(emInterpreterDevNumTdf emDevNum);
+void vInterpreterDeviceRunningParamInit(stInterpreterRunningParamTdf *pstInit,emInterpreterDevNumTdf emDevNum);
+void vInterpreterDeviceInit(stInterpreterStaticParamTdf *pstInit,emInterpreterDevNumTdf emDevNum);
 
 
 #endif

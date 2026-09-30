@@ -110,7 +110,7 @@ int main(void)
 	vLedInit();
 	vDht11Init();
 	vRingBufferInit();
-	vLedOFF(0);//板载LED好闪眼睛。。。
+	vCmdInterpreterInit();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -127,6 +127,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	__HAL_TIM_ENABLE_IT(&htim2,TIM_IT_UPDATE);	//开启UPDATE中断
 	HAL_TIM_Base_Start(&htim2);
+	vLedOFF(0);//板载LED好闪眼睛。。。
   /* USER CODE END 2 */
 
   /* Init scheduler */
