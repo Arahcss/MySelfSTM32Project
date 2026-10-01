@@ -19,29 +19,30 @@ void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 	
 	while(1)
 	{
+		ucDeLiveryStringNum++;
+		
 		apcString[ucDeLiveryStringNum] = strtok(0 , CMD_INTERPRETER_DILIVER_STRING);
 		if(apcString[ucDeLiveryStringNum] == 0)
 		{
 			break;
 		}
-		ucDeLiveryStringNum++;
 	}
 	
 	//2匹配字符串
 	for(i = 0 ; i < astInterpreterDeviceParam[emDevNum].stStaticParam.ulListSize;i++)
 	{
 		//匹配参数个数
-		if((ucDeLiveryStringNum - 2) != astInterpreterDeviceParam[emDevNum].stStaticParam.pstList -> c_ucParamNum)
+		if((ucDeLiveryStringNum - 2) != astInterpreterDeviceParam[emDevNum].stStaticParam.pstList[i].c_ucParamNum)
 		{
 			continue;
 		}
 		//匹配对象
-		if(strcmp(apcString[0], astInterpreterDeviceParam[emDevNum].stStaticParam.pstList-> c_pcObject) != 0 )
+		if(strcmp(apcString[0], astInterpreterDeviceParam[emDevNum].stStaticParam.pstList[i].c_pcObject) != 0 )
 		{
 			continue;
 		}
 		//匹配命令
-		if(strcmp(apcString[0], astInterpreterDeviceParam[emDevNum].stStaticParam.pstList-> c_pcCmd) != 0 )
+		if(strcmp(apcString[1], astInterpreterDeviceParam[emDevNum].stStaticParam.pstList[i].c_pcCmd) != 0 )
 		{
 			continue;
 		}
@@ -50,13 +51,13 @@ void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 	}
 	
 	//i等于字符串大小说明没走到break跳出，所以出错
-	if(i == astInterpreterDeviceParam[emDevNum].stStaticParam.ulListSize)
+	if(i > astInterpreterDeviceParam[emDevNum].stStaticParam.ulListSize)
 	{
 		return;
 	}
 	
 	//无出错转到回调函数
-	astInterpreterDeviceParam[emDevNum].stStaticParam.pstList -> pvfCallBack(apcString);
+	astInterpreterDeviceParam[emDevNum].stStaticParam.pstList[i].pvfCallBack(apcString);
 	
 }
 

@@ -16,20 +16,42 @@ const uint8_t c_aucCmdLedOff0[]			="LED_OFF_0\r\n";
 
 uint8_t aucAckDht11[] = "Temperature : 00.0			Humidity: 00.0\r\n";
 
-char acListString_Led[]			= "LED";
+char acListString_Led[]				= "LED";
 char acListString_On[]				=	"ON";
-char acListString_Off[]			=	"OFF";
-char acListString_Param1[]		=	"1";
-char acListString_Param2[]		=	"2";
+char acListString_Off[]				=	"OFF";
+char acListString_Toggle[]			=	"TOGGLE";
+char acListString_Param[]			=	"";
+
+void vCmdInterpreterExecuteCallback_LedOn(char **p2ucString);
+void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString);
+void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString);
+
 
 stInterpreterListTdf astList [] =
 {
-	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_On , .c_pcParam = acListString_Param1, .c_ucParamNum = 1},
-	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_On , .c_pcParam = acListString_Param2, .c_ucParamNum = 1},
+	{//LED ON
+	.c_pcObject 			= acListString_Led , 
+	.c_pcCmd 				= acListString_On , 
+	.c_pcParam 			= acListString_Param,
+	.c_ucParamNum	 	= 1 ,
+	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedOn
+	},
 
-	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_Off , .c_pcParam = acListString_Param1, .c_ucParamNum = 1},
-	{.c_pcObject = acListString_Led , .c_pcCmd = acListString_Off , .c_pcParam = acListString_Param2, .c_ucParamNum = 1},
-
+	{//LED OFF
+	.c_pcObject 			= acListString_Led ,
+	.c_pcCmd 				= acListString_Off ,
+	.c_pcParam 			= acListString_Param,
+	.c_ucParamNum 	= 1,
+	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedOff
+	},
+	
+	{//LED TOGGLE
+	.c_pcObject 			= acListString_Led ,
+	.c_pcCmd 				= acListString_Off ,
+	.c_pcParam 			= acListString_Param,
+	.c_ucParamNum 	= 1,
+	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedToggle
+	},
 };
 
 ///	@brief			LED初始化
@@ -130,9 +152,49 @@ void vCmdInterpreterInit(void)
 	stInterpreterStaticParamTdf stInit;
 	
 	stInit.pstList						=	astList;
-	stInit.ulListSize				=	sizeof(astList)	/	sizeof(stInterpreterDeviceParamTdf);
+	stInit.ulListSize				=	sizeof(astList)	/	sizeof(stInterpreterListTdf);
 	
 	vInterpreterDeviceInit(&stInit,emInterpreterDevNum0);
+}
+
+///	@brief				字符串转换为uint32_t型
+///
+///	@note		
+uint32_t ulStringToUint32(char *str)
+{
+	uint32_t ulResult = 0;
+	
+	while((*str >= '0') && (*str <= '9'))
+	{
+		ulResult *= 10;
+		ulResult += *str - '0';
+		str++;
+	}
+	return  ulResult;
+}
+
+///	@brief				命令解释器执行回调[LED_ON]
+///
+///	@note				
+void vCmdInterpreterExecuteCallback_LedOn(char **p2ucString)
+{
+	vLedOn((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+}
+
+///	@brief				命令解释器执行回调[LED_OFF]
+///
+///	@note				
+void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString)
+{
+	vLedOFF((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+}
+
+///	@brief				命令解释器执行回调[LED_OFF]
+///
+///	@note				
+void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString)
+{
+	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
 }
 
 ///	@brief				测试执行
@@ -158,36 +220,13 @@ void vTaskExecute(void)
 			emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
 			i++;
 		}
+		
 		emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
 		i++;
 		aucCmdBuffer[i] = '\0';
 	
-		//DHT11控制
-		if(memcmp(c_aucCmdDht11Read,aucCmdBuffer,sizeof(c_aucCmdDht11Read) / sizeof(uint8_t) ) == 0)
-		{
-			//发送
-			aucAckDht11[14] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] / 10 + '0';
-			aucAckDht11[15] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] % 10 + '0';
-			aucAckDht11[17] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[1] % 10 + '0';
-			
-			aucAckDht11[31] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] / 10+ '0';
-			aucAckDht11[32] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] % 10+ '0';			
-			HAL_UART_Transmit(&huart1,aucAckDht11,sizeof(aucAckDht11) , 10);
-		}
-		
-		if(memcmp(c_aucCmdLedOn0,aucCmdBuffer,sizeof(c_aucCmdLedOn0) / sizeof(uint8_t) ) == 0)
-		{
-			vLedOn(LED_BOARD);
-			//发送
-			HAL_UART_Transmit(&huart1,c_aucCmdLedOn0,sizeof(c_aucCmdLedOn0) , 10);
-		}
-		
-		if(memcmp(c_aucCmdLedOff0,aucCmdBuffer,sizeof(c_aucCmdLedOff0) / sizeof(uint8_t) ) == 0)
-		{
-			vLedOFF(LED_BOARD);
-			//发送
-			HAL_UART_Transmit(&huart1,c_aucCmdLedOff0,sizeof(c_aucCmdLedOff0) , 10);
-		}
+//		//解析控制DHT11
+		vInterpreterDeviceExecute((char*) aucCmdBuffer,emInterpreterDevNum0);
 	}
 	HAL_Delay(5);
 }
