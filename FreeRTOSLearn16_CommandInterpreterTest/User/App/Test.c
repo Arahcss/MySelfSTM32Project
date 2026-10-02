@@ -20,7 +20,7 @@ char acListString_Led[]				= "LED";
 char acListString_On[]				=	"ON";
 char acListString_Off[]				=	"OFF";
 char acListString_Toggle[]			=	"TOGGLE";
-char acListString_Param[]			=	"";
+char acListString_Param[]			=	"0 8        1 10000              2 20000";
 
 void vCmdInterpreterExecuteCallback_LedOn(char **p2ucString);
 void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString);
@@ -47,7 +47,7 @@ stInterpreterListTdf astList [] =
 	
 	{//LED TOGGLE
 	.c_pcObject 			= acListString_Led ,
-	.c_pcCmd 				= acListString_Off ,
+	.c_pcCmd 				= acListString_Toggle ,
 	.c_pcParam 			= acListString_Param,
 	.c_ucParamNum 	= 1,
 	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedToggle
@@ -178,7 +178,13 @@ uint32_t ulStringToUint32(char *str)
 ///	@note				
 void vCmdInterpreterExecuteCallback_LedOn(char **p2ucString)
 {
+	char acString[] = "LED_ON_0\r\n";
+	
 	vLedOn((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+
+	acString[7] = p2ucString[2][0];
+	
+	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
 }
 
 ///	@brief				命令解释器执行回调[LED_OFF]
@@ -186,7 +192,13 @@ void vCmdInterpreterExecuteCallback_LedOn(char **p2ucString)
 ///	@note				
 void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString)
 {
+	char acString[] = "LED_OFF_0\r\n";
+	
 	vLedOFF((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+
+	acString[8] = p2ucString[2][0];
+	
+	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
 }
 
 ///	@brief				命令解释器执行回调[LED_OFF]
@@ -194,7 +206,14 @@ void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString)
 ///	@note				
 void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString)
 {
+	char acString[] = "LED_TOGGLE_0\r\n";
+
 	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	
+	acString[11] = p2ucString[2][0];
+	
+	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
+
 }
 
 ///	@brief				测试执行

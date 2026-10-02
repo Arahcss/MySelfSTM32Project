@@ -3,6 +3,22 @@
 
 stInterpreterDeviceParamTdf	astInterpreterDeviceParam[INTERPRETER_DEV_NUM];
 
+///	@brief				字符串转换为uint32_t型
+///
+///	@note		
+static uint32_t s_ulStringToUint32(char *str)
+{
+	uint32_t ulResult = 0;
+	
+	while((*str >= '0') && (*str <= '9'))
+	{
+		ulResult *= 10;
+		ulResult += *str - '0';
+		str++;
+	}
+	return  ulResult;
+}
+
 ///	@brief				INTERPRETER执行
 ///
 ///	@param			emDevNum		:	设备编号
@@ -10,9 +26,12 @@ stInterpreterDeviceParamTdf	astInterpreterDeviceParam[INTERPRETER_DEV_NUM];
 ///	@note				根据模式执行不同操作
 void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 {
-	char *apcString[CMD_INTERPRETER_DILIVERY_NUM_MAX];		//指针数组，存储分割好的字符串首地址		=	{0};
+	char *apcString[CMD_INTERPRETER_DILIVERY_NUM_MAX] = {0};		//指针数组，存储分割好的字符串首地址		=	{0};
+	char *apcParam[(CMD_INTERPRETER_DILIVERY_NUM_MAX - 2)*2] = {0};
 	uint8_t ucDeLiveryStringNum 	=	0;												//分割好的字符串数量
-	uint32_t i;
+	uint32_t i,j;
+	uint32_t ulParam,ulParamMax,ulParamMin;
+	char acParamStringBuffer[50];
 	
 	//1分割字符串
 	apcString[ucDeLiveryStringNum] = strtok(pcCmdLine,CMD_INTERPRETER_DILIVER_STRING);
@@ -54,6 +73,35 @@ void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 	if(i > astInterpreterDeviceParam[emDevNum].stStaticParam.ulListSize)
 	{
 		return;
+	}
+	
+	//判断参数是否合法
+	strcpy(acParamStringBuffer,pcCmdLine);
+	
+	//分割字符串
+	ucDeLiveryStringNum = 0;
+	apcParam[ucDeLiveryStringNum] = strtok(pcCmdLine,CMD_INTERPRETER_DILIVER_STRING);
+	while(1)
+	{
+		ucDeLiveryStringNum++;
+		
+		apcParam[ucDeLiveryStringNum] = strtok(0 , CMD_INTERPRETER_DILIVER_STRING);
+		if(apcParam[ucDeLiveryStringNum] == 0)
+		{
+			break;
+		}
+	}
+	
+	for(j = 0 ; j < astInterpreterDeviceParam[emDevNum].stStaticParam.pstList[i].c_ucParamNum;j++)
+	{
+		ulParam = s_ulStringToUint32(apcString[j+2]);
+		ulParamMin = s_ulStringToUint32(apcParam[ j * 2]);
+		ulParamMax = s_ulStringToUint32(apcParam[ j * 2+1]);
+		
+		if(ulParam < ulParamMin || ulParam > ulParamMax)
+		{
+			return;
+		}
 	}
 	
 	//无出错转到回调函数
