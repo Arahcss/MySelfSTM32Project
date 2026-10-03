@@ -32,6 +32,7 @@ void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 	uint32_t i,j;
 	uint32_t ulParam,ulParamMax,ulParamMin;
 	char acParamStringBuffer[50];
+	char *p;
 	
 	//1分割字符串
 	apcString[ucDeLiveryStringNum] = strtok(pcCmdLine,CMD_INTERPRETER_DILIVER_STRING);
@@ -40,11 +41,13 @@ void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 	{
 		ucDeLiveryStringNum++;
 		
-		apcString[ucDeLiveryStringNum] = strtok(0 , CMD_INTERPRETER_DILIVER_STRING);
-		if(apcString[ucDeLiveryStringNum] == 0)
+		p = strtok(0,CMD_INTERPRETER_DILIVER_STRING);
+		if(p == 0)
 		{
 			break;
 		}
+		
+		apcString[ucDeLiveryStringNum] = p;
 	}
 	
 	//2匹配字符串
@@ -76,25 +79,27 @@ void vInterpreterDeviceExecute(char *pcCmdLine,emInterpreterDevNumTdf	emDevNum)
 	}
 	
 	//判断参数是否合法
-	strcpy(acParamStringBuffer,pcCmdLine);
+	strcpy(acParamStringBuffer,astInterpreterDeviceParam[emDevNum].stStaticParam.pstList[i].c_pcParam);
 	
 	//分割字符串
 	ucDeLiveryStringNum = 0;
-	apcParam[ucDeLiveryStringNum] = strtok(pcCmdLine,CMD_INTERPRETER_DILIVER_STRING);
+	apcParam[ucDeLiveryStringNum] = strtok(acParamStringBuffer,CMD_INTERPRETER_DILIVER_STRING);
 	while(1)
 	{
 		ucDeLiveryStringNum++;
 		
-		apcParam[ucDeLiveryStringNum] = strtok(0 , CMD_INTERPRETER_DILIVER_STRING);
-		if(apcParam[ucDeLiveryStringNum] == 0)
+		p = strtok(0,CMD_INTERPRETER_DILIVER_STRING);
+		if(p == 0)
 		{
 			break;
 		}
+		
+		apcParam[ucDeLiveryStringNum] = p;
 	}
 	
 	for(j = 0 ; j < astInterpreterDeviceParam[emDevNum].stStaticParam.pstList[i].c_ucParamNum;j++)
 	{
-		ulParam = s_ulStringToUint32(apcString[j+2]);
+		ulParam = s_ulStringToUint32(apcString[j + 2]);
 		ulParamMin = s_ulStringToUint32(apcParam[ j * 2]);
 		ulParamMax = s_ulStringToUint32(apcParam[ j * 2+1]);
 		

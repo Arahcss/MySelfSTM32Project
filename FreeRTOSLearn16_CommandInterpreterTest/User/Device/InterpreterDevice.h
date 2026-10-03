@@ -25,6 +25,7 @@ typedef enum
 #define INTERPRETER_DEV_NUM									1
 #define CMD_INTERPRETER_DILIVERY_NUM_MAX		5
 #define CMD_INTERPRETER_DILIVER_STRING				"_"
+#define CMD_INTERPRETER_DILIVER_STRING2			" "
 
 #define INTERPRETER_BOARD			emInterpreterDevNum0
 #define INTERPRETER1						emInterpreterDevNum1

@@ -20,12 +20,14 @@ char acListString_Led[]				= "LED";
 char acListString_On[]				=	"ON";
 char acListString_Off[]				=	"OFF";
 char acListString_Toggle[]			=	"TOGGLE";
-char acListString_Param[]			=	"0 8        1 10000              2 20000";
+char acListString_Blink[]			=	"BLINK";
+char acListString_Param[]			=	"0_8____1_10000____2_20000";
 
 void vCmdInterpreterExecuteCallback_LedOn(char **p2ucString);
 void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString);
 void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString);
-
+void vCmdInterpreterExecuteCallback_LedBlink_Param2(char **p2ucString);
+void vCmdInterpreterExecuteCallback_LedBlink_Param3(char **p2ucString);
 
 stInterpreterListTdf astList [] =
 {
@@ -51,6 +53,22 @@ stInterpreterListTdf astList [] =
 	.c_pcParam 			= acListString_Param,
 	.c_ucParamNum 	= 1,
 	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedToggle
+	},
+	
+	{//LED BLINK PARAM 2
+	.c_pcObject 			= acListString_Led ,
+	.c_pcCmd 				= acListString_Blink ,
+	.c_pcParam 			= acListString_Param,
+	.c_ucParamNum 	= 2,
+	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedBlink_Param2
+	},
+	
+	{//LED BLINK PARAM 3
+	.c_pcObject 			= acListString_Led ,
+	.c_pcCmd 				= acListString_Blink ,
+	.c_pcParam 			= acListString_Param,
+	.c_ucParamNum 	= 3,
+	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedBlink_Param3
 	},
 };
 
@@ -201,7 +219,7 @@ void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString)
 	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
 }
 
-///	@brief				命令解释器执行回调[LED_OFF]
+///	@brief				命令解释器执行回调[LED_TOGGLE]
 ///
 ///	@note				
 void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString)
@@ -214,6 +232,60 @@ void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString)
 	
 	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
 
+}
+
+///	@brief				命令解释器执行回调[LED_BLINK_PARAM2]
+///
+///	@note				
+void vCmdInterpreterExecuteCallback_LedBlink_Param2(char **p2ucString)
+{
+	char acString[] = "LED_BLINK";
+	
+	stLedRunningParamTdf	stRunningInit;
+	
+	stRunningInit.emMode						= emLedMode_Blink;
+	stRunningInit.ulCurrentCount			= 0;
+	stRunningInit.ulOnCountThreshold	= ulStringToUint32(p2ucString[3]);
+	stRunningInit.ulOffCountThreshold	=	ulStringToUint32(p2ucString[3]);
+	stRunningInit.ulBreathPeriod				= 50000;
+	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	
+	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	
+	
+	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[2],sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)"_",sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[3],sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)"\r\n",sizeof(acString),10);
+}
+
+///	@brief				命令解释器执行回调[LED_BLINK_PARAM3]
+///
+///	@note				
+void vCmdInterpreterExecuteCallback_LedBlink_Param3(char **p2ucString)
+{
+	char acString[] = "LED_BLINK";
+	
+	stLedRunningParamTdf	stRunningInit;
+	
+	stRunningInit.emMode						= emLedMode_Blink;
+	stRunningInit.ulCurrentCount			= 0;
+	stRunningInit.ulOnCountThreshold	= ulStringToUint32(p2ucString[3]);
+	stRunningInit.ulOffCountThreshold	=	ulStringToUint32(p2ucString[4]);
+	stRunningInit.ulBreathPeriod				= 50000;
+	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	
+	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	
+	
+	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[2],sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)"_",sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[3],sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)"_",sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[4],sizeof(acString),10);
+	HAL_UART_Transmit(&huart1,(uint8_t *)"\r\n",sizeof(acString),10);
 }
 
 ///	@brief				测试执行
