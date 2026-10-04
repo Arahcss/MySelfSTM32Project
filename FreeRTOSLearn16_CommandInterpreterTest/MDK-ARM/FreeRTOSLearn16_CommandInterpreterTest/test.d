@@ -34,3 +34,4 @@ freertoslearn16_commandinterpretertest\test.o: ..\User\App\Test.h
 freertoslearn16_commandinterpretertest\test.o: ../User/Device/DHT11Device.h
 freertoslearn16_commandinterpretertest\test.o: ../User/Device/RingBufferDevice.h
 freertoslearn16_commandinterpretertest\test.o: ../User/Device/InterpreterDevice.h
+freertoslearn16_commandinterpretertest\test.o: D:\32\ARM\ARMCC\Bin\..\include\stdio.h

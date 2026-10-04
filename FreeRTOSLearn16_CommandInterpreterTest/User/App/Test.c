@@ -4,6 +4,7 @@
 #include "DHT11Device.h"
 #include "RingBufferDevice.h"
 #include "InterpreterDevice.h"
+#include "stdio.h"
 
 extern UART_HandleTypeDef huart1;
 
@@ -191,6 +192,21 @@ uint32_t ulStringToUint32(char *str)
 	return  ulResult;
 }
 
+///	@brief				重新定向fputc
+///
+///	@note		
+int fputc(int ch,FILE *f)
+{
+	while((huart1.Instance->SR & USART_SR_TXE) == 0)
+	{
+		;
+	}
+	
+	huart1.Instance->DR = *(uint8_t *)&ch;
+	
+	return ch;
+}
+
 ///	@brief				命令解释器执行回调[LED_ON]
 ///
 ///	@note				
@@ -237,7 +253,7 @@ void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString)
 ///	@brief				命令解释器执行回调[LED_BLINK_PARAM2]
 ///
 ///	@note				
-void vCmdInterpreterExecuteCallback_LedBlink_Param2(char **p2ucString)
+void vCmdInterpreterExecuteCallback_LedBlink_Param2(char **p2cString)
 {
 	char acString[] = "LED_BLINK";
 	
@@ -245,25 +261,27 @@ void vCmdInterpreterExecuteCallback_LedBlink_Param2(char **p2ucString)
 	
 	stRunningInit.emMode						= emLedMode_Blink;
 	stRunningInit.ulCurrentCount			= 0;
-	stRunningInit.ulOnCountThreshold	= ulStringToUint32(p2ucString[3]);
-	stRunningInit.ulOffCountThreshold	=	ulStringToUint32(p2ucString[3]);
+	stRunningInit.ulOnCountThreshold	= ulStringToUint32(p2cString[3]);
+	stRunningInit.ulOffCountThreshold	=	ulStringToUint32(p2cString[3]);
 	stRunningInit.ulBreathPeriod				= 50000;
-	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2cString[2]));
 	
-	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+
+//	vLedDeviceBlinkExecute();
 	
 	
-	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[2],sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)"_",sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[3],sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)"\r\n",sizeof(acString),10);
+	printf(acString);
+	printf(" ");
+	printf(p2cString[2]);
+	printf(" ");
+	printf(p2cString[3]);
+	//printf("\r\n");
 }
 
 ///	@brief				命令解释器执行回调[LED_BLINK_PARAM3]
 ///
 ///	@note				
-void vCmdInterpreterExecuteCallback_LedBlink_Param3(char **p2ucString)
+void vCmdInterpreterExecuteCallback_LedBlink_Param3(char **p2cString)
 {
 	char acString[] = "LED_BLINK";
 	
@@ -271,21 +289,14 @@ void vCmdInterpreterExecuteCallback_LedBlink_Param3(char **p2ucString)
 	
 	stRunningInit.emMode						= emLedMode_Blink;
 	stRunningInit.ulCurrentCount			= 0;
-	stRunningInit.ulOnCountThreshold	= ulStringToUint32(p2ucString[3]);
-	stRunningInit.ulOffCountThreshold	=	ulStringToUint32(p2ucString[4]);
+	stRunningInit.ulOnCountThreshold	= ulStringToUint32(p2cString[3]);
+	stRunningInit.ulOffCountThreshold	=	ulStringToUint32(p2cString[4]);
 	stRunningInit.ulBreathPeriod				= 50000;
-	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2cString[2]));
 	
-	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2ucString[2]));
+	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2cString[2]));
 	
 	
-	HAL_UART_Transmit(&huart1,(uint8_t *)acString,sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[2],sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)"_",sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[3],sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)"_",sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)p2ucString[4],sizeof(acString),10);
-	HAL_UART_Transmit(&huart1,(uint8_t *)"\r\n",sizeof(acString),10);
 }
 
 ///	@brief				测试执行
@@ -319,7 +330,13 @@ void vTaskExecute(void)
 //		//解析控制DHT11
 		vInterpreterDeviceExecute((char*) aucCmdBuffer,emInterpreterDevNum0);
 	}
-	HAL_Delay(5);
+	
+	for(i=0;i<8;i++)
+	{
+		vLedDevicePeriodExecute((emLedDevNumTdf)i);
+	}
+	
+	HAL_Delay(0);
 }
 
 /////	@brief				测试执行
