@@ -150,22 +150,6 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>258</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229638</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\User\App\Test.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\FreeRTOSLearn16_CommandInterpreterTest\../User/App/Test.c\258</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
           <LineNumber>113</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>134231208</Address>

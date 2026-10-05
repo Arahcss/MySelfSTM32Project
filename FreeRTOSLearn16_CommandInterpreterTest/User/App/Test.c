@@ -8,7 +8,7 @@
 
 extern UART_HandleTypeDef huart1;
 
-uint8_t aucUartRxBuffer[20];					//UART接收缓存区
+uint8_t aucUartRxBuffer[50];					//UART接收缓存区
 uint8_t ucUartRxComplete = FALSE;			//UART接收完成标准
 
 const uint8_t c_aucCmdDht11Read[]	= "DHT11Read\r\n";
@@ -22,20 +22,26 @@ char acListString_On[]				=	"ON";
 char acListString_Off[]				=	"OFF";
 char acListString_Toggle[]			=	"TOGGLE";
 char acListString_Blink[]			=	"BLINK";
-char acListString_Param[]			=	"0_8____1_10000____2_20000";
+char acListString_LedParam[]		=	"0_8____1_10000____2_20000";
+
+char acListString_Dht11[]			= "DHT11";
+char acListString_Read[]				= "READ";
+char acListString_Dht11Param[]=	"0_0";
 
 void vCmdInterpreterExecuteCallback_LedOn(char **p2ucString);
 void vCmdInterpreterExecuteCallback_LedOff(char **p2ucString);
 void vCmdInterpreterExecuteCallback_LedToggle(char **p2ucString);
 void vCmdInterpreterExecuteCallback_LedBlink_Param2(char **p2ucString);
 void vCmdInterpreterExecuteCallback_LedBlink_Param3(char **p2ucString);
+void vCmdInterpreterExecuteCallback_Dht11Read(char **p2ucString);
+
 
 stInterpreterListTdf astList [] =
 {
 	{//LED ON
 	.c_pcObject 			= acListString_Led , 
 	.c_pcCmd 				= acListString_On , 
-	.c_pcParam 			= acListString_Param,
+	.c_pcParam 			= acListString_LedParam,
 	.c_ucParamNum	 	= 1 ,
 	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedOn
 	},
@@ -43,7 +49,7 @@ stInterpreterListTdf astList [] =
 	{//LED OFF
 	.c_pcObject 			= acListString_Led ,
 	.c_pcCmd 				= acListString_Off ,
-	.c_pcParam 			= acListString_Param,
+	.c_pcParam 			= acListString_LedParam,
 	.c_ucParamNum 	= 1,
 	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedOff
 	},
@@ -51,7 +57,7 @@ stInterpreterListTdf astList [] =
 	{//LED TOGGLE
 	.c_pcObject 			= acListString_Led ,
 	.c_pcCmd 				= acListString_Toggle ,
-	.c_pcParam 			= acListString_Param,
+	.c_pcParam 			= acListString_LedParam,
 	.c_ucParamNum 	= 1,
 	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedToggle
 	},
@@ -59,7 +65,7 @@ stInterpreterListTdf astList [] =
 	{//LED BLINK PARAM 2
 	.c_pcObject 			= acListString_Led ,
 	.c_pcCmd 				= acListString_Blink ,
-	.c_pcParam 			= acListString_Param,
+	.c_pcParam 			= acListString_LedParam,
 	.c_ucParamNum 	= 2,
 	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedBlink_Param2
 	},
@@ -67,10 +73,19 @@ stInterpreterListTdf astList [] =
 	{//LED BLINK PARAM 3
 	.c_pcObject 			= acListString_Led ,
 	.c_pcCmd 				= acListString_Blink ,
-	.c_pcParam 			= acListString_Param,
+	.c_pcParam 			= acListString_LedParam,
 	.c_ucParamNum 	= 3,
 	.pvfCallBack 			= vCmdInterpreterExecuteCallback_LedBlink_Param3
 	},
+	
+	{//DHT11 READ
+	.c_pcObject 			= acListString_Dht11 ,
+	.c_pcCmd 				= acListString_Read ,
+	.c_pcParam 			= acListString_Dht11Param,
+	.c_ucParamNum 	= 1,
+	.pvfCallBack 			= vCmdInterpreterExecuteCallback_Dht11Read
+	
+	}
 };
 
 ///	@brief			LED初始化
@@ -266,10 +281,6 @@ void vCmdInterpreterExecuteCallback_LedBlink_Param2(char **p2cString)
 	stRunningInit.ulBreathPeriod				= 50000;
 	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2cString[2]));
 	
-
-//	vLedDeviceBlinkExecute();
-	
-	
 	printf(acString);
 	printf(" ");
 	printf(p2cString[2]);
@@ -294,10 +305,31 @@ void vCmdInterpreterExecuteCallback_LedBlink_Param3(char **p2cString)
 	stRunningInit.ulBreathPeriod				= 50000;
 	vLedDeviceRunningParamInit(&stRunningInit,(emLedDevNumTdf)ulStringToUint32(p2cString[2]));
 	
-	vLedToggle((emLedDevNumTdf)ulStringToUint32(p2cString[2]));
-	
-	
+	printf(acString);
+	printf(" ");
+	printf(p2cString[2]);
+	printf(" ");
+	printf(p2cString[3]);
+	printf(" ");
+	printf(p2cString[4]);
+	//printf("\r\n");
 }
+
+///	@brief				命令解释器执行回调[DHT11 READ]
+///
+///	@note				
+void vCmdInterpreterExecuteCallback_Dht11Read(char **p2cString)
+{	
+			aucAckDht11[14] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] / 10 + '0';
+			aucAckDht11[15] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[0] % 10 + '0';
+			aucAckDht11[17] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acTemperature[1] % 10 + '0';
+			
+			aucAckDht11[31] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] / 10+ '0';
+			aucAckDht11[32] = c_pstGetDht11DeviceParam(DHT11)->stRunningParam.acHumidity[0] % 10+ '0';			
+			HAL_UART_Transmit(&huart1,aucAckDht11,sizeof(aucAckDht11) , 10);
+
+}
+
 
 ///	@brief				测试执行
 ///
@@ -306,7 +338,7 @@ void vTaskExecute(void)
 {
 	void *pvTemp;
 	const uint8_t pucEndChar = '\n';
-	uint8_t aucCmdBuffer[30];
+	uint8_t aucCmdBuffer[50];
 	uint8_t i;
 	
 	//轮询是否收到了'\n'
