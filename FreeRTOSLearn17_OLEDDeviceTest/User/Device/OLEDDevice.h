@@ -53,26 +53,23 @@ typedef enum
 	emOledDevNum8,
 }emOledDevNumTdf;
 
-#define OLED_DEV_NUM		9
+#define OLED_DEV_NUM				1
+#define OLED									emOledDevNum0
+#define OLED_POINT_WIDTH		128
+#define OLED_POINT_HEIGHT		64
+#define OLED_BUFFER_WIDTH		OLED_POINT_WIDTH			//OELD一帧数据的行宽
+#define OLED_BUFFER_HEIGHT		OLED_POINT_HEIGHT / 8	//OLED一帧数据的列高
 
-#define OLED_BOARD			emOledDevNum0
-#define OLED1						emOledDevNum1
-#define OLED2						emOledDevNum2
-#define OLED3						emOledDevNum3
-#define OLED4						emOledDevNum4
-#define OLED5						emOledDevNum5
-#define OLED6						emOledDevNum6
-#define OLED7						emOledDevNum7
-#define OLED8						emOledDevNum8
 
 ///	@brief			静态参数定义
 ///	
 ///	@note
 typedef struct
 {
-	GPIO_TypeDef								*pstGpioBase;		//	使用的GPIOx
-	uint16_t										usGpioPin;			//	使用的GPIO_PIN_x
-	emOledOnLevelTdf						emOnLevel;			//	OLED点亮时的电频
+	GPIO_TypeDef								*pstSclGpioBase;		//	SCL GPIOx
+	uint16_t										usSclGpioPin;			//	SCL GPIO_PIN_x
+	GPIO_TypeDef								*pstSdaGpioBase;		//	SDA GPIOx
+	uint16_t										usSdaGpioPin;			//	SDA GPIO_PIN_x
 }
 stOledStaticParamTdf;
 
@@ -81,14 +78,7 @@ stOledStaticParamTdf;
 ///	@note
 typedef struct
 {
-	emOledStatusTdf					emCurrentStatus;			//	OLED当前状态
-	emOledModeTdf					emMode;							//当前模式
-	
-	uint32_t								ulCurrentCount;				//当前计数
-	uint32_t								ulOnCountThreshold;		//ON	计数阈值
-	uint32_t								ulOffCountThreshold;		//OFF	计数阈值
-
-	uint32_t								ulBreathPeriod;				//呼吸周期
+	uint8_t										aucOledBuffer[OLED_BUFFER_WIDTH * OLED_BUFFER_HEIGHT];//显存
 }
 stOledRunningParamTdf;
 
