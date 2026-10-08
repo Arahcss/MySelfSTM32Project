@@ -88,5 +88,8 @@ typedef struct
 	stOledStaticParamTdf stStaticParam;					//动态参数
 }stOledDeviceParamTdf;
 
+void vOledDeviceInit(stOledStaticParamTdf *pstInit,emOledDevNumTdf emDevNum);
+void vOledRefreshFromBuffer( emOledDevNumTdf	emDevNum);
+
 
 #endif

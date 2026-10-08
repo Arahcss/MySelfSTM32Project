@@ -4,6 +4,7 @@
 #include "DHT11Device.h"
 #include "RingBufferDevice.h"
 #include "InterpreterDevice.h"
+#include "OLEDDevice.h"
 #include "stdio.h"
 
 extern UART_HandleTypeDef huart1;
@@ -162,6 +163,21 @@ void vDht11Init(void)
 	stInit.usGpioPin			=	GPIO_PIN_12;
 	stInit.ulTimerPeriorUs = 5;
 	vDht11DeviceInit(&stInit,DHT11);
+}
+
+///	@brief			OLED初始化
+///
+///	@note
+void vOledInit(void)
+{
+	stOledStaticParamTdf stInit;
+	
+	stInit.pstSclGpioBase	=	GPIOB;
+	stInit.usSclGpioPin		=	GPIO_PIN_8;
+	stInit.pstSdaGpioBase	=	GPIOB;
+	stInit.usSdaGpioPin		=	GPIO_PIN_9;
+	
+	vOledDeviceInit(&stInit,OLED);
 }
 
 ///	@brief			环形缓冲区初始化
@@ -330,46 +346,54 @@ void vCmdInterpreterExecuteCallback_Dht11Read(char **p2cString)
 
 }
 
-
 ///	@brief				测试执行
 ///
 ///	@note				实现测试功能
 void vTaskExecute(void)
 {
-	void *pvTemp;
-	const uint8_t pucEndChar = '\n';
-	uint8_t aucCmdBuffer[50];
-	uint8_t i;
-	
-	//轮询是否收到了'\n'
-	pvTemp = pvRingBufferFindElementFirstPosition((void *)&pucEndChar , UART_RX_BUFFER);
-	
-	//接收到了则读出接收到的数据
-	if(pvTemp != NULL)
-	{
-		i=0;
-		
-		while(c_pstGetRingBufferDeviceParam(UART_RX_BUFFER)->stRunningParam.pvRead != pvTemp)
-		{
-			emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
-			i++;
-		}
-		
-		emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
-		i++;
-		aucCmdBuffer[i] = '\0';
-	
-//		//解析控制DHT11
-		vInterpreterDeviceExecute((char*) aucCmdBuffer,emInterpreterDevNum0);
-	}
-	
-	for(i=0;i<8;i++)
-	{
-		vLedDevicePeriodExecute((emLedDevNumTdf)i);
-	}
-	
-	HAL_Delay(0);
+	//vOledRefreshFromBuffer(OLED);
 }
+
+
+/////	@brief				测试执行
+/////
+/////	@note				实现测试功能
+//void vTaskExecute(void)
+//{
+//	void *pvTemp;
+//	const uint8_t pucEndChar = '\n';
+//	uint8_t aucCmdBuffer[50];
+//	uint8_t i;
+//	
+//	//轮询是否收到了'\n'
+//	pvTemp = pvRingBufferFindElementFirstPosition((void *)&pucEndChar , UART_RX_BUFFER);
+//	
+//	//接收到了则读出接收到的数据
+//	if(pvTemp != NULL)
+//	{
+//		i=0;
+//		
+//		while(c_pstGetRingBufferDeviceParam(UART_RX_BUFFER)->stRunningParam.pvRead != pvTemp)
+//		{
+//			emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
+//			i++;
+//		}
+//		
+//		emRingBufferReadSingleElement(&aucCmdBuffer[i],UART_RX_BUFFER);
+//		i++;
+//		aucCmdBuffer[i] = '\0';
+//	
+////		//解析控制DHT11
+//		vInterpreterDeviceExecute((char*) aucCmdBuffer,emInterpreterDevNum0);
+//	}
+//	
+//	for(i=0;i<8;i++)
+//	{
+//		vLedDevicePeriodExecute((emLedDevNumTdf)i);
+//	}
+//	
+//	HAL_Delay(0);
+//}
 
 /////	@brief				测试执行
 /////

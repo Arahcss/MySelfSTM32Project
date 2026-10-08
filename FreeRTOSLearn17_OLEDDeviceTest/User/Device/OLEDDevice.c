@@ -71,9 +71,10 @@ static void s_vOledIicStart(emOledDevNumTdf	emDevNum)
 ///	@note				
 static void s_vOledIicStop(emOledDevNumTdf	emDevNum)
 {
-	s_vOledSclSet(emDevNum);
-	s_vOledSdaReset(emDevNum);
-	s_vOledSdaSet(emDevNum);
+	s_vOledSclReset(emDevNum); // 确保 SCL 为低
+	s_vOledSdaReset(emDevNum); // SDA 拉低
+	s_vOledSclSet(emDevNum);   // SCL 拉高
+	s_vOledSdaSet(emDevNum);   // SDA 拉高 → 停止条件
 }
 
 ///	@brief				IIC等待应答
@@ -145,7 +146,7 @@ static void s_vOledWriteFewbytesData(uint8_t *pucData ,uint32_t ulLength, emOled
 	s_vOledIicStart(emDevNum);
 	s_vOledIicSendByte(0x78,emDevNum);
 	s_vOledIicWaitAck(emDevNum);
-	s_vOledIicSendByte(0x0C,emDevNum);
+	s_vOledIicSendByte(0x40,emDevNum);
 	s_vOledIicWaitAck(emDevNum);
 	for( i = 0 ; i < ulLength ; i++)
 	{
@@ -154,6 +155,64 @@ static void s_vOledWriteFewbytesData(uint8_t *pucData ,uint32_t ulLength, emOled
 		
 	}
 	s_vOledIicStop(emDevNum);
+}
+
+///	@brief				更新显存显示
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				
+void vOledRefreshFromBuffer( emOledDevNumTdf	emDevNum)
+{
+	uint8_t i;
+	
+	for(i = 0 ; i < OLED_BUFFER_HEIGHT;i++ )
+	{
+		s_vOledWriteOneByteCmd(0xB0 + i,emDevNum);			//设置行起始地址
+		s_vOledWriteOneByteCmd(0x00,emDevNum);				//设置低列起始地址
+		s_vOledWriteOneByteCmd(0x10,emDevNum);			//设置高列起始地址
+	
+		s_vOledWriteFewbytesData(&(astOledDeviceParam[emDevNum].stRunningParam.aucOledBuffer[i * OLED_BUFFER_WIDTH]),
+													OLED_BUFFER_WIDTH,
+													emDevNum);
+	}
+}
+
+///	@brief				OLED命令初始化
+///
+///	@param			emDevNum		:	设备编号
+///
+///	@note				
+void vOledCmdInit( emOledDevNumTdf	emDevNum)
+{
+	s_vOledWriteOneByteCmd(0xAE,emDevNum);
+	s_vOledWriteOneByteCmd(0x00,emDevNum);
+	s_vOledWriteOneByteCmd(0x10,emDevNum);
+	s_vOledWriteOneByteCmd(0x40,emDevNum);
+	s_vOledWriteOneByteCmd(0x81,emDevNum);
+	s_vOledWriteOneByteCmd(0xCF,emDevNum);
+	s_vOledWriteOneByteCmd(0xA1,emDevNum);
+	s_vOledWriteOneByteCmd(0xC8,emDevNum);
+	s_vOledWriteOneByteCmd(0xA6,emDevNum);
+	s_vOledWriteOneByteCmd(0xA8,emDevNum);
+	s_vOledWriteOneByteCmd(0x3F,emDevNum);
+	s_vOledWriteOneByteCmd(0xD3,emDevNum);
+	s_vOledWriteOneByteCmd(0x00,emDevNum);
+	s_vOledWriteOneByteCmd(0xD5,emDevNum);
+	s_vOledWriteOneByteCmd(0x80,emDevNum);
+	s_vOledWriteOneByteCmd(0xD9,emDevNum);
+	s_vOledWriteOneByteCmd(0xF1,emDevNum);
+	s_vOledWriteOneByteCmd(0xDA,emDevNum);
+	s_vOledWriteOneByteCmd(0x12,emDevNum);
+	s_vOledWriteOneByteCmd(0xDB,emDevNum);
+	s_vOledWriteOneByteCmd(0x40,emDevNum);
+	s_vOledWriteOneByteCmd(0x20,emDevNum);
+	s_vOledWriteOneByteCmd(0x02,emDevNum);
+	s_vOledWriteOneByteCmd(0x8D,emDevNum);
+	s_vOledWriteOneByteCmd(0x14,emDevNum);
+	s_vOledWriteOneByteCmd(0xA4,emDevNum);
+	s_vOledWriteOneByteCmd(0xA6,emDevNum);
+	s_vOledWriteOneByteCmd(0xAF,emDevNum);
 }
 
 ///	@brief				OLED周期执行
@@ -184,5 +243,7 @@ void vOledDeviceRunningParamInit(stOledRunningParamTdf *pstInit,emOledDevNumTdf 
 void vOledDeviceInit(stOledStaticParamTdf *pstInit,emOledDevNumTdf emDevNum)
 {
 	memcpy(&astOledDeviceParam[emDevNum].stStaticParam,pstInit,sizeof(stOledStaticParamTdf)	/	sizeof(uint8_t));
+	
+	vOledCmdInit(emDevNum);
 }
 

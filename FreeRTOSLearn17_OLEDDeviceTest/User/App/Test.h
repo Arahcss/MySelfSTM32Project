@@ -14,6 +14,7 @@ void vLedInit(void);
 void vDht11Init(void);
 void vRingBufferInit(void);
 void vCmdInterpreterInit(void);
+void vOledInit(void);
 
 
 #endif
