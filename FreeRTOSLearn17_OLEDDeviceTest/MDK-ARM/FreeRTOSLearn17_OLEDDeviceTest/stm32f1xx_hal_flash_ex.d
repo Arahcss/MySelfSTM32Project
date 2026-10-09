@@ -23,7 +23,6 @@ freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HA
 freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
-freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h

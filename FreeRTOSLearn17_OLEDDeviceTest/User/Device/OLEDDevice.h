@@ -6,36 +6,6 @@
 
 #define	PI	3.141592653
 
-///	@brief					OLED模式枚举
-///
-///	@note
-typedef enum
-{
-	emOledMode_Static			=	0,
-	emOledMode_Blink,
-	emOledMode_Breath,
-}
-emOledModeTdf;
-
-///	@brief					OLED状态枚举
-///
-///	@note
-typedef enum
-{
-	emOledStatus_OFF			=	0,
-	emOledStatus_ON,
-}
-emOledStatusTdf;
-
-///	@brief					OLED ON时的电平枚举
-///
-///	@note
-typedef enum
-{
-	emOledOnLevel_Low			=	0,
-	emOledOnLevel_High,
-}
-emOledOnLevelTdf;
 
 ///	@brief					设备号枚举
 ///

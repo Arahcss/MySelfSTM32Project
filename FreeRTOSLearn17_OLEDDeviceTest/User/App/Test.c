@@ -351,7 +351,7 @@ void vCmdInterpreterExecuteCallback_Dht11Read(char **p2cString)
 ///	@note				实现测试功能
 void vTaskExecute(void)
 {
-	//vOledRefreshFromBuffer(OLED);
+	vOledRefreshFromBuffer(OLED);
 }
 
 

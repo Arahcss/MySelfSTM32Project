@@ -22,7 +22,6 @@
 "freertoslearn17_oleddevicetest\stm32f1xx_hal_flash.o"
 "freertoslearn17_oleddevicetest\stm32f1xx_hal_flash_ex.o"
 "freertoslearn17_oleddevicetest\stm32f1xx_hal_exti.o"
-"freertoslearn17_oleddevicetest\stm32f1xx_hal_i2c.o"
 "freertoslearn17_oleddevicetest\stm32f1xx_hal_tim.o"
 "freertoslearn17_oleddevicetest\stm32f1xx_hal_tim_ex.o"
 "freertoslearn17_oleddevicetest\stm32f1xx_hal_uart.o"

@@ -82,10 +82,12 @@ static void s_vOledIicStop(emOledDevNumTdf	emDevNum)
 ///	@param			emDevNum		:	设备编号
 ///
 ///	@note				
-static void s_vOledIicWaitAck(emOledDevNumTdf	emDevNum)
+static void s_vOledIicWaitAck(emOledDevNumTdf emDevNum)
 {
-	s_vOledSclSet(emDevNum);
-	s_vOledSclReset(emDevNum);
+    s_vOledSclReset(emDevNum);
+    s_vOledSdaReset(emDevNum); 
+    s_vOledSclSet(emDevNum);
+    s_vOledSclReset(emDevNum);
 }
 
 ///	@brief				IIC发送一字节
@@ -211,7 +213,7 @@ void vOledCmdInit( emOledDevNumTdf	emDevNum)
 	s_vOledWriteOneByteCmd(0x8D,emDevNum);
 	s_vOledWriteOneByteCmd(0x14,emDevNum);
 	s_vOledWriteOneByteCmd(0xA4,emDevNum);
-	s_vOledWriteOneByteCmd(0xA6,emDevNum);
+	s_vOledWriteOneByteCmd(0xA7,emDevNum);
 	s_vOledWriteOneByteCmd(0xAF,emDevNum);
 }
 
