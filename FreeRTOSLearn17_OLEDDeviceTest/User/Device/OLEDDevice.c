@@ -159,6 +159,73 @@ static void s_vOledWriteFewbytesData(uint8_t *pucData ,uint32_t ulLength, emOled
 	s_vOledIicStop(emDevNum);
 }
 
+///	@brief				向缓冲区指定位置画点
+///
+///	@param			x						:	x坐标
+///							y						:	y坐标
+///							emDevNum		:	设备编号
+///
+///	@note				
+void vOledDrawOnePointToBuffer( uint32_t x ,uint32_t y,emOledDevNumTdf	emDevNum)
+{
+	uint16_t ii,jj,kk;
+	
+	//计算目标page
+	ii = y >> 3;
+	
+	//计算目标seg
+	jj = y & 0x07;
+	
+	//计算对应seg掩码
+	kk = 0x01 << jj;
+	
+	astOledDeviceParam[emDevNum].stRunningParam.aucOledBuffer[ii * OLED_BUFFER_WIDTH + x] |= kk;
+}
+
+///	@brief				向缓冲区指定位置清点
+///
+///	@param			x						:	x坐标
+///							y						:	y坐标
+///							emDevNum		:	设备编号
+///
+///	@note				
+void vOledClearOnePointToBuffer( uint32_t x ,uint32_t y,emOledDevNumTdf	emDevNum)
+{
+	uint16_t ii,jj,kk;
+	
+	//计算目标page
+	ii = y >> 3;
+	
+	//计算目标seg
+	jj = y & 0x07;
+	
+	//计算对应seg掩码
+	kk = 0x01 << jj;
+	
+	astOledDeviceParam[emDevNum].stRunningParam.aucOledBuffer[ii * OLED_BUFFER_WIDTH + x] &= ~kk;
+}
+
+///	@brief				向缓冲写入一个字符
+///
+///	@param			x						:	x坐标
+///							y						:	y坐标
+///							ucChar			:	显示的字符
+///							emFontSize		:	字号
+///							emMode			:	显示模式
+///							emDevNum		:	设备编号
+///
+///	@note				
+void vOledWriteOneCharToBuffer( uint32_t x ,uint32_t y,uint8_t ucChar,emOledFontSizeTdf emFontSize,emOledPixelShowModeTdf emMode,emOledDevNumTdf	emDevNum)
+{
+	uint16_t i,j;
+	uint16_t y0;
+	uint32_t ulsizeTemp,ulCharIndex;
+	uint8_t ucData;
+	const uint8_t *p;
+	
+	
+}
+
 ///	@brief				更新显存显示
 ///
 ///	@param			emDevNum		:	设备编号
@@ -213,7 +280,7 @@ void vOledCmdInit( emOledDevNumTdf	emDevNum)
 	s_vOledWriteOneByteCmd(0x8D,emDevNum);
 	s_vOledWriteOneByteCmd(0x14,emDevNum);
 	s_vOledWriteOneByteCmd(0xA4,emDevNum);
-	s_vOledWriteOneByteCmd(0xA7,emDevNum);
+	s_vOledWriteOneByteCmd(0xA6,emDevNum);
 	s_vOledWriteOneByteCmd(0xAF,emDevNum);
 }
 

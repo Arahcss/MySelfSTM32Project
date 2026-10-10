@@ -22,16 +22,28 @@ Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
 D:\zhuomian\32project\CubeMXTest\FreeRTOSLearn17_OLEDDeviceTest\MDK-ARM\FreeRTOSLearn17_OLEDDeviceTest.uvprojx
-Project File Date:  10/10/2026
+Project File Date:  10/11/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\32\ARM\ARMCC\Bin'
 Build target 'FreeRTOSLearn17_OLEDDeviceTest'
 compiling OLEDDevice.c...
-linking...
-Program Size: Code=14732 RO-data=452 RW-data=392 ZI-data=9968  
-FromELF: creating hex file...
-"FreeRTOSLearn17_OLEDDeviceTest\FreeRTOSLearn17_OLEDDeviceTest.axf" - 0 Error(s), 0 Warning(s).
+..\User\Device\OLEDDevice.c(221): error:  #20: identifier "uitn16_t" is undefined
+  	uitn16_t y0;
+..\User\Device\OLEDDevice.c(220): warning:  #177-D: variable "i"  was declared but never referenced
+  	uint16_t i,j;
+..\User\Device\OLEDDevice.c(220): warning:  #177-D: variable "j"  was declared but never referenced
+  	uint16_t i,j;
+..\User\Device\OLEDDevice.c(222): warning:  #177-D: variable "ulsizeTemp"  was declared but never referenced
+  	uint32_t ulsizeTemp,ulCharIndex;
+..\User\Device\OLEDDevice.c(222): warning:  #177-D: variable "ulCharIndex"  was declared but never referenced
+  	uint32_t ulsizeTemp,ulCharIndex;
+..\User\Device\OLEDDevice.c(223): warning:  #177-D: variable "ucData"  was declared but never referenced
+  	uint8_t ucData;
+..\User\Device\OLEDDevice.c(224): warning:  #177-D: variable "p"  was declared but never referenced
+  	const uint8_t *p;
+..\User\Device\OLEDDevice.c: 6 warnings, 1 error
+"FreeRTOSLearn17_OLEDDeviceTest\FreeRTOSLearn17_OLEDDeviceTest.axf" - 1 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,6 +66,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
+Target not created.
 Build Time Elapsed:  00:00:01
 </pre>
 </body>

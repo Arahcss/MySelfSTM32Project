@@ -14,14 +14,26 @@ typedef enum
 {
 	emOledDevNum0				=	0,
 	emOledDevNum1,
-	emOledDevNum2,
-	emOledDevNum3,
-	emOledDevNum4,
-	emOledDevNum5,
-	emOledDevNum6,
-	emOledDevNum7,
-	emOledDevNum8,
 }emOledDevNumTdf;
+
+///	@brief					字号枚举
+///
+///	@note
+typedef enum
+{
+	emOledFontSize_6x12				=	12,
+	emOledFontSize_6x16				=	16,
+	emOledFontSize_12x24				=	24,
+}emOledFontSizeTdf;
+
+///	@brief					像素显示模式枚举
+///
+///	@note
+typedef enum
+{
+	emOledPixelShowMode_Positive				=	0,
+	emOledPixelShowMode_Negative			=	1,
+}emOledPixelShowModeTdf;
 
 #define OLED_DEV_NUM				1
 #define OLED									emOledDevNum0
@@ -60,6 +72,8 @@ typedef struct
 
 void vOledDeviceInit(stOledStaticParamTdf *pstInit,emOledDevNumTdf emDevNum);
 void vOledRefreshFromBuffer( emOledDevNumTdf	emDevNum);
+void vOledClearOnePointToBuffer( uint32_t x ,uint32_t y,emOledDevNumTdf	emDevNum);
+void vOledDrawOnePointToBuffer( uint32_t x ,uint32_t y,emOledDevNumTdf	emDevNum);
 
 
 #endif
