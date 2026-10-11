@@ -1,4 +1,5 @@
-#include "OledDevice.h"
+#include "OLEDDevice.h"
+#include "OLEDFont.h"
 #include "string.h"
 
 stOledDeviceParamTdf	astOledDeviceParam[OLED_DEV_NUM];
@@ -219,11 +220,102 @@ void vOledWriteOneCharToBuffer( uint32_t x ,uint32_t y,uint8_t ucChar,emOledFont
 {
 	uint16_t i,j;
 	uint16_t y0;
-	uint32_t ulsizeTemp,ulCharIndex;
+	uint32_t ulSizeTemp,ulCharIndex;
 	uint8_t ucData;
 	const uint8_t *p;
 	
+	ulSizeTemp = ((emFontSize >> 3) + ((emFontSize & 0x07) ? 1 : 0)) * (emFontSize >> 1);
+
+	ulCharIndex = ucChar - ' ';
 	
+	 y0 = y;
+	
+	//匹配字模
+	if(emFontSize == emOledFontSize_6x12)
+	{
+		p = (const uint8_t *) c_a2ucOledFont_Ascii_1206;
+	}
+	else if(emFontSize == emOledFontSize_8x16)
+	{
+		p = (const uint8_t *) c_a2ucOledFont_Ascii_1608;
+	}
+	else if(emFontSize == emOledFontSize_12x24)
+	{
+		p = (const uint8_t *) c_a2ucOledFont_Ascii_2412;
+	}
+	else
+	{
+		return;
+	}
+	
+	for(i = 0 ;i < ulSizeTemp;i++)
+	{
+		ucData = p[ulCharIndex * ulSizeTemp + i];
+		
+		for(j=0 ; j < 8 ;j++)
+		{
+			if((ucData & 0x80) != 0)
+			{
+				if(emMode == emOledPixelShowMode_Positive)
+				{
+					vOledDrawOnePointToBuffer(x,y,emDevNum);
+				}
+				else
+				{
+					vOledClearOnePointToBuffer(x,y,emDevNum);
+				}
+			}
+			else
+			{
+				if(emMode ==  emOledPixelShowMode_Positive)
+				{
+					vOledClearOnePointToBuffer(x,y,emDevNum);
+				}
+				else
+				{
+					vOledDrawOnePointToBuffer(x,y,emDevNum);
+				}
+			}
+			
+			ucData <<= 1;
+			
+			y++;
+			if((y - y0) == (uint16_t)emFontSize)
+			{
+				y = y0;
+				x++;
+				break;
+			}
+		}
+	}
+}
+
+///	@brief				向缓冲写入字符串
+///
+///	@param			x						:	x坐标
+///							y						:	y坐标
+///							c_pucChar		:	显示的字符
+///							emFontSize		:	字号
+///							emMode			:	显示模式
+///							emDevNum		:	设备编号
+///
+///	@note			
+void vUiWirteStringToBuffer(uint16_t x ,uint16_t y,const uint8_t *c_pucChar,emOledFontSizeTdf emFontSize,emOledPixelShowModeTdf emMode,emOledDevNumTdf	emDevNum)
+{
+	while((*c_pucChar >= ' ')&&(*c_pucChar <= '~'))
+	{
+		vOledWriteOneCharToBuffer(x,y,*c_pucChar,emFontSize,emMode,emDevNum);
+		
+		x += emFontSize >> 1;
+		
+		if(x > (OLED_POINT_HEIGHT - emFontSize))
+		{
+			x = 0;
+			y += emFontSize;
+		}
+		
+		c_pucChar++;
+	}
 }
 
 ///	@brief				更新显存显示

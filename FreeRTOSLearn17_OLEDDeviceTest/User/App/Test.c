@@ -355,10 +355,8 @@ void vTaskExecute(void)
 	
 	t1 = HAL_GetTick();
 	
-	vOledDrawOnePointToBuffer(0,0,OLED);
-	vOledDrawOnePointToBuffer(1,0,OLED);
-	vOledDrawOnePointToBuffer(2,0,OLED);
-	vOledDrawOnePointToBuffer(3,0,OLED);
+	vUiWirteStringToBuffer(0,0,(uint8_t *)"AKFJWAJOFSJAOOFJOW",emOledFontSize_8x16,emOledPixelShowMode_Positive,OLED);
+	
 	
 	vOledRefreshFromBuffer(OLED);
 	
