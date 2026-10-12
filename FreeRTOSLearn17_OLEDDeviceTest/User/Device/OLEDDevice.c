@@ -11,9 +11,13 @@ stOledDeviceParamTdf	astOledDeviceParam[OLED_DEV_NUM];
 ///	@note				
 static void s_vOledSdaSet(emOledDevNumTdf	emDevNum)
 {
-	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSdaGpioBase,
-										astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin,
-										GPIO_PIN_SET);
+//	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSdaGpioBase,
+//										astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin,
+//										GPIO_PIN_SET);
+	
+		//直接调用寄存器
+	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase->BSRR = astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin;
+//	__NOP();
 }
 
 ///	@brief				SDA引脚置低
@@ -23,9 +27,13 @@ static void s_vOledSdaSet(emOledDevNumTdf	emDevNum)
 ///	@note				
 static void s_vOledSdaReset(emOledDevNumTdf	emDevNum)
 {
-	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSdaGpioBase,
-										astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin,
-										GPIO_PIN_RESET);
+//	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSdaGpioBase,
+//										astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin,
+//										GPIO_PIN_RESET);
+	
+		//直接调用寄存器
+	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase->BSRR = (uint32_t)astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin << 16u;
+//	__NOP();
 }
 
 ///	@brief				SCL引脚置高
@@ -35,9 +43,13 @@ static void s_vOledSdaReset(emOledDevNumTdf	emDevNum)
 ///	@note				
 static void s_vOledSclSet(emOledDevNumTdf	emDevNum)
 {
-	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase,
-										astOledDeviceParam[emDevNum].stStaticParam.usSclGpioPin,
-										GPIO_PIN_SET);
+//	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase,
+//										astOledDeviceParam[emDevNum].stStaticParam.usSclGpioPin,
+//										GPIO_PIN_SET);
+	
+	//直接调用寄存器
+	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase->BSRR = astOledDeviceParam[emDevNum].stStaticParam.usSclGpioPin;
+//	__NOP();
 }
 
 ///	@brief				SCL引脚置低
@@ -47,9 +59,13 @@ static void s_vOledSclSet(emOledDevNumTdf	emDevNum)
 ///	@note				
 static void s_vOledSclReset(emOledDevNumTdf	emDevNum)
 {
-	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase,
-										astOledDeviceParam[emDevNum].stStaticParam.usSclGpioPin,
-										GPIO_PIN_RESET);
+//	HAL_GPIO_WritePin(	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase,
+//										astOledDeviceParam[emDevNum].stStaticParam.usSclGpioPin,
+//										GPIO_PIN_RESET);
+	
+			//直接调用寄存器
+	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase->BSRR = (uint32_t)astOledDeviceParam[emDevNum].stStaticParam.usSclGpioPin << 16u;
+//	__NOP();
 }
 
 ///	@brief				IIC起始

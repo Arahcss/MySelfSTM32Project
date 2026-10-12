@@ -351,16 +351,26 @@ void vCmdInterpreterExecuteCallback_Dht11Read(char **p2cString)
 ///	@note				实现测试功能
 void vTaskExecute(void)
 {
-	static volatile uint32_t t1,t2;
+	static volatile uint32_t t1,t2,t3;
+	static uint8_t ch = 'a';
 	
 	t1 = HAL_GetTick();
 	
-	vUiWirteStringToBuffer(0,0,(uint8_t *)"AKFJWAJOFSJAOOFJOW",emOledFontSize_8x16,emOledPixelShowMode_Positive,OLED);
+	vOledWriteOneCharToBuffer(30,30,ch,emOledFontSize_12x24,emOledPixelShowMode_Negative,OLED);
 	
+	ch++;
+	if(ch>'z')
+	{
+		ch = 'a';
+	}
+	
+	vUiWirteStringToBuffer(0,0,(uint8_t *)"AOFHIEOAFSQOWJFIW",emOledFontSize_8x16,emOledPixelShowMode_Positive,OLED);
+	
+	t2 = HAL_GetTick();
 	
 	vOledRefreshFromBuffer(OLED);
 	
-	t2 = HAL_GetTick();
+	t3 = HAL_GetTick();
 }
 
 
