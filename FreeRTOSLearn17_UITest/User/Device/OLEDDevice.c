@@ -16,7 +16,7 @@ static void s_vOledSdaSet(emOledDevNumTdf	emDevNum)
 //										GPIO_PIN_SET);
 	
 		//直接调用寄存器
-	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase->BSRR = astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin;
+	astOledDeviceParam[emDevNum].stStaticParam.pstSdaGpioBase->BSRR = astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin;
 //	__NOP();
 }
 
@@ -32,7 +32,7 @@ static void s_vOledSdaReset(emOledDevNumTdf	emDevNum)
 //										GPIO_PIN_RESET);
 	
 		//直接调用寄存器
-	astOledDeviceParam[emDevNum].stStaticParam.pstSclGpioBase->BSRR = (uint32_t)astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin << 16u;
+	astOledDeviceParam[emDevNum].stStaticParam.pstSdaGpioBase->BSRR = (uint32_t)astOledDeviceParam[emDevNum].stStaticParam.usSdaGpioPin << 16u;
 //	__NOP();
 }
 

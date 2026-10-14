@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\User\Device;..\User\Task;..\User</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../User/Device;../User/Task;../User</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -394,6 +394,28 @@
         </Group>
         <Group>
           <GroupName>User/Device</GroupName>
+          <Files>
+            <File>
+              <FileName>OLEDDevice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\OLEDDevice.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLEDDevice.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Device\OLEDDevice.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLEDFont.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\OLEDFont.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLEDFont.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Device\OLEDFont.h</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Application/MDK-ARM</GroupName>
@@ -408,6 +430,11 @@
         <Group>
           <GroupName>Application/User/Core</GroupName>
           <Files>
+            <File>
+              <FileName>Porject_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Porject_Config.h</FilePath>
+            </File>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
@@ -427,11 +454,6 @@
               <FileName>stm32f1xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f1xx_hal_msp.c</FilePath>
-            </File>
-            <File>
-              <FileName>Porject_Config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\User\Porject_Config.h</FilePath>
             </File>
           </Files>
         </Group>

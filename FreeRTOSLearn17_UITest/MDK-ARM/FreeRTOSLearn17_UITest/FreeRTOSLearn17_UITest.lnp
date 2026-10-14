@@ -1,5 +1,7 @@
 --cpu Cortex-M3
 "freertoslearn17_uitest\ui_task.o"
+"freertoslearn17_uitest\oleddevice.o"
+"freertoslearn17_uitest\oledfont.o"
 "freertoslearn17_uitest\startup_stm32f103xb.o"
 "freertoslearn17_uitest\main.o"
 "freertoslearn17_uitest\freertos.o"
