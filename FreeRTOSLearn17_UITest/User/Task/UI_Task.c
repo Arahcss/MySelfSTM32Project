@@ -15,7 +15,7 @@ typedef struct
 }stSingleLineTestTdf;
 
 static uint8_t	s_aucHello[]		=	"Hello World";
-static uint8_t	s_aucLetter[]		=	"ABCD";
+static uint8_t	s_aucLetter[]		=	"EFGH";
 static uint8_t	s_aucNumber[]	=	"1234";
 
 ///	@brief			[Hellow]单行文本
@@ -35,7 +35,7 @@ static stSingleLineTestTdf s_stSingleLineTest_Hello	=
 static stSingleLineTestTdf s_stSingleLineTest_Letter	=
 {
 	.x					=	0,
-	.y					=	0,
+	.y					=	20,
 	.ucData		=	s_aucLetter,
 	.emFontSize	=	emOledFontSize_6x12,
 };
@@ -46,7 +46,7 @@ static stSingleLineTestTdf s_stSingleLineTest_Letter	=
 static stSingleLineTestTdf s_stSingleLineTest_Number	=
 {
 	.x					=	20,
-	.y					=	0,
+	.y					=	40,
 	.ucData		=	s_aucNumber,
 	.emFontSize	=	emOledFontSize_12x24,
 };

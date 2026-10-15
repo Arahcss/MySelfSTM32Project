@@ -324,7 +324,7 @@ void vUiWirteStringToBuffer(uint16_t x ,uint16_t y,const uint8_t *c_pucChar,emOl
 		
 		x += emFontSize >> 1;
 		
-		if(x > (OLED_POINT_HEIGHT - emFontSize))
+		if(x > (OLED_POINT_WIDTH - emFontSize))
 		{
 			x = 0;
 			y += emFontSize;
