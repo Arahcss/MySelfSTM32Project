@@ -11,7 +11,7 @@ freertoslearn18_buttonuitest\ui_task.o: ../Middlewares/Third_Party/FreeRTOS/Sour
 freertoslearn18_buttonuitest\ui_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 freertoslearn18_buttonuitest\ui_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 freertoslearn18_buttonuitest\ui_task.o: ..\User\Task\UI_Task.h
-freertoslearn18_buttonuitest\ui_task.o: ..\User\Device\OLEDDevice.h
+freertoslearn18_buttonuitest\ui_task.o: ../User/Device/OLEDDevice.h
 freertoslearn18_buttonuitest\ui_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 freertoslearn18_buttonuitest\ui_task.o: ../Core/Inc/stm32f1xx_hal_conf.h
 freertoslearn18_buttonuitest\ui_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -36,3 +36,4 @@ freertoslearn18_buttonuitest\ui_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm3
 freertoslearn18_buttonuitest\ui_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 freertoslearn18_buttonuitest\ui_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 freertoslearn18_buttonuitest\ui_task.o: D:\32\ARM\ARMCC\Bin\..\include\math.h
+freertoslearn18_buttonuitest\ui_task.o: D:\32\ARM\ARMCC\Bin\..\include\string.h

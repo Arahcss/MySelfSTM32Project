@@ -2,6 +2,7 @@
 #include "task.h"
 #include "UI_Task.h"
 #include "OLEDDevice.h"
+#include "string.h"
 
 ///	@brief			[单行文本]数据结构
 ///
@@ -14,7 +15,10 @@ typedef struct
 	emOledFontSizeTdf		emFontSize;
 }stSingleLineTestTdf;
 
-static uint8_t	s_aucLed0[]		=	"Led0";
+static uint8_t	s_aucLed0[]			=	"Led0";
+static uint8_t	s_aucOn[]			=	"ON";
+static uint8_t	s_aucOff[]			=	"OFF";
+static uint8_t	s_aucToggle[]		=	"TOGGLE";
 
 ///	@brief			[Led0]单行文本
 ///
@@ -85,12 +89,44 @@ static stButtonTdf s_sButton_On =
 ///	@brief			[OFF]按钮
 ///
 ///	@note
-static stButtonTdf s_sButton_Off;
+static stButtonTdf s_sButton_Off	=
+{
+	.x												=	80,
+	.y												=	1.2	*	emOledFontSize_8x16,
+	.ucData									=	s_aucOff,
+	.emFontSize								=	emOledFontSize_8x16,
+	.emSelectedStatus					=	emButtonSelectStatus_IsNotSelected,
+	.emPressStatus							=	emButtonPressStatus_IsNotPressed,
+	.ulPressedCount						=	0,
+	.ulPressedCountThreshold		=	5,
+	.vpCallback								=	0,
+};
 
 ///	@brief			[TOGGLE]按钮
 ///
 ///	@note
-static stButtonTdf s_sButton_Toggle;
+static stButtonTdf s_sButton_Toggle	=
+{
+	.x												=	20,
+	.y												=	2.5	*	emOledFontSize_8x16,
+	.ucData									=	s_aucToggle,
+	.emFontSize								=	emOledFontSize_8x16,
+	.emSelectedStatus					=	emButtonSelectStatus_IsNotSelected,
+	.emPressStatus							=	emButtonPressStatus_IsNotPressed,
+	.ulPressedCount						=	0,
+	.ulPressedCountThreshold		=	5,
+	.vpCallback								=	0,
+};
+
+///	@brief			按钮指针数组
+///
+///	@note
+static stButtonTdf *s_apstButton[]	=
+{
+	&s_sButton_On,
+	&s_sButton_Off,
+	&s_sButton_Toggle,
+};
 
 ///	@brief			OLED初始化
 ///
@@ -115,19 +151,76 @@ static stSingleLineTestTdf	*s_apstSingleLineTest[]	=
 	&s_stSingleLineTest_Led0,
 };
 
-void vTest()
+///	@brief			显示所有单行文本
+///
+///	@note
+void vShowSingleLineTextAll()
 {
 	uint32_t i;
 	
 	for(i = 0;i < sizeof(s_apstSingleLineTest) / sizeof(s_apstSingleLineTest[0]);i++)
 	{
-		vUiWirteStringToBuffer(s_apstSingleLineTest[i] -> x,
+		vOledWirteStringToBuffer(s_apstSingleLineTest[i] -> x,
 												s_apstSingleLineTest[i] -> y,
 												s_apstSingleLineTest[i] -> ucData,
 												s_apstSingleLineTest[i] -> emFontSize,
 												emOledPixelShowMode_Positive,
 												OLED);
 	}
+	
+	vOledRefreshFromBuffer(OLED);
+}
+
+///	@brief			显示所有按钮
+///
+///	@note
+void vShowButtonAll()
+{
+	uint32_t i;
+	
+	for(i = 0;i < sizeof(s_apstButton) / sizeof(s_apstButton[0]);i++)
+	{
+		if(s_apstButton[i] -> emPressStatus == emButtonPressStatus_IsNotPressed)
+		{
+			vOledWirteStringToBuffer(s_apstButton[i] -> x,
+												s_apstButton[i] -> y,
+												s_apstButton[i] -> ucData,
+												s_apstButton[i] -> emFontSize,
+												emOledPixelShowMode_Positive,
+												OLED);
+		}
+		else
+		{
+			vOledWirteStringToBuffer(s_apstButton[i] -> x,
+												s_apstButton[i] -> y,
+												s_apstButton[i] -> ucData,
+												s_apstButton[i] -> emFontSize,
+												emOledPixelShowMode_Negative,
+												OLED);
+		}
+		
+		//选中的按键上方加虚线
+		if(s_apstButton[i]->emSelectedStatus == emButtonSelectStatus_IsSelected)
+		{
+			vOledDrawDotLine(s_apstButton[i]->x,
+											s_apstButton[i]->y,
+											strlen((char*)s_apstButton[i]-> ucData) * s_apstButton[i]->emFontSize / 2,
+											OLED);
+		}
+		
+		//底部加虚线
+		vOledDrawDotLine(s_apstButton[i]->x,
+											s_apstButton[i]->y + s_apstButton[i]->emFontSize,
+											strlen((char*)s_apstButton[i]-> ucData) * s_apstButton[i]->emFontSize / 2,
+											OLED);
+	}
+}
+
+void vTest()
+{
+	uint32_t i;
+	vShowSingleLineTextAll();
+	vShowButtonAll();
 	
 	vOledRefreshFromBuffer(OLED);
 }

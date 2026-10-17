@@ -316,7 +316,7 @@ void vOledWriteOneCharToBuffer( uint32_t x ,uint32_t y,uint8_t ucChar,emOledFont
 ///							emDevNum		:	设备编号
 ///
 ///	@note			
-void vUiWirteStringToBuffer(uint16_t x ,uint16_t y,const uint8_t *c_pucChar,emOledFontSizeTdf emFontSize,emOledPixelShowModeTdf emMode,emOledDevNumTdf	emDevNum)
+void vOledWirteStringToBuffer(uint16_t x ,uint16_t y,const uint8_t *c_pucChar,emOledFontSizeTdf emFontSize,emOledPixelShowModeTdf emMode,emOledDevNumTdf	emDevNum)
 {
 	while((*c_pucChar >= ' ')&&(*c_pucChar <= '~'))
 	{
@@ -331,6 +331,29 @@ void vUiWirteStringToBuffer(uint16_t x ,uint16_t y,const uint8_t *c_pucChar,emOl
 		}
 		
 		c_pucChar++;
+	}
+}
+
+///	@brief				写一条水平的虚线入缓存
+///
+///	@param			x						:	x坐标
+///							y						:	y坐标
+///							ulLength			:	显示的字符
+///							emDevNum		:	字号
+void vOledDrawDotLine(uint16_t x ,uint16_t y,uint32_t ulLength ,emOledDevNumTdf	emDevNum)
+{
+	uint32_t i;
+	
+	for(i = 0; i < ulLength ; i++)
+	{
+		if((i & 0x01) == 0)
+		{
+			vOledDrawOnePointToBuffer(x + i,y,emDevNum);
+		}
+		else
+		{
+			vOledClearOnePointToBuffer(x + i,y,emDevNum);
+		}
 	}
 }
 
