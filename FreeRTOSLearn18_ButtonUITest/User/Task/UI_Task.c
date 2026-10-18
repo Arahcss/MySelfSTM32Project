@@ -54,6 +54,15 @@ typedef enum
 	emButtonPressStatus_IsPressed				=	1,
 }emButtonPressStatusTdf;
 
+///	@brief			按钮触发状态
+///
+///	@note
+typedef enum
+{
+	emButtonTriggerStatus_IsNotTriggered	=	0,
+	emButtonTriggerStatus_IsTriggered		=	1,
+}emButtonTriggerStatusTdf;
+
 ///	@brief			[按钮]数据结构
 ///
 ///	@note
@@ -64,7 +73,8 @@ typedef struct
 	uint8_t									*ucData;
 	emOledFontSizeTdf					emFontSize;
 	emButtonSelectStatusTdf			emSelectedStatus;
-	emButtonPressStatusTdf			emPressStatus;
+	emButtonPressStatusTdf			emPressStatusCurrent;
+	emButtonPressStatusTdf 			emPressStatusLast;
 	uint32_t									ulPressedCount;
 	uint32_t									ulPressedCountThreshold;
 	vfButtonCallbackTdf				*vpCallback;
@@ -73,14 +83,15 @@ typedef struct
 ///	@brief			[ON]按钮
 ///
 ///	@note
-static stButtonTdf s_sButton_On = 
+static stButtonTdf s_stButton_On = 
 {
 	.x												=	20,
 	.y												=	1.2	*	emOledFontSize_8x16,
 	.ucData									=	s_aucOn,
 	.emFontSize								=	emOledFontSize_8x16,
 	.emSelectedStatus					=	emButtonSelectStatus_IsSelected,
-	.emPressStatus							=	emButtonPressStatus_IsNotPressed,
+	.emPressStatusCurrent			=	emButtonPressStatus_IsNotPressed,
+	.emPressStatusLast					=	emButtonPressStatus_IsNotPressed,
 	.ulPressedCount						=	0,
 	.ulPressedCountThreshold		=	5,
 	.vpCallback								=	0,
@@ -96,7 +107,8 @@ static stButtonTdf s_sButton_Off	=
 	.ucData									=	s_aucOff,
 	.emFontSize								=	emOledFontSize_8x16,
 	.emSelectedStatus					=	emButtonSelectStatus_IsNotSelected,
-	.emPressStatus							=	emButtonPressStatus_IsNotPressed,
+	.emPressStatusCurrent			=	emButtonPressStatus_IsNotPressed,
+	.emPressStatusLast					=	emButtonPressStatus_IsNotPressed,
 	.ulPressedCount						=	0,
 	.ulPressedCountThreshold		=	5,
 	.vpCallback								=	0,
@@ -112,7 +124,8 @@ static stButtonTdf s_sButton_Toggle	=
 	.ucData									=	s_aucToggle,
 	.emFontSize								=	emOledFontSize_8x16,
 	.emSelectedStatus					=	emButtonSelectStatus_IsNotSelected,
-	.emPressStatus							=	emButtonPressStatus_IsNotPressed,
+	.emPressStatusCurrent			=	emButtonPressStatus_IsNotPressed,
+	.emPressStatusLast					=	emButtonPressStatus_IsNotPressed,
 	.ulPressedCount						=	0,
 	.ulPressedCountThreshold		=	5,
 	.vpCallback								=	0,
@@ -123,7 +136,7 @@ static stButtonTdf s_sButton_Toggle	=
 ///	@note
 static stButtonTdf *s_apstButton[]	=
 {
-	&s_sButton_On,
+	&s_stButton_On,
 	&s_sButton_Off,
 	&s_sButton_Toggle,
 };
@@ -180,7 +193,7 @@ void vShowButtonAll()
 	
 	for(i = 0;i < sizeof(s_apstButton) / sizeof(s_apstButton[0]);i++)
 	{
-		if(s_apstButton[i] -> emPressStatus == emButtonPressStatus_IsNotPressed)
+		if(s_apstButton[i] -> emPressStatusCurrent == emButtonPressStatus_IsNotPressed)
 		{
 			vOledWirteStringToBuffer(s_apstButton[i] -> x,
 												s_apstButton[i] -> y,
@@ -216,11 +229,51 @@ void vShowButtonAll()
 	}
 }
 
+///	@brief			按钮触发状态扫描
+///
+///	@note
+emButtonTriggerStatusTdf emButtonTriggerStatusScan(stButtonTdf *pstButton)
+{
+	emButtonTriggerStatusTdf emTriggerStatus = emButtonTriggerStatus_IsNotTriggered;
+	//判断是否触发
+	if((pstButton->emPressStatusCurrent == emButtonPressStatus_IsPressed) && 
+			(pstButton->emPressStatusLast == emButtonPressStatus_IsNotPressed))
+	{
+		emTriggerStatus = emButtonTriggerStatus_IsTriggered;
+		pstButton->ulPressedCount	= 0;
+	}
+	
+	//判断按下时间,超过阈值按下状态复位
+	pstButton->ulPressedCount++;
+	if(pstButton->ulPressedCount > pstButton->ulPressedCountThreshold)
+	{
+		pstButton->ulPressedCount = 0;
+		pstButton->emPressStatusCurrent = emButtonPressStatus_IsNotPressed;
+	}
+	
+	 pstButton->emPressStatusLast = pstButton->emPressStatusCurrent;
+	
+	return emTriggerStatus;
+}
+
+///	@brief			[ON]按钮回调
+///
+///	@note
+void vButtonCallback_On()
+{
+	if(emButtonTriggerStatusScan(&s_stButton_On) == emButtonTriggerStatus_IsTriggered)
+	{
+		
+	}
+}
+
 void vTest()
 {
 	uint32_t i;
 	vShowSingleLineTextAll();
 	vShowButtonAll();
+	
+	vButtonCallback_On();
 	
 	vOledRefreshFromBuffer(OLED);
 }

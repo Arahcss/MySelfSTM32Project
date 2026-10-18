@@ -27,7 +27,14 @@ Project File Date:  10/18/2026
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\32\ARM\ARMCC\Bin'
 Build target 'FreeRTOSLearn18_ButtonUITest'
-"FreeRTOSLearn18_ButtonUITest\FreeRTOSLearn18_ButtonUITest.axf" - 0 Error(s), 0 Warning(s).
+compiling UI_Task.c...
+..\User\Task\UI_Task.c(272): warning:  #177-D: variable "i"  was declared but never referenced
+  	uint32_t i;
+..\User\Task\UI_Task.c: 1 warning, 0 errors
+linking...
+Program Size: Code=10200 RO-data=6428 RW-data=284 ZI-data=8420  
+FromELF: creating hex file...
+"FreeRTOSLearn18_ButtonUITest\FreeRTOSLearn18_ButtonUITest.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -50,7 +57,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
