@@ -415,6 +415,26 @@
               <FileType>5</FileType>
               <FilePath>..\User\Device\OLEDFont.h</FilePath>
             </File>
+            <File>
+              <FileName>LedDevice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\LedDevice.c</FilePath>
+            </File>
+            <File>
+              <FileName>LedDevice.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Device\LedDevice.h</FilePath>
+            </File>
+            <File>
+              <FileName>button_device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\button_device.c</FilePath>
+            </File>
+            <File>
+              <FileName>button_device.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Device\button_device.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -449,6 +469,11 @@
               <FileName>stm32f1xx_hal_msp.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f1xx_hal_msp.c</FilePath>
+            </File>
+            <File>
+              <FileName>Project_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\Project_Config.h</FilePath>
             </File>
           </Files>
         </Group>

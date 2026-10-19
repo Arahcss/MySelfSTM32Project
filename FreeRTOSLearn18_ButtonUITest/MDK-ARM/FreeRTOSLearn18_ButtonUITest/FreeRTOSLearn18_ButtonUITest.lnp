@@ -2,6 +2,8 @@
 "freertoslearn18_buttonuitest\ui_task.o"
 "freertoslearn18_buttonuitest\oleddevice.o"
 "freertoslearn18_buttonuitest\oledfont.o"
+"freertoslearn18_buttonuitest\leddevice.o"
+"freertoslearn18_buttonuitest\button_device.o"
 "freertoslearn18_buttonuitest\startup_stm32f103xb.o"
 "freertoslearn18_buttonuitest\main.o"
 "freertoslearn18_buttonuitest\freertos.o"

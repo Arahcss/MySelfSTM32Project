@@ -2,7 +2,13 @@
 #include "task.h"
 #include "UI_Task.h"
 #include "OLEDDevice.h"
+#include "LedDevice.h"
+#include "button_device.h"
 #include "string.h"
+
+void vButtonCallback_On(void);
+void vButtonCallback_Off(void);
+void vButtonCallback_Toggle(void);
 
 ///	@brief			[单行文本]数据结构
 ///
@@ -77,7 +83,7 @@ typedef struct
 	emButtonPressStatusTdf 			emPressStatusLast;
 	uint32_t									ulPressedCount;
 	uint32_t									ulPressedCountThreshold;
-	vfButtonCallbackTdf				*vpCallback;
+	vfButtonCallbackTdf				*vpfCallback;
 }stButtonTdf;
 
 ///	@brief			[ON]按钮
@@ -94,13 +100,13 @@ static stButtonTdf s_stButton_On =
 	.emPressStatusLast					=	emButtonPressStatus_IsNotPressed,
 	.ulPressedCount						=	0,
 	.ulPressedCountThreshold		=	5,
-	.vpCallback								=	0,
+	.vpfCallback								=	vButtonCallback_On,
 };
 
 ///	@brief			[OFF]按钮
 ///
 ///	@note
-static stButtonTdf s_sButton_Off	=
+static stButtonTdf s_stButton_Off	=
 {
 	.x												=	80,
 	.y												=	1.2	*	emOledFontSize_8x16,
@@ -111,13 +117,13 @@ static stButtonTdf s_sButton_Off	=
 	.emPressStatusLast					=	emButtonPressStatus_IsNotPressed,
 	.ulPressedCount						=	0,
 	.ulPressedCountThreshold		=	5,
-	.vpCallback								=	0,
+	.vpfCallback								=	vButtonCallback_Off,
 };
 
 ///	@brief			[TOGGLE]按钮
 ///
 ///	@note
-static stButtonTdf s_sButton_Toggle	=
+static stButtonTdf s_stButton_Toggle	=
 {
 	.x												=	20,
 	.y												=	2.5	*	emOledFontSize_8x16,
@@ -128,7 +134,7 @@ static stButtonTdf s_sButton_Toggle	=
 	.emPressStatusLast					=	emButtonPressStatus_IsNotPressed,
 	.ulPressedCount						=	0,
 	.ulPressedCountThreshold		=	5,
-	.vpCallback								=	0,
+	.vpfCallback								=	vButtonCallback_Toggle,
 };
 
 ///	@brief			按钮指针数组
@@ -137,9 +143,23 @@ static stButtonTdf s_sButton_Toggle	=
 static stButtonTdf *s_apstButton[]	=
 {
 	&s_stButton_On,
-	&s_sButton_Off,
-	&s_sButton_Toggle,
+	&s_stButton_Off,
+	&s_stButton_Toggle,
 };
+
+///	@brief			LED初始化
+///
+///	@note
+void vLedInit()
+{
+	stLedStaticParamTdf stInit;
+	
+	stInit.pstGpioBase		=	GPIOC;
+	stInit.usGpioPin			=	GPIO_PIN_13;
+	stInit.emOnLevel			=	emLedOnLevel_Low;
+	
+	vLedDeviceInit(&stInit,LED_BOARD);
+}
 
 ///	@brief			OLED初始化
 ///
@@ -154,6 +174,50 @@ void vOledInit()
 	stInit.usSdaGpioPin	 	=	GPIO_PIN_9;
 	
 	vOledDeviceInit(&stInit,OLED);
+}
+
+///	@brief			BUTTON初始化
+///
+///	@note
+void vButtonInit()
+{
+	stBtnStaticParamTdf stInit;
+	
+	stInit.pstGpioBase		=	GPIOA;
+	stInit.usGpioPin			=	GPIO_PIN_1;
+	stInit.emActiveLevel			=	emBtnActiveLevel_High;
+	stInit.ulDebounceCountThreshold	=	2;
+	stInit.ulDoubleClickInterval			=	0;
+	stInit.ulLongPressCountThreshold	=	1000000;
+	
+	emBtnDeviceInit(&stInit,BUTTON_UP);
+	
+	stInit.pstGpioBase		=	GPIOA;
+	stInit.usGpioPin			=	GPIO_PIN_0;
+	stInit.emActiveLevel			=	emBtnActiveLevel_Low;
+	stInit.ulDebounceCountThreshold	=	2;
+	stInit.ulDoubleClickInterval			=	0;
+	stInit.ulLongPressCountThreshold	=	1000000;
+	
+	emBtnDeviceInit(&stInit,BUTTON_DOWN);
+	
+	stInit.pstGpioBase		=	GPIOC;
+	stInit.usGpioPin			=	GPIO_PIN_15;
+	stInit.emActiveLevel			=	emBtnActiveLevel_Low;
+	stInit.ulDebounceCountThreshold	=	2;
+	stInit.ulDoubleClickInterval			=	0;
+	stInit.ulLongPressCountThreshold	=	1000000;
+	
+	emBtnDeviceInit(&stInit,BUTTON_ENTER);
+	
+	stInit.pstGpioBase		=	GPIOC;
+	stInit.usGpioPin			=	GPIO_PIN_14;
+	stInit.emActiveLevel			=	emBtnActiveLevel_Low;
+	stInit.ulDebounceCountThreshold	=	2;
+	stInit.ulDoubleClickInterval			=	0;
+	stInit.ulLongPressCountThreshold	=	1000000;
+	
+	emBtnDeviceInit(&stInit,BUTTON_CANCEL);
 }
 
 ///	@brief			单行文本指针数组
@@ -263,17 +327,111 @@ void vButtonCallback_On()
 {
 	if(emButtonTriggerStatusScan(&s_stButton_On) == emButtonTriggerStatus_IsTriggered)
 	{
-		
+		vLedOn(LED_BOARD);
 	}
+}
+
+///	@brief			[OFF]按钮回调
+///
+///	@note
+void vButtonCallback_Off()
+{
+	if(emButtonTriggerStatusScan(&s_stButton_Off) == emButtonTriggerStatus_IsTriggered)
+	{
+		vLedOFF(LED_BOARD);
+	}
+}
+
+///	@brief			[TOGGLE]按钮回调
+///
+///	@note
+void vButtonCallback_Toggle()
+{
+	if(emButtonTriggerStatusScan(&s_stButton_Toggle) == emButtonTriggerStatus_IsTriggered)
+	{
+		vLedToggle(LED_BOARD);
+	}
+}
+
+///	@brief			执行所有按钮的回调函数
+///
+///	@note
+void vButtonCallbackExecuteAll()
+{
+	uint32_t i;
+	
+	for(i=0; i< sizeof(s_apstButton) / sizeof(s_apstButton[0]);i++)
+	{
+		if(s_apstButton[i]->vpfCallback == 0)
+		{
+			continue;
+		}
+		
+		s_apstButton[i] -> vpfCallback();
+	}
+}
+
+///	@brief			执行所有物理按键的行为
+///
+///	@note
+void vPhyButtonExecuteAll()
+{
+	uint8_t i;
+	static uint8_t s_ucSelectIndex	=	0;
+	
+	for(i = 0; i < BTN_DEV_NUM;i++)
+	{
+		vBtnExecute((emBtnDevNumTdf)i);
+	}
+	
+	//按键UP
+	if(emBtnGetEvent(BUTTON_UP) == emBtnEvent_Click)
+	{
+		vBtnClearEvent(BUTTON_UP);
+		
+		s_apstButton[s_ucSelectIndex]->emSelectedStatus = emButtonSelectStatus_IsNotSelected;
+		
+		s_ucSelectIndex--;
+		if(s_ucSelectIndex > (sizeof(s_apstButton) / sizeof(s_apstButton[0])-1))
+		{
+			s_ucSelectIndex = (sizeof(s_apstButton) / sizeof(s_apstButton[0])-1);
+		}
+		s_apstButton[s_ucSelectIndex]-> emSelectedStatus = emButtonSelectStatus_IsSelected;
+	}
+	
+	//按键DOWN
+	if(emBtnGetEvent(BUTTON_DOWN) == emBtnEvent_Click)
+	{
+		vBtnClearEvent(BUTTON_DOWN);
+		
+		s_apstButton[s_ucSelectIndex]->emSelectedStatus = emButtonSelectStatus_IsNotSelected;
+		
+		s_ucSelectIndex++;
+		if(s_ucSelectIndex > (sizeof(s_apstButton) / sizeof(s_apstButton[0])-1))
+		{
+			s_ucSelectIndex = 0;
+		}
+		s_apstButton[s_ucSelectIndex]-> emSelectedStatus = emButtonSelectStatus_IsSelected;
+	}
+	
+	//按键ENTER
+	if(emBtnGetEvent(BUTTON_ENTER) == emBtnEvent_Click)
+	{
+		vBtnClearEvent(BUTTON_ENTER);
+
+		s_apstButton[s_ucSelectIndex]-> emSelectedStatus = emButtonSelectStatus_IsSelected;
+	}
+	
 }
 
 void vTest()
 {
-	uint32_t i;
 	vShowSingleLineTextAll();
 	vShowButtonAll();
 	
-	vButtonCallback_On();
+	vButtonCallbackExecuteAll();
+	
+	vPhyButtonExecuteAll();
 	
 	vOledRefreshFromBuffer(OLED);
 }
@@ -285,6 +443,8 @@ void vTest()
 void vUITask()
 {
 	vOledInit();
+	vLedInit();
+	vButtonInit();
 	
 	while(1)
 	{
