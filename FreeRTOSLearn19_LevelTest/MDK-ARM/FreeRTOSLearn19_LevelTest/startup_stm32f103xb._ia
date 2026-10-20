@@ -1,0 +1,6 @@
+--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include
+-I.\RTE\_FreeRTOSLearn19_LevelTest
+-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"
+--list startup_stm32f103xb.lst --xref -o freertoslearn19_leveltest\startup_stm32f103xb.o --depend freertoslearn19_leveltest\startup_stm32f103xb.d "startup_stm32f103xb.s"

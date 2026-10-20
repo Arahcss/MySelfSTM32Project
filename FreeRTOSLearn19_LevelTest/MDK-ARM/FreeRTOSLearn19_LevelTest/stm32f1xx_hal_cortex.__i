@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\User -I ..\User\Device -I ..\User\Operation -I ..\User\Task -I ..\User\UiCore -I ..\User\UiPage
+-I.\RTE\_FreeRTOSLearn19_LevelTest
+-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB
+-o freertoslearn19_leveltest\stm32f1xx_hal_cortex.o --omf_browse freertoslearn19_leveltest\stm32f1xx_hal_cortex.crf --depend freertoslearn19_leveltest\stm32f1xx_hal_cortex.d "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c"
