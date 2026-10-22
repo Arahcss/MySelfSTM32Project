@@ -27,7 +27,6 @@ void vUITask()
 	while(1)
 	{
 		vTest();
-		
 		vTaskDelay(1);
 	}
 }
