@@ -1,0 +1,12 @@
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
+freertoslearn13_dht11devicetest\list.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn13_dht11devicetest\list.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn13_dht11devicetest\list.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn13_dht11devicetest\list.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn13_dht11devicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

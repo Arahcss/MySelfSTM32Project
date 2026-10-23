@@ -1,0 +1,12 @@
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn9_aidevicetest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn9_aidevicetest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn9_aidevicetest\port.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn9_aidevicetest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

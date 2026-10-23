@@ -1,0 +1,15 @@
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c
+freertoslearn16_commandinterpretertest\event_groups.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn16_commandinterpretertest\event_groups.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn16_commandinterpretertest\event_groups.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+freertoslearn16_commandinterpretertest\event_groups.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h

@@ -1,0 +1,16 @@
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+freertoslearn7_semaphoretest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn7_semaphoretest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn7_semaphoretest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn7_semaphoretest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn7_semaphoretest\tasks.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+freertoslearn7_semaphoretest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h

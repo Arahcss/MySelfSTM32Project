@@ -1,0 +1,12 @@
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/list.c
+freertoslearn10_leddevicetest\list.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn10_leddevicetest\list.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn10_leddevicetest\list.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn10_leddevicetest\list.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn10_leddevicetest\list.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

@@ -1,0 +1,67 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: jk admin, yg, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.24.1
+Toolchain Path:  D:\32\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
+Dialog DLL:      TCM.DLL V1.32.0.0
+ 
+<h2>Project:</h2>
+D:\zhuomian\32project\CubeMXTest\FreeRTOSLearn5_HeapAndStackTest\MDK-ARM\FreeRTOSLearn5_HeapAndStackTest.uvprojx
+Project File Date:  09/07/2026
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\32\ARM\ARMCC\Bin'
+Build target 'FreeRTOSLearn5_HeapAndStackTest'
+compiling main.c...
+../User/UserTask.h(7): warning:  #1295-D: Deprecated declaration func1 - give arg types
+  void func1();
+../User/UserTask.h(8): warning:  #1295-D: Deprecated declaration func2 - give arg types
+  void func2();
+../Core/Src/main.c(367): warning:  #177-D: variable "SZ"  was declared but never referenced
+  	uint8_t SZ[1000] = {0};
+../Core/Src/main.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=12412 RO-data=504 RW-data=180 ZI-data=7524  
+FromELF: creating hex file...
+"FreeRTOSLearn5_HeapAndStackTest\FreeRTOSLearn5_HeapAndStackTest.axf" - 0 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
+                ARM.CMSIS.5.0.1
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.1
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
+                Keil.STM32F1xx_DFP.2.2.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_FreeRTOSLearn5_HeapAndStackTest
+  D:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  D:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.1
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

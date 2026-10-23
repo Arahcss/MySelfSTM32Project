@@ -1,0 +1,16 @@
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/tasks.c
+freertoslearn17_oleddevicetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdlib.h
+freertoslearn17_oleddevicetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn17_oleddevicetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn17_oleddevicetest\tasks.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn17_oleddevicetest\tasks.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+freertoslearn17_oleddevicetest\tasks.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h

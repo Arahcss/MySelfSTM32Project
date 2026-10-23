@@ -1,0 +1,14 @@
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn14_dht11deviceupgradetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h

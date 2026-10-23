@@ -1,0 +1,12 @@
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn19_leveltest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn19_leveltest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn19_leveltest\port.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn19_leveltest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

@@ -1,0 +1,12 @@
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn5_heapandstacktest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn5_heapandstacktest\port.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn5_heapandstacktest\port.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn5_heapandstacktest\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h

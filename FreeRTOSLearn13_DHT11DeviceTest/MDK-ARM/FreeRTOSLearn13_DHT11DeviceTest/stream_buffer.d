@@ -1,0 +1,14 @@
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c
+freertoslearn13_dht11devicetest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+freertoslearn13_dht11devicetest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\string.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+freertoslearn13_dht11devicetest\stream_buffer.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Core/Inc/FreeRTOSConfig.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+freertoslearn13_dht11devicetest\stream_buffer.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h
