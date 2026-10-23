@@ -1,0 +1,12 @@
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+ledaiexample\port.o: D:\32\ARM\ARMCC\Bin\..\include\stddef.h
+ledaiexample\port.o: D:\32\ARM\ARMCC\Bin\..\include\stdint.h
+ledaiexample\port.o: ../Core/Inc/FreeRTOSConfig.h
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+ledaiexample\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
