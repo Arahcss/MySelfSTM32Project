@@ -1,4 +1,7 @@
 --cpu Cortex-M3
+"ledaiexample\led_task.o"
+"ledaiexample\leddevice.o"
+"ledaiexample\led_operation.o"
 "ledaiexample\startup_stm32f103xb.o"
 "ledaiexample\main.o"
 "ledaiexample\freertos.o"
@@ -26,7 +29,7 @@
 "ledaiexample\cmsis_os2.o"
 "ledaiexample\heap_4.o"
 "ledaiexample\port.o"
---strict --scatter "LedAIExample\LedAIExample.sct"
+--library_type=microlib --strict --scatter "LedAIExample\LedAIExample.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "LedAIExample.map" -o LedAIExample\LedAIExample.axf
