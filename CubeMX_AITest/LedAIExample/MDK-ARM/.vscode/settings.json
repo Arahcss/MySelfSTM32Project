@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "led_operation.h": "c",
+        "atomic": "c",
+        "initializer_list": "c",
+        "memory": "c",
+        "string": "c",
+        "xmemory": "c",
+        "xstring": "c",
+        "xutility": "c",
+        "limits": "c",
+        "main.h": "c",
+        "leddevice.h": "c"
+    }
+}
