@@ -105,7 +105,7 @@ const stLedDeviceParamTdf	*c_pstGetLedDeviceParam(emLedDevNumTdf emDevNum);
 void vLedToggle(emLedDevNumTdf emDevNum);
 void vLedDeviceRunningParamInit(stLedRunningParamTdf *pstInit,emLedDevNumTdf emDevNum);
 void vLedDevicePeriodExecute(emLedDevNumTdf	emDevNum);
-void	vLedDeviceBlinkExecute(emLedDevNumTdf	emDevNum);
+void vLedDeviceBlinkExecute(emLedDevNumTdf	emDevNum);
 
 
 #endif

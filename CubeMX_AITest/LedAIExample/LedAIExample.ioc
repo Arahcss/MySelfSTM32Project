@@ -2,8 +2,9 @@
 CAD.formats=
 CAD.pinconfig=
 CAD.provider=
-FREERTOS.IPParameters=Tasks01
-FREERTOS.Tasks01=defaultTask,24,128,StartDefaultTask,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.FootprintOK=true
+FREERTOS.IPParameters=Tasks01,FootprintOK
+FREERTOS.Tasks01=LedTask,24,128,vLedTask,As weak,NULL,Dynamic,NULL,NULL
 File.Version=6
 GPIO.groupedBy=
 KeepUserPlacement=false
@@ -121,3 +122,4 @@ VP_FREERTOS_VS_CMSIS_V2.Signal=FREERTOS_VS_CMSIS_V2
 VP_SYS_VS_Systick.Mode=SysTick
 VP_SYS_VS_Systick.Signal=SYS_VS_Systick
 board=custom
+rtos.0.ip=FREERTOS
