@@ -9,7 +9,7 @@ Section Cross References
     led_task.o(i.vLedTask) refers to tasks.o(i.vTaskDelay) for vTaskDelay
     leddevice.o(i.c_pstGetLedDeviceParam) refers to leddevice.o(.bss) for .bss
     leddevice.o(i.vLedDeviceBlinkExecute) refers to leddevice.o(i.vLedOn) for vLedOn
-    leddevice.o(i.vLedDeviceBlinkExecute) refers to leddevice.o(i.vLedOFF) for vLedOFF
+    leddevice.o(i.vLedDeviceBlinkExecute) refers to leddevice.o(i.vLedOff) for vLedOff
     leddevice.o(i.vLedDeviceBlinkExecute) refers to leddevice.o(.bss) for .bss
     leddevice.o(i.vLedDeviceBreathExecute) refers to leddevice.o(i.vLedDeviceBlinkExecute) for vLedDeviceBlinkExecute
     leddevice.o(i.vLedDeviceBreathExecute) refers to dfltui.o(.text) for __aeabi_ui2d
@@ -25,8 +25,8 @@ Section Cross References
     leddevice.o(i.vLedDevicePeriodExecute) refers to leddevice.o(.bss) for .bss
     leddevice.o(i.vLedDeviceRunningParamInit) refers to memcpya.o(.text) for __aeabi_memcpy4
     leddevice.o(i.vLedDeviceRunningParamInit) refers to leddevice.o(.bss) for .bss
-    leddevice.o(i.vLedOFF) refers to leddevice.o(i.vLedUpdatePinLevel) for vLedUpdatePinLevel
-    leddevice.o(i.vLedOFF) refers to leddevice.o(.bss) for .bss
+    leddevice.o(i.vLedOff) refers to leddevice.o(i.vLedUpdatePinLevel) for vLedUpdatePinLevel
+    leddevice.o(i.vLedOff) refers to leddevice.o(.bss) for .bss
     leddevice.o(i.vLedOn) refers to leddevice.o(i.vLedUpdatePinLevel) for vLedUpdatePinLevel
     leddevice.o(i.vLedOn) refers to leddevice.o(.bss) for .bss
     leddevice.o(i.vLedToggle) refers to leddevice.o(i.vLedUpdatePinLevel) for vLedUpdatePinLevel
@@ -891,7 +891,7 @@ Removing Unused input sections from the image.
     Removing leddevice.o(i.vLedDeviceBreathExecute), (184 bytes).
     Removing leddevice.o(i.vLedDevicePeriodExecute), (56 bytes).
     Removing leddevice.o(i.vLedDeviceRunningParamInit), (24 bytes).
-    Removing leddevice.o(i.vLedOFF), (20 bytes).
+    Removing leddevice.o(i.vLedOff), (20 bytes).
     Removing leddevice.o(i.vLedOn), (20 bytes).
     Removing leddevice.o(.data), (4 bytes).
     Removing led_operation.o(.rev16_text), (4 bytes).

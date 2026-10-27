@@ -54,7 +54,7 @@ void	vLedDeviceBlinkExecute(emLedDevNumTdf	emDevNum)
 	else if(astLedDeviceParam[emDevNum].stRunningParam.ulCurrentCount	<=	astLedDeviceParam[emDevNum].stRunningParam.ulOnCountThreshold	+	
 																																astLedDeviceParam[emDevNum].stRunningParam.ulOffCountThreshold)
 	{
-		vLedOFF(emDevNum);
+		vLedOff(emDevNum);
 	}
 	astLedDeviceParam[emDevNum].stRunningParam.ulCurrentCount++;//闪烁时计数++
 
@@ -144,7 +144,7 @@ void vLedOn(emLedDevNumTdf emDevNum)
 ///	@param			emDevNum		:	设备编号
 ///
 ///	@note
-void vLedOFF(emLedDevNumTdf emDevNum)
+void vLedOff(emLedDevNumTdf emDevNum)
 {
 	
 		//设置当前状态

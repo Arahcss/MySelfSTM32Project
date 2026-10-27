@@ -5,12 +5,13 @@
 
 /// @brief LED任务
 /// @param  
-void vLedTask(void)
+void vLedTask(void *pvParameters)
 {
+    (void)pvParameters;
     vLedInitAll();
     while(1)
     {
-        vLedExcuteAll();
+        vLedExecuteAll();
         vTaskDelay(1000);
     }
     

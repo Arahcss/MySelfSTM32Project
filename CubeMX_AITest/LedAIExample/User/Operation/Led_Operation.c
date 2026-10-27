@@ -19,7 +19,7 @@ void vLedInitAll(void)
 /// @brief 执行所有LED设备
 /// @param 
 /// @note 
-void vLedExcuteAll()
+void vLedExecuteAll()
 {
     
     // vLedDevicePeriodExecute(emLedDevNum0);

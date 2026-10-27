@@ -1,8 +1,8 @@
-#ifndef __LED_TASK_H__
-#define __LED_TASK_H__
+#ifndef _LED_TASK_H_
+#define _LED_TASK_H_
 
 
-void vLedTask(void);
+void vLedTask(void *pvParameters);
 
 
 #endif

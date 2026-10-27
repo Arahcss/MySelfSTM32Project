@@ -99,7 +99,7 @@ typedef struct
 }stLedDeviceParamTdf;
 
 void vLedOn(emLedDevNumTdf emDevNum); 
-void vLedOFF(emLedDevNumTdf emDevNum);
+void vLedOff(emLedDevNumTdf emDevNum);
 void vLedDeviceInit(stLedStaticParamTdf *pstInit,emLedDevNumTdf emDevNum);
 const stLedDeviceParamTdf	*c_pstGetLedDeviceParam(emLedDevNumTdf emDevNum);
 void vLedToggle(emLedDevNumTdf emDevNum);
