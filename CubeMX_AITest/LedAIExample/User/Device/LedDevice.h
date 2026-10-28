@@ -72,7 +72,7 @@ typedef struct
 {
 	GPIO_TypeDef								*pstGpioBase;		//	使用的GPIOx
 	uint16_t										usGpioPin;			//	使用的GPIO_PIN_x
-	emLedOnLevelTdf						emOnLevel;			//	LED点亮时的电频
+	emLedOnLevelTdf						emOnLevel;			//	LED点亮时的电平
 }
 stLedStaticParamTdf;
 
@@ -92,13 +92,17 @@ typedef struct
 }
 stLedRunningParamTdf;
 
+///	@brief			LED设备参数总结构
+///
+///	@note
 typedef struct
 {
-	stLedRunningParamTdf stRunningParam;		//静态参数
-	stLedStaticParamTdf stStaticParam;					//动态参数
-}stLedDeviceParamTdf;
+	stLedRunningParamTdf	stRunningParam;		//运行参数
+	stLedStaticParamTdf		stStaticParam;		//静态参数
+}
+stLedDeviceParamTdf;
 
-void vLedOn(emLedDevNumTdf emDevNum); 
+void vLedOn(emLedDevNumTdf emDevNum);
 void vLedOff(emLedDevNumTdf emDevNum);
 void vLedDeviceInit(stLedStaticParamTdf *pstInit,emLedDevNumTdf emDevNum);
 const stLedDeviceParamTdf	*c_pstGetLedDeviceParam(emLedDevNumTdf emDevNum);

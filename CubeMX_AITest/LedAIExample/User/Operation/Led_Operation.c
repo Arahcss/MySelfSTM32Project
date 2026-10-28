@@ -7,22 +7,22 @@
 ///	@note
 void vLedInitAll(void)
 {
-    stLedStaticParamTdf stInit = {0};
-    
-    stInit.pstGpioBase = GPIOC;
-    stInit.usGpioPin = GPIO_PIN_13;
-    stInit.emOnLevel = emLedOnLevel_Low;
-    
-    vLedDeviceInit(&stInit,emLedDevNum0);
+	stLedStaticParamTdf stInit = {0};
+
+	stInit.pstGpioBase = GPIOC;
+	stInit.usGpioPin = GPIO_PIN_13;
+	stInit.emOnLevel = emLedOnLevel_Low;
+
+	vLedDeviceInit(&stInit, emLedDevNum0);
 }
 
-/// @brief 执行所有LED设备
-/// @param 
-/// @note 
-void vLedExecuteAll()
+///	@brief					执行所有LED设备
+///
+///	@param					None
+///
+///	@note
+void vLedExecuteAll(void)
 {
-    
-    // vLedDevicePeriodExecute(emLedDevNum0);
-    vLedToggle(emLedDevNum0);
+	// vLedDevicePeriodExecute(emLedDevNum0);
+	vLedToggle(emLedDevNum0);
 }
-
