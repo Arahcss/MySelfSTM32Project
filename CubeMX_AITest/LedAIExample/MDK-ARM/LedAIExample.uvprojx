@@ -395,6 +395,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Device\LedDevice.c</FilePath>
             </File>
+            <File>
+              <FileName>BtnDevice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\BtnDevice.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -1,6 +1,7 @@
 --cpu Cortex-M3
 "ledaiexample\led_task.o"
 "ledaiexample\leddevice.o"
+"ledaiexample\btndevice.o"
 "ledaiexample\led_operation.o"
 "ledaiexample\startup_stm32f103xb.o"
 "ledaiexample\main.o"
