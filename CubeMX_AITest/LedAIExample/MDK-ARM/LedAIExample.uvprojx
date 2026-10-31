@@ -410,6 +410,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Operation\Led_Operation.c</FilePath>
             </File>
+            <File>
+              <FileName>Btn_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\Btn_Operation.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

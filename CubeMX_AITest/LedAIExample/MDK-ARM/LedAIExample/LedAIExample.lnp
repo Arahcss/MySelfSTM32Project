@@ -3,6 +3,7 @@
 "ledaiexample\leddevice.o"
 "ledaiexample\btndevice.o"
 "ledaiexample\led_operation.o"
+"ledaiexample\btn_operation.o"
 "ledaiexample\startup_stm32f103xb.o"
 "ledaiexample\main.o"
 "ledaiexample\freertos.o"
