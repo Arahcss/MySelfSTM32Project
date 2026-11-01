@@ -14,6 +14,8 @@
         "led_task.h": "c",
         "freertos.h": "c",
         "btndevice.h": "c",
-        "stm32f1xx_hal.h": "c"
+        "stm32f1xx_hal.h": "c",
+        "btn_operation.h": "c",
+        "project_config.h": "c"
     }
 }

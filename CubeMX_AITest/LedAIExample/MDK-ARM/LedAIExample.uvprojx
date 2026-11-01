@@ -385,6 +385,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Task\Led_Task.c</FilePath>
             </File>
+            <File>
+              <FileName>Btn_Task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Task\Btn_Task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
