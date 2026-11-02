@@ -1,5 +1,6 @@
 --cpu Cortex-M3
 "ledaiexample\led_task.o"
+"ledaiexample\btn_task.o"
 "ledaiexample\leddevice.o"
 "ledaiexample\btndevice.o"
 "ledaiexample\led_operation.o"

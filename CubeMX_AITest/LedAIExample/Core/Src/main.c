@@ -48,6 +48,13 @@ const osThreadAttr_t LedTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for BtnTask */
+osThreadId_t BtnTaskHandle;
+const osThreadAttr_t BtnTask_attributes = {
+  .name = "BtnTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityAboveNormal,
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -56,6 +63,7 @@ const osThreadAttr_t LedTask_attributes = {
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 void vLedTask(void *argument);
+void vBtnTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -121,6 +129,9 @@ int main(void)
   /* Create the thread(s) */
   /* creation of LedTask */
   LedTaskHandle = osThreadNew(vLedTask, NULL, &LedTask_attributes);
+
+  /* creation of BtnTask */
+  BtnTaskHandle = osThreadNew(vBtnTask, NULL, &BtnTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -251,6 +262,24 @@ __weak void vLedTask(void *argument)
     osDelay(500);
   }
   /* USER CODE END 5 */
+}
+
+/* USER CODE BEGIN Header_vBtnTask */
+/**
+* @brief Function implementing the BtnTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_vBtnTask */
+__weak void vBtnTask(void *argument)
+{
+  /* USER CODE BEGIN vBtnTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END vBtnTask */
 }
 
 /**

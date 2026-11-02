@@ -16,6 +16,7 @@
         "btndevice.h": "c",
         "stm32f1xx_hal.h": "c",
         "btn_operation.h": "c",
-        "project_config.h": "c"
+        "project_config.h": "c",
+        "string.h": "c"
     }
 }
