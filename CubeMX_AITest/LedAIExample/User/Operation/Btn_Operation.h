@@ -6,6 +6,7 @@
 
 void vBtnExecuteAll(void);
 void vBtnInitAll(void);
+emBtnDevNumTdf emBtnGetPressEvent(void);
 
 #endif
 

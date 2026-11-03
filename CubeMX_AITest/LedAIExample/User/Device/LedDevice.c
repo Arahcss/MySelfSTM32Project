@@ -131,6 +131,27 @@ void vLedUpdatePinLevel(emLedDevNumTdf	emDevNum)
 	HAL_GPIO_WritePin(astLedDeviceParam[emDevNum].stStaticParam.pstGpioBase, astLedDeviceParam[emDevNum].stStaticParam.usGpioPin, (GPIO_PinState)ucOutput);
 }
 
+///	@brief				设置LED模式
+///
+///	@param			emDevNum		:	设备编号
+///	@param			emMode			:	目标模式
+///
+///	@note				切换到呼吸模式时自动配置闪烁与呼吸周期参数，避免除零
+void vLedSetMode(emLedDevNumTdf emDevNum, emLedModeTdf emMode)
+{
+	astLedDeviceParam[emDevNum].stRunningParam.emMode = emMode;
+	astLedDeviceParam[emDevNum].stRunningParam.ulCurrentCount = 0;
+
+	if(emMode == emLedMode_Breath)
+	{
+		//闪烁步长周期 = 10次计数 × 10ms = 100ms
+		astLedDeviceParam[emDevNum].stRunningParam.ulOnCountThreshold  = 5;
+		astLedDeviceParam[emDevNum].stRunningParam.ulOffCountThreshold = 5;
+		//呼吸总周期 = 100次计数 × 10ms = 1s，分10个闪烁步长
+		astLedDeviceParam[emDevNum].stRunningParam.ulBreathPeriod = 100;
+	}
+}
+
 ///	@brief				LED设备初始化
 ///
 ///	@param			pstInit			:	初始化参数结构体的首地址

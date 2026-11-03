@@ -110,6 +110,7 @@ void vLedToggle(emLedDevNumTdf emDevNum);
 void vLedDeviceRunningParamInit(stLedRunningParamTdf *pstInit,emLedDevNumTdf emDevNum);
 void vLedDevicePeriodExecute(emLedDevNumTdf	emDevNum);
 void vLedDeviceBlinkExecute(emLedDevNumTdf	emDevNum);
+void vLedSetMode(emLedDevNumTdf emDevNum, emLedModeTdf emMode);
 
 
 #endif

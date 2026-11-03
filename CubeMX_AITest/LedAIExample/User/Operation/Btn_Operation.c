@@ -38,6 +38,28 @@ void vBtnInitAll(void)
 	vBtnDeviceInit(&stInit, BUTTON_CANCEL);
 }
 
+///	@brief					采集一个按下事件的按键号
+///
+///	@param					None
+///
+///	@return					按下事件的按键设备号；无按下事件返回 BTN_DEV_NUM
+///
+///	@note					每次调用只读清第一个Press事件，需循环调用以处理多键
+emBtnDevNumTdf emBtnGetPressEvent(void)
+{
+	emBtnDevNumTdf emDevNum;
+
+	for(emDevNum = emBtnDevNum0; emDevNum < BTN_DEV_NUM; emDevNum++)
+	{
+		if(emBtnGetEvent(emDevNum) == emBtnEvent_Press)
+		{
+			return emDevNum;
+		}
+	}
+
+	return BTN_DEV_NUM;
+}
+
 ///	@brief					执行所有按键设备
 ///
 ///	@param					None
