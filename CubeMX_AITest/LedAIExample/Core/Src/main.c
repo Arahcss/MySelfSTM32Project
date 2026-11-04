@@ -55,8 +55,20 @@ const osThreadAttr_t BtnTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityAboveNormal,
 };
+/* Definitions for BtnProcessTask */
+osThreadId_t BtnProcessTaskHandle;
+const osThreadAttr_t BtnProcessTask_attributes = {
+  .name = "BtnProcessTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal1,
+};
+/* Definitions for BtnMsgQueue */
+osMessageQueueId_t BtnMsgQueueHandle;
+const osMessageQueueAttr_t BtnMsgQueue_attributes = {
+  .name = "BtnMsgQueue"
+};
 /* USER CODE BEGIN PV */
-
+ osMessageQueueId_t BtnMsgQueueHandle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -64,6 +76,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 void vLedTask(void *argument);
 void vBtnTask(void *argument);
+void vBtnProcessTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -122,6 +135,10 @@ int main(void)
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
+  /* Create the queue(s) */
+  /* creation of BtnMsgQueue */
+  BtnMsgQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &BtnMsgQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -132,6 +149,9 @@ int main(void)
 
   /* creation of BtnTask */
   BtnTaskHandle = osThreadNew(vBtnTask, NULL, &BtnTask_attributes);
+
+  /* creation of BtnProcessTask */
+  BtnProcessTaskHandle = osThreadNew(vBtnProcessTask, NULL, &BtnProcessTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -280,6 +300,24 @@ __weak void vBtnTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END vBtnTask */
+}
+
+/* USER CODE BEGIN Header_vBtnProcessTask */
+/**
+* @brief Function implementing the BtnProcessTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_vBtnProcessTask */
+__weak void vBtnProcessTask(void *argument)
+{
+  /* USER CODE BEGIN vBtnProcessTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END vBtnProcessTask */
 }
 
 /**

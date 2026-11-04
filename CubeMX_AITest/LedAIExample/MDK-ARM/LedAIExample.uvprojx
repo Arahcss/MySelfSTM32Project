@@ -390,6 +390,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Task\Btn_Task.c</FilePath>
             </File>
+            <File>
+              <FileName>BtnProcess_Task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Task\BtnProcess_Task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
