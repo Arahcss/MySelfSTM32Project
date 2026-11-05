@@ -7,7 +7,7 @@
 ///
 ///	@param			argument		:	CubeMX传入参数（未使用）
 ///
-///	@note				10ms周期驱动LED模式执行（呼吸灯需高频）
+///	@note				1ms周期驱动LED模式执行（呼吸PWM需100Hz，计数基准1ms）
 void vLedTask(void *argument)
 {
 	(void)argument;
@@ -17,6 +17,6 @@ void vLedTask(void *argument)
 	while(1)
 	{
 		vLedExecuteAll();
-		vTaskDelay(10);
+		vTaskDelay(1);
 	}
 }

@@ -144,11 +144,11 @@ void vLedSetMode(emLedDevNumTdf emDevNum, emLedModeTdf emMode)
 
 	if(emMode == emLedMode_Breath)
 	{
-		//闪烁步长周期 = 10次计数 × 10ms = 100ms
+		//PWM步长周期 = 10次计数 × 1ms = 10ms（100Hz，无频闪）
 		astLedDeviceParam[emDevNum].stRunningParam.ulOnCountThreshold  = 5;
 		astLedDeviceParam[emDevNum].stRunningParam.ulOffCountThreshold = 5;
-		//呼吸总周期 = 100次计数 × 10ms = 1s，分10个闪烁步长
-		astLedDeviceParam[emDevNum].stRunningParam.ulBreathPeriod = 100;
+		//呼吸总周期 = 2000次计数 × 1ms = 2s，分200个PWM步长
+		astLedDeviceParam[emDevNum].stRunningParam.ulBreathPeriod = 2000;
 	}
 }
 
