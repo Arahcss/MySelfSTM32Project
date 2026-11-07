@@ -4,20 +4,19 @@
 ///
 ///	@param				None
 ///
-///	@note				SCL=PB6, SDA=PB7，推挽输出由CubeMX配置；
-///						登记静态参数→初始化SSD1306→清显存→刷新
+///	@note				SCL=PB8, SDA=PB9，推挽输出由CubeMX配置；
+///						登记静态参数→初始化SSD1306→清显存→刷新；
+///						运行参数全局数组为BSS段已清零，无需再memcpy初始化
 void vOledInitAll(void)
 {
 	stOledStaticParamTdf stInit = {0};
-	stOledRunningParamTdf stRunningInit = {0};
 
 	stInit.pstSclGpioBase = GPIOB;
-	stInit.usSclGpioPin = GPIO_PIN_6;
+	stInit.usSclGpioPin = GPIO_PIN_8;
 	stInit.pstSdaGpioBase = GPIOB;
-	stInit.usSdaGpioPin = GPIO_PIN_7;
+	stInit.usSdaGpioPin = GPIO_PIN_9;
 
 	vOledDeviceInit(&stInit, OLED);
-	vOledDeviceRunningParamInit(&stRunningInit, OLED);
 
 	vOledClearBuffer(OLED);
 	vOledRefreshFromBuffer(OLED);

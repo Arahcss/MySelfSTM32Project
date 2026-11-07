@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xB</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../User/Device;../User;../User/Operation;../User/Task</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Drivers/STM32F1xx_HAL_Driver/Inc;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;../User/Device;../User;../User/Operation;../User/Task;../Example/Device;../User/Example/Operation;../User/Example/Device;../User/Example/Task</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -395,6 +395,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Task\BtnProcess_Task.c</FilePath>
             </File>
+            <File>
+              <FileName>OLED_Task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Task\OLED_Task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -410,6 +415,16 @@
               <FileType>1</FileType>
               <FilePath>..\User\Device\BtnDevice.c</FilePath>
             </File>
+            <File>
+              <FileName>OLEDDevice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\OLEDDevice.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLEDFont.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\OLEDFont.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -424,6 +439,11 @@
               <FileName>Btn_Operation.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Operation\Btn_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\OLED_Operation.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -586,6 +606,9 @@
               <FilePath>../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>New Group</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

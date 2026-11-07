@@ -17,7 +17,6 @@ void vBtnTask(void *argument)
 	emBtnDevNumTdf emBtn;
 
 	vBtnInitAll();
-
 	while(1)
 	{
 		vBtnExecuteAll();

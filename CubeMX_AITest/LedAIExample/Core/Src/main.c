@@ -53,12 +53,19 @@ osThreadId_t BtnTaskHandle;
 const osThreadAttr_t BtnTask_attributes = {
   .name = "BtnTask",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityAboveNormal,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for BtnProcessTask */
 osThreadId_t BtnProcessTaskHandle;
 const osThreadAttr_t BtnProcessTask_attributes = {
   .name = "BtnProcessTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal1,
+};
+/* Definitions for OledTask */
+osThreadId_t OledTaskHandle;
+const osThreadAttr_t OledTask_attributes = {
+  .name = "OledTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal1,
 };
@@ -77,6 +84,7 @@ static void MX_GPIO_Init(void);
 void vLedTask(void *argument);
 void vBtnTask(void *argument);
 void vBtnProcessTask(void *argument);
+void vOledTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -152,6 +160,9 @@ int main(void)
 
   /* creation of BtnProcessTask */
   BtnProcessTaskHandle = osThreadNew(vBtnProcessTask, NULL, &BtnProcessTask_attributes);
+
+  /* creation of OledTask */
+  OledTaskHandle = osThreadNew(vOledTask, NULL, &OledTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -232,9 +243,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8|GPIO_PIN_9, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
@@ -254,6 +269,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB8 PB9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -318,6 +340,24 @@ __weak void vBtnProcessTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END vBtnProcessTask */
+}
+
+/* USER CODE BEGIN Header_vOledTask */
+/**
+* @brief Function implementing the OledTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_vOledTask */
+__weak void vOledTask(void *argument)
+{
+  /* USER CODE BEGIN vOledTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END vOledTask */
 }
 
 /**
