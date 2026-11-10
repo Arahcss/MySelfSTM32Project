@@ -400,6 +400,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Task\OLED_Task.c</FilePath>
             </File>
+            <File>
+              <FileName>KeyPad_Task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Task\KeyPad_Task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -425,6 +430,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Device\OLEDFont.c</FilePath>
             </File>
+            <File>
+              <FileName>KeyPadDevice.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Device\KeyPadDevice.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -444,6 +454,11 @@
               <FileName>OLED_Operation.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Operation\OLED_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>KeyPad_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\KeyPad_Operation.c</FilePath>
             </File>
           </Files>
         </Group>

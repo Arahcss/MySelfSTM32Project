@@ -29,7 +29,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
 I (D:\32\ARM\ARMCC\include\math.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -65,10 +65,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
-I (../User/Project_Config.h)(0x6AE8BFCA)
+I (../User/Project_Config.h)(0x6AF1FC9A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -107,10 +107,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
 I (D:\32\ARM\ARMCC\include\math.h)(0x588B8344)
 I (../User/Device/BtnDevice.h)(0x6AE4CCD1)
-I (../User/Project_Config.h)(0x6AE8BFCA)
+I (../User/Project_Config.h)(0x6AF1FC9A)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -148,7 +148,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -156,6 +156,46 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x6A95A173)
+F (..\User\Task\KeyPad_Task.c)(0x6AF1FCBD)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\keypad_task.o --omf_browse ledaiexample\keypad_task.crf --depend ledaiexample\keypad_task.d)
+I (..\User\Task\KeyPad_Task.h)(0x6AF1FCBD)
+I (../User/Operation/KeyPad_Operation.h)(0x6AF1FCB1)
+I (../User/Device/KeyPadDevice.h)(0x6AF1FCA0)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6A95A170)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6ADBA367)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x6A95A170)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x6A95A171)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x6A95A171)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x6A95A082)
+I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x6A95A082)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6A95A082)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6A95A082)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x6A95A171)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x6A95A170)
+I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
+I (../User/Project_Config.h)(0x6AF1FC9A)
+I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x6A95A173)
+I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x6A95A173)
 F (..\User\Device\LedDevice.c)(0x6AECBB60)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\leddevice.o --omf_browse ledaiexample\leddevice.crf --depend ledaiexample\leddevice.d)
 I (..\User\Device\LedDevice.h)(0x6AEA1E0C)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6A95A170)
@@ -210,7 +250,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
-I (../User/Project_Config.h)(0x6AE8BFCA)
+I (../User/Project_Config.h)(0x6AF1FC9A)
 I (D:\32\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\User\Device\OLEDDevice.c)(0x6AEE1263)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\oleddevice.o --omf_browse ledaiexample\oleddevice.crf --depend ledaiexample\oleddevice.d)
 I (..\User\Device\OLEDDevice.h)(0x6AEE1229)
@@ -243,6 +283,34 @@ I (D:\32\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\User\Device\OLEDFont.c)(0x6AEE1203)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\oledfont.o --omf_browse ledaiexample\oledfont.crf --depend ledaiexample\oledfont.d)
 I (..\User\Device\OLEDFont.h)(0x6AEE108C)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
+F (..\User\Device\KeyPadDevice.c)(0x6AF1FCAE)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\keypaddevice.o --omf_browse ledaiexample\keypaddevice.crf --depend ledaiexample\keypaddevice.d)
+I (..\User\Device\KeyPadDevice.h)(0x6AF1FCA0)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6A95A170)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6ADBA367)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x6A95A170)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x6A95A171)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x6A95A171)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x6A95A082)
+I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x6A95A082)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6A95A082)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6A95A082)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x6A95A171)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x6A95A170)
+I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
+I (../User/Project_Config.h)(0x6AF1FC9A)
+I (D:\32\ARM\ARMCC\include\string.h)(0x588B8344)
 F (..\User\Operation\Led_Operation.c)(0x6AECBB60)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\led_operation.o --omf_browse ledaiexample\led_operation.crf --depend ledaiexample\led_operation.d)
 I (..\User\Operation\Led_Operation.h)(0x6AEA1DFB)
 I (../User/Device/LedDevice.h)(0x6AEA1E0C)
@@ -298,7 +366,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
-I (../User/Project_Config.h)(0x6AE8BFCA)
+I (../User/Project_Config.h)(0x6AF1FC9A)
 F (..\User\Operation\OLED_Operation.c)(0x6AEF6C7A)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\oled_operation.o --omf_browse ledaiexample\oled_operation.crf --depend ledaiexample\oled_operation.d)
 I (..\User\Operation\OLED_Operation.h)(0x6AEE12BC)
 I (../User/Device/OLEDDevice.h)(0x6AEE1229)
@@ -326,8 +394,36 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
-F (startup_stm32f103xb.s)(0x6AEF6DAE)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\User\Device -I ..\User -I ..\User\Operation -I ..\User\Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list startup_stm32f103xb.lst --xref -o ledaiexample\startup_stm32f103xb.o --depend ledaiexample\startup_stm32f103xb.d)
-F (../Core/Src/main.c)(0x6AEF6B5B)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\main.o --omf_browse ledaiexample\main.crf --depend ledaiexample\main.d)
+F (..\User\Operation\KeyPad_Operation.c)(0x6AF1FCB8)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\keypad_operation.o --omf_browse ledaiexample\keypad_operation.crf --depend ledaiexample\keypad_operation.d)
+I (..\User\Operation\KeyPad_Operation.h)(0x6AF1FCB1)
+I (../User/Device/KeyPadDevice.h)(0x6AF1FCA0)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6A95A170)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6ADBA367)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x6A95A170)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x6A95A171)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x6A95A171)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x6A95A082)
+I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x6A95A082)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6A95A082)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6A95A082)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x6A95A171)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x6A95A170)
+I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
+I (../User/Project_Config.h)(0x6AF1FC9A)
+F (startup_stm32f103xb.s)(0x6AF3528B)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\User\Device -I ..\User -I ..\User\Operation -I ..\User\Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list startup_stm32f103xb.lst --xref -o ledaiexample\startup_stm32f103xb.o --depend ledaiexample\startup_stm32f103xb.d)
+F (../Core/Src/main.c)(0x6AF3528A)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ../User/Device -I ../User -I ../User/Operation -I ../User/Task -I ../Example/Device -I ../User/Example/Operation -I ../User/Example/Device -I ../User/Example/Task-I.\RTE\_LedAIExample-ID:\32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-ID:\32\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o ledaiexample\main.o --omf_browse ledaiexample\main.crf --depend ledaiexample\main.d)
 I (../Core/Inc/main.h)(0x6ADBA367)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x6A95A170)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x6ADBA367)
@@ -355,7 +451,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -368,7 +464,7 @@ F (../Core/Src/freertos.c)(0x6ADBA366)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MIC
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -427,7 +523,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x6A95A170)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x6A95A170)
 I (../Core/Inc/stm32f1xx_it.h)(0x6ADBA367)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -765,7 +861,7 @@ F (../Middlewares/Third_Party/FreeRTOS/Source/croutine.c)(0x6A95A173)(--c99 -c -
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -779,7 +875,7 @@ I (D:\32\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -794,7 +890,7 @@ I (D:\32\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -807,7 +903,7 @@ I (D:\32\ARM\ARMCC\include\string.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -821,7 +917,7 @@ I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\string.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -836,7 +932,7 @@ I (D:\32\ARM\ARMCC\include\string.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -851,7 +947,7 @@ I (D:\32\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -869,7 +965,7 @@ I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6A95A082)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6A95A082)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -908,7 +1004,7 @@ I (D:\32\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)
@@ -920,7 +1016,7 @@ F (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c)(0x6A
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x6A95A173)
 I (D:\32\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\32\ARM\ARMCC\include\stdint.h)(0x588B8344)
-I (../Core/Inc/FreeRTOSConfig.h)(0x6ADBA366)
+I (../Core/Inc/FreeRTOSConfig.h)(0x6AF35289)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h)(0x6A95A173)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h)(0x6A95A173)

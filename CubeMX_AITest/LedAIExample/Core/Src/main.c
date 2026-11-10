@@ -69,6 +69,13 @@ const osThreadAttr_t OledTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal1,
 };
+/* Definitions for KeyPadTask */
+osThreadId_t KeyPadTaskHandle;
+const osThreadAttr_t KeyPadTask_attributes = {
+  .name = "KeyPadTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for BtnMsgQueue */
 osMessageQueueId_t BtnMsgQueueHandle;
 const osMessageQueueAttr_t BtnMsgQueue_attributes = {
@@ -85,6 +92,7 @@ void vLedTask(void *argument);
 void vBtnTask(void *argument);
 void vBtnProcessTask(void *argument);
 void vOledTask(void *argument);
+void vKeyPadTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -163,6 +171,9 @@ int main(void)
 
   /* creation of OledTask */
   OledTaskHandle = osThreadNew(vOledTask, NULL, &OledTask_attributes);
+
+  /* creation of KeyPadTask */
+  KeyPadTaskHandle = osThreadNew(vKeyPadTask, NULL, &KeyPadTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -264,11 +275,19 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PA0 PA1 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
+  /*Configure GPIO pins : PA0 PA1 PA2 PA3
+                           PA4 PA5 PA6 PA7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
+                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB0 PB1 PB10 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_10;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PB8 PB9 */
   GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
@@ -358,6 +377,24 @@ __weak void vOledTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END vOledTask */
+}
+
+/* USER CODE BEGIN Header_vKeyPadTask */
+/**
+* @brief Function implementing the KeyPadTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_vKeyPadTask */
+__weak void vKeyPadTask(void *argument)
+{
+  /* USER CODE BEGIN vKeyPadTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END vKeyPadTask */
 }
 
 /**
