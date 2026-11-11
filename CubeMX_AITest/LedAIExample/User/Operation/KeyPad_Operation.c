@@ -5,10 +5,11 @@
 ///	@note			改行引脚只改本表，顺序即行索引
 static const stKeyPadPinTdf s_astKeyPadRowPin[KEYPAD_ROW_NUM] =
 {
-	{GPIOA, GPIO_PIN_2},
-	{GPIOA, GPIO_PIN_3},
-	{GPIOA, GPIO_PIN_4},
+	{GPIOA, GPIO_PIN_6},
 	{GPIOA, GPIO_PIN_5},
+	{GPIOA, GPIO_PIN_4},
+	{GPIOA, GPIO_PIN_3},
+	{GPIOA, GPIO_PIN_2},
 };
 
 ///	@brief			列引脚表（开漏输出，由CubeMX配置）
@@ -16,10 +17,10 @@ static const stKeyPadPinTdf s_astKeyPadRowPin[KEYPAD_ROW_NUM] =
 ///	@note			改列引脚只改本表，顺序即列索引
 static const stKeyPadPinTdf s_astKeyPadColPin[KEYPAD_COL_NUM] =
 {
-	{GPIOA, GPIO_PIN_6},
-	{GPIOA, GPIO_PIN_7},
-	{GPIOB, GPIO_PIN_0},
+	{GPIOB, GPIO_PIN_10},
 	{GPIOB, GPIO_PIN_1},
+	{GPIOB, GPIO_PIN_0},
+	{GPIOA, GPIO_PIN_7},
 };
 
 ///	@brief					初始化所有矩阵键盘按键

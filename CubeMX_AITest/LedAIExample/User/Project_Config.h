@@ -12,7 +12,7 @@
 #define	BUTTON_ENTER				emBtnDevNum2
 #define	BUTTON_CANCEL				emBtnDevNum3
 
-#define	KEYPAD_ROW_NUM				4
+#define	KEYPAD_ROW_NUM				5
 #define	KEYPAD_COL_NUM				4
 #define	KEYPAD_DEV_NUM				(KEYPAD_ROW_NUM * KEYPAD_COL_NUM)
 #define	KEYPAD_DEBOUNCE_THRESHOLD	2

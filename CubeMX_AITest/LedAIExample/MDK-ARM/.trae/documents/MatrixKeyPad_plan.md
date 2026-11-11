@@ -33,12 +33,14 @@
 | SWD | PA13、PA14 |
 | HSE 晶振 | PD0、PD1 |
 
-**4×4 矩阵键盘占位引脚（推荐方案，均已确认空闲）**
+**矩阵键盘实际配置（2026-11-12 定稿：5 行 × 4 列 = 20 键）**
 
 | 角色 | 引脚 | CubeMX 模式 |
 |------|------|-------------|
-| 行 0~3 | PA2、PA3、PA4、PA5 | `GPIO_Input` + `GPIO_PULLUP` |
-| 列 0~3 | PA6、PA7、PB0、PB1 | `GPIO_Output` + **Open Drain** + `GPIO_PULLUP` |
+| 行 0~4 | PA6、PA5、PA4、PA3、PA2 | `GPIO_Input` + `GPIO_PULLUP` |
+| 列 0~3 | PB10、PB1、PB0、PA7 | `GPIO_Output` + **Open Drain** + `GPIO_PULLUP` |
+
+键号 = 行索引 × 4 + 列索引，范围 0~19。
 
 避开了 SWD（PA13/PA14）、HSE（PD0/PD1）、原 OLED（PB8/PB9）和 JTAG（PB3/PB4）。
 
@@ -229,19 +231,20 @@ uint32_t ulKeyPadGetPressedMask(void);
 ///	@brief			行引脚表（上拉输入，由CubeMX配置）
 static const stKeyPadPinTdf s_astKeyPadRowPin[KEYPAD_ROW_NUM] =
 {
-	{GPIOA, GPIO_PIN_2},
-	{GPIOA, GPIO_PIN_3},
-	{GPIOA, GPIO_PIN_4},
+	{GPIOA, GPIO_PIN_6},
 	{GPIOA, GPIO_PIN_5},
+	{GPIOA, GPIO_PIN_4},
+	{GPIOA, GPIO_PIN_3},
+	{GPIOA, GPIO_PIN_2},
 };
 
 ///	@brief			列引脚表（开漏输出，由CubeMX配置）
 static const stKeyPadPinTdf s_astKeyPadColPin[KEYPAD_COL_NUM] =
 {
-	{GPIOA, GPIO_PIN_6},
-	{GPIOA, GPIO_PIN_7},
-	{GPIOB, GPIO_PIN_0},
+	{GPIOB, GPIO_PIN_10},
 	{GPIOB, GPIO_PIN_1},
+	{GPIOB, GPIO_PIN_0},
+	{GPIOA, GPIO_PIN_7},
 };
 ```
 
@@ -300,8 +303,8 @@ void vKeyPadTask(void *argument)
 ### 3.7 需用户在 CubeMX / Keil 侧执行的动作（规范 09 禁止我改动）
 
 1. **CubeMX 引脚配置**
-   - PA2、PA3、PA4、PA5 → `GPIO_Input`，Pull-up
-   - PA6、PA7、PB0、PB1 → `GPIO_Output`，**Output Open Drain**，Pull-up，Low speed，初始电平 **High**
+   - PA6、PA5、PA4、PA3、PA2 → `GPIO_Input`，Pull-up
+   - PB10、PB1、PB0、PA7 → `GPIO_Output`，**Output Open Drain**，Pull-up，Low speed，初始电平 **High**
 2. **CubeMX FreeRTOS 配置**：新增任务 `KeyPadTask`，优先级 `osPriorityNormal(24)`，栈 `128 Words`，入口 `vKeyPadTask`，`As weak`，`Dynamic`，无参数
 3. **CubeMX FreeRTOS 堆**：`TOTAL_HEAP_SIZE` 由 `3072` 调到 `4096`（`FreeRTOSConfig.h` 在 `Core/Inc`，属禁区）
 4. **Keil**：把 `KeyPadDevice.c`、`KeyPad_Operation.c`、`KeyPad_Task.c` 加入 User 分组并编译
@@ -313,8 +316,8 @@ void vKeyPadTask(void *argument)
 
 | 项 | 决策 | 理由 |
 |----|------|------|
-| 行列数量 | 宏 `KEYPAD_ROW_NUM` / `KEYPAD_COL_NUM` 可配，默认 4×4 | 用户要求"行数列数自由设置" |
-| 引脚分配 | 行 PA2~PA5、列 PA6~PB1 占位 | 均为空闲引脚，改起来只动 Operation 层两张表 |
+| 行列数量 | 宏 `KEYPAD_ROW_NUM` / `KEYPAD_COL_NUM` 可配，实配 5×4 | 用户要求"行数列数自由设置" |
+| 引脚分配 | 行 PA6~PA2、列 PB10/PB1/PB0/PA7 | 按用户实际硬件接线 |
 | 引脚模式 | 行上拉输入、列开漏输出 | 用户明确要求；开漏输出保证多列并联时不硬短路，空闲靠内部上拉 |
 | 扫描方式 | 逐列拉低 + 逐行读取（整屏一次调用） | 单键场景无鬼键问题；组合键需掩码另行处理 |
 | 消抖 | 以任务周期为基准，阈值 2（≈20ms） | 与既有 `BtnDevice` 一致 |

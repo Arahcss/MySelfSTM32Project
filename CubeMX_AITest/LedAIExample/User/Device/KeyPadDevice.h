@@ -26,6 +26,10 @@ typedef enum
 	emKeyPadDevNum13,
 	emKeyPadDevNum14,
 	emKeyPadDevNum15,
+	emKeyPadDevNum16,
+	emKeyPadDevNum17,
+	emKeyPadDevNum18,
+	emKeyPadDevNum19,
 }emKeyPadDevNumTdf;
 
 ///	@brief					按键稳定状态枚举
