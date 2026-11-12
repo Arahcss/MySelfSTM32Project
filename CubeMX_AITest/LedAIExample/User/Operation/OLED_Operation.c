@@ -44,3 +44,25 @@ void vOledTest(void)
 
 	vOledRefreshFromBuffer(OLED);
 }
+
+///	@brief			渲染一帧计算器界面
+///
+///	@param			pstMsg			:	已格式化的显示帧
+///
+///	@note			清显存→标题→表达式行→数值行→整帧刷新；
+///					文本由计算模块生成，本函数不做数值转换
+void vOledShowCalcFrame(const stCalcDisplayMsgTdf *pstMsg)
+{
+	vOledClearBuffer(OLED);
+
+	vOledWriteStringToBuffer(0, 0, (const uint8_t *)"INT CALC 0-9999",
+			emOledFontSize_6x12, emOledPixelShowMode_Positive, OLED);
+
+	vOledWriteStringToBuffer(0, 16, pstMsg->aucExpression,
+			emOledFontSize_8x16, emOledPixelShowMode_Positive, OLED);
+
+	vOledWriteStringToBuffer(0, 36, pstMsg->aucValue,
+			emOledFontSize_12x24, emOledPixelShowMode_Positive, OLED);
+
+	vOledRefreshFromBuffer(OLED);
+}
