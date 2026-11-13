@@ -405,6 +405,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Task\KeyPad_Task.c</FilePath>
             </File>
+            <File>
+              <FileName>Calc_Task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Task\Calc_Task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -459,6 +464,11 @@
               <FileName>KeyPad_Operation.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Operation\KeyPad_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>Calculator_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\Calculator_Operation.c</FilePath>
             </File>
           </Files>
         </Group>

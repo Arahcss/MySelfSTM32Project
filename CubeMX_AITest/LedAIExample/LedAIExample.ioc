@@ -2,11 +2,11 @@
 CAD.formats=
 CAD.pinconfig=
 CAD.provider=
-FREERTOS.FootprintOK=false
+FREERTOS.FootprintOK=true
 FREERTOS.IPParameters=Tasks01,FootprintOK,Queues01,configTOTAL_HEAP_SIZE
-FREERTOS.Queues01=BtnMsgQueue,8,uint8_t,0,Dynamic,NULL,NULL
-FREERTOS.Tasks01=LedTask,24,128,vLedTask,As weak,NULL,Dynamic,NULL,NULL;BtnTask,24,128,vBtnTask,As weak,NULL,Dynamic,NULL,NULL;BtnProcessTask,25,128,vBtnProcessTask,As weak,NULL,Dynamic,NULL,NULL;OledTask,25,128,vOledTask,As weak,NULL,Dynamic,NULL,NULL;KeyPadTask,24,128,vKeyPadTask,As weak,NULL,Dynamic,NULL,NULL
-FREERTOS.configTOTAL_HEAP_SIZE=6144
+FREERTOS.Queues01=BtnMsgQueue,8,uint8_t,0,Dynamic,NULL,NULL;KeyPadMsgQueue,16,uint32_t,0,Dynamic,NULL,NULL;CalcDisplayMsgQueue,34,uint16_t,0,Dynamic,NULL,NULL
+FREERTOS.Tasks01=LedTask,24,128,vLedTask,As weak,NULL,Dynamic,NULL,NULL;BtnTask,24,128,vBtnTask,As weak,NULL,Dynamic,NULL,NULL;BtnProcessTask,25,128,vBtnProcessTask,As weak,NULL,Dynamic,NULL,NULL;OledTask,25,128,vOledTask,As weak,NULL,Dynamic,NULL,NULL;KeyPadTask,24,128,vKeyPadTask,As weak,NULL,Dynamic,NULL,NULL;CalcTask,24,128,vCalcTask,As weak,NULL,Dynamic,NULL,NULL
+FREERTOS.configTOTAL_HEAP_SIZE=8192
 File.Version=6
 GPIO.groupedBy=Group By Peripherals
 KeepUserPlacement=false

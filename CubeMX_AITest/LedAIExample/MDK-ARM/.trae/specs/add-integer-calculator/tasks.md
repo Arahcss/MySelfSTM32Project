@@ -14,8 +14,8 @@
   - [x] 验证：静态自查 — 输入 `9999*9999` 结果 99980001；`5/0` 进入错误态；C89 变量声明在函数首部
 
 - [x] Task 3: 实现计算任务 `User/Task/Calc_Task.c/.h`
-  - [x] SubTask 3.1: `vCalcTask()`：`vCalcInit()` → 投递首帧到 `CalcDisplayMsgQueue` → 循环阻塞 `osMessageQueueGet(KeyPadMsgQueueHandle)` → `vCalcInputKey((uint8_t)ulKey)` → 投递 `c_pstGetCalcDisplayMsg()` 到 `CalcDisplayMsgQueue`
-  - [x] SubTask 3.2: `extern osMessageQueueId_t KeyPadMsgQueueHandle / CalcDisplayMsgQueueHandle;`，包含 `cmsis_os.h`、`FreeRTOS.h`、`task.h`
+  - [x] SubTask 3.1: `vCalcTask()`：`hDisplayQueue = xGetCalcDisplayMsgQueue()` → `vCalcInit()` → 投递首帧 → 循环阻塞 `osMessageQueueGet(KeyPadMsgQueueHandle)` → `vCalcInputKey((uint8_t)ulKey)` → 投递 `c_pstGetCalcDisplayMsg()` 到 `hDisplayQueue`
+  - [x] SubTask 3.2: `extern osMessageQueueId_t KeyPadMsgQueueHandle;` + `#include "OLED_Task.h"` 取显示队列句柄，包含 `cmsis_os.h`、`FreeRTOS.h`、`task.h`
   - [x] 验证：无 `vTaskDelay` 空转，任务完全由队列驱动；头保护 `_CALC_TASK_H_`
 
 - [x] Task 4: 修改 `User/Task/KeyPad_Task.c` 投递键号
@@ -26,7 +26,7 @@
 - [x] Task 5: 显示链路 `User/Operation/OLED_Operation.c/.h` + `User/Task/OLED_Task.c`
   - [x] SubTask 5.1: `OLED_Operation.h` 声明 `void vOledShowCalcFrame(const stCalcDisplayMsgTdf *pstMsg);`，并包含 `Calculator_Operation.h`
   - [x] SubTask 5.2: 实现帧渲染：清显存 → 标题 `INT CALC 0-9999`（6×12 @ (0,0)）→ 表达式行（8×16 @ (0,16)）→ 数值行（12×24 @ (0,36)）→ `vOledRefreshFromBuffer`
-  - [x] SubTask 5.3: `vOledTask` 去掉 `vOledTest()` 调用，改为循环阻塞取 `CalcDisplayMsgQueue` 并调用 `vOledShowCalcFrame()`
+  - [x] SubTask 5.3: `vOledTask` 去掉 `vOledTest()` 调用，改为循环阻塞取 `xGetCalcDisplayMsgQueue()` 并调用 `vOledShowCalcFrame()`；该访问器按 `sizeof(stCalcDisplayMsgTdf)` 创建 8 项队列
   - [x] 验证：`vOledTest()` 函数保留；OledTask 不再 `vTaskDelay(1000)`
 
 - [x] Task 6: 规范与一致性静态检查

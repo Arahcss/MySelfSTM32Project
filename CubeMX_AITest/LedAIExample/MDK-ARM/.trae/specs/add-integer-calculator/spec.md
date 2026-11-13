@@ -7,12 +7,12 @@
 ## What Changes
 
 - 新增计算核心模块 `User/Operation/Calculator_Operation.c/.h`：按键映射表、输入状态机、四则运算内核 `slCalcArithmetic()`、显示文本生成；纯软件模块，不包含任何 HAL / Device 头文件
-- 新增 `User/Task/Calc_Task.c/.h`：`vCalcTask` 阻塞消费 `KeyPadMsgQueue`，调用计算模块后把显示数据投递到 `CalcDisplayMsgQueue`
+- 新增 `User/Task/Calc_Task.c/.h`：`vCalcTask` 阻塞消费 `KeyPadMsgQueue`，调用计算模块后把显示数据投递到显示帧队列（`xGetCalcDisplayMsgQueue()`）
 - 修改 `User/Task/KeyPad_Task.c`：扫描到 Press 事件后把键号（0~19）投递到 `KeyPadMsgQueue`
-- 修改 `User/Task/OLED_Task.c`：由"初始化 + 测试显示 + 空转"改为"初始化 + 阻塞消费 `CalcDisplayMsgQueue` + 刷新界面"
+- 修改 `User/Task/OLED_Task.c`：由"初始化 + 测试显示 + 空转"改为"初始化 + 阻塞消费显示帧队列 + 刷新界面"，并新增 `xGetCalcDisplayMsgQueue()` 按 34 字节队列项创建该队列
 - 修改 `User/Operation/OLED_Operation.c/.h`：新增 `vOledShowCalcFrame()` 渲染一帧计算器界面（标题 / 表达式行 / 数值行）
 - 修改 `User/Project_Config.h`：新增 `CALC_INPUT_MAX_VALUE`、`CALC_INPUT_MAX_DIGIT`、`CALC_LINE_BUFFER_LENGTH`
-- CubeMX 侧新增 1 个任务 + 2 个队列（用户操作），Keil 侧添加 2 个新源文件
+- CubeMX 侧新增 1 个任务 + 1 个队列（用户操作），显示帧队列在用户代码中创建，Keil 侧添加 2 个新源文件
 - **BREAKING**：无
 
 ## Impact
@@ -183,21 +183,22 @@
    - 生产者：`vKeyPadTask`，在每次扫描后把本周期所有 Press 事件的键号逐条非阻塞投递（队列满则丢弃）
    - 消费者：`vCalcTask`，`osMessageQueueGet` 永久阻塞等待
    - 队列项：`uint32_t`（4 字节），队列长度 16
-2. `CalcDisplayMsgQueue`（计算 → 显示）
+2. 显示帧队列（计算 → 显示，队列对象由用户代码创建，句柄经 `xGetCalcDisplayMsgQueue()` 获取）
    - 生产者：`vCalcTask`，每次处理完一枚按键后投递一帧 `stCalcDisplayMsgTdf`（非阻塞）
    - 消费者：`vOledTask`，初始化完成后永久阻塞等待并刷新屏幕
-   - 队列项：`stCalcDisplayMsgTdf`（34 字节），队列长度 8
+   - 队列项：`stCalcDisplayMsgTdf`（34 字节），队列长度 8，在 `OLED_Task.c` 中按 `sizeof(stCalcDisplayMsgTdf)` 创建
+   - 不能在 CubeMX 中建：CubeMX 的 Item Size 只能选 `uint8_t/uint16_t/uint32_t` 等基本类型，无法表达 34 字节结构体；若按 2 字节（`int16_t`）创建，每帧只搬运 2 个字节，表现为"输入 3 位数字只显示 2 位、数值行不刷新"
 
 上电时序：`vCalcTask` 先 `vCalcInit()` 投递首帧 `0`；`vOledTask` 初始化完成后从队列取首帧显示，因此任务启动先后顺序不影响显示结果。
 
 #### Scenario: 一次按键产生一帧显示
 
 - **WHEN** 按下一枚有效键并松开
-- **THEN** `KeyPadMsgQueue` 中出现一个键号，`vCalcTask` 取出后 `CalcDisplayMsgQueue` 中出现一帧数据，`vOledTask` 消费后屏幕更新
+- **THEN** `KeyPadMsgQueue` 中出现一个键号，`vCalcTask` 取出后显示帧队列中出现一帧数据，`vOledTask` 消费后屏幕更新
 
 #### Scenario: 队列满不阻塞
 
-- **WHEN** 显示任务处理较慢，`CalcDisplayMsgQueue` 已满
+- **WHEN** 显示任务处理较慢，显示帧队列已满
 - **THEN** 投递失败被直接丢弃，`vCalcTask` 不阻塞、不丢键
 
 ### Requirement: OLED 显示布局
@@ -245,24 +246,30 @@
 | Allocation | Dynamic |
 | Generate Under Root / As weak | As weak（由 `User/Task/Calc_Task.c` 覆盖） |
 
-2. FreeRTOS → Queues，新增两个：
+2. FreeRTOS → Queues，新增一个：
 
 | Queue Name | Queue Size（项数） | Item Size（字节） | Allocation |
 | --- | --- | --- | --- |
-| `KeyPadMsgQueue` | 16 | 4 | Dynamic |
-| `CalcDisplayMsgQueue` | 8 | 34 | Dynamic |
+| `KeyPadMsgQueue` | 16 | 4（`uint32_t`） | Dynamic |
 
    注意：现有 `BtnMsgQueue` 的 Item Size 是 1 字节，新队列不要照抄，`KeyPadMsgQueue` 必须为 4 字节，否则键号被截断。
+
+   显示帧队列**不在此处新增**（CubeMX 无法表达 34 字节结构体队列项）；若已有 `CalcDisplayMsgQueue`，应在 CubeMX 中删除并重新生成，队列改由 `User/Task/OLED_Task.c` 的 `xGetCalcDisplayMsgQueue()` 创建。
 
 3. FreeRTOS → Config parameters：`TOTAL_HEAP_SIZE` 由当前 6144 提升至 8192（新增 1 任务 + 2 队列的余量）
 4. GPIO：无需新增。确认现有配置不变——行 PA6/PA5/PA4/PA3/PA2 上拉输入；列 PB10/PB1/PB0/PA7 开漏输出；OLED SCL=PB8、SDA=PB9 推挽输出
 5. Clock / NVIC / 串口：无变化
-6. 生成代码后：在 Keil 中把 `User/Operation/Calculator_Operation.c`、`User/Task/Calc_Task.c` 加入 target；确认 `freertos.c` 中 `vCalcTask` 为 weak 定义、`KeyPadMsgQueueHandle`/`CalcDisplayMsgQueueHandle` 已生成
+6. 生成代码后：在 Keil 中把 `User/Operation/Calculator_Operation.c`、`User/Task/Calc_Task.c` 加入 target；确认 `freertos.c` 中 `vCalcTask` 为 weak 定义、`KeyPadMsgQueueHandle` 已生成
 
 #### Scenario: 配置漏项可被发现
 
-- **WHEN** CubeMX 中漏建 `CalcDisplayMsgQueue`
-- **THEN** 编译报 `CalcDisplayMsgQueueHandle` 未定义，属预期失败，需补配置而非改代码绕过
+- **WHEN** CubeMX 中漏建 `KeyPadMsgQueue`
+- **THEN** 编译报 `KeyPadMsgQueueHandle` 未定义，属预期失败，需补配置而非改代码绕过
+
+#### Scenario: 显示帧队列项宽度
+
+- **WHEN** 显示帧队列按 `sizeof(stCalcDisplayMsgTdf)`（34 字节）创建
+- **THEN** 每帧 34 字节整体搬运，三位及以上数字与数值行均完整刷新；若项大小小于结构体，则表现为只刷新前几个字符
 
 ## MODIFIED Requirements
 

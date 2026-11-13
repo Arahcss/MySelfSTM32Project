@@ -1,11 +1,11 @@
 #include "Calc_Task.h"
 #include "Calculator_Operation.h"
+#include "OLED_Task.h"
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
 #include "task.h"
 
 extern osMessageQueueId_t KeyPadMsgQueueHandle;
-extern osMessageQueueId_t CalcDisplayMsgQueueHandle;
 
 ///	@brief				计算器任务
 ///
@@ -17,9 +17,12 @@ void vCalcTask(void *argument)
 {
 	(void)argument;
 	uint32_t ulKeyIndex;
+	osMessageQueueId_t hDisplayQueue;
+
+	hDisplayQueue = xGetCalcDisplayMsgQueue();
 
 	vCalcInit();
-	osMessageQueuePut(CalcDisplayMsgQueueHandle, c_pstGetCalcDisplayMsg(), 0, 0);
+	osMessageQueuePut(hDisplayQueue, c_pstGetCalcDisplayMsg(), 0, 0);
 
 	while(1)
 	{
@@ -27,7 +30,7 @@ void vCalcTask(void *argument)
 
 		vCalcInputKey((uint8_t)ulKeyIndex);
 
-		//非阻塞投递，显示任务繁忙时丢弃旧帧，不阻塞按键处理
-		osMessageQueuePut(CalcDisplayMsgQueueHandle, c_pstGetCalcDisplayMsg(), 0, 0);
+		//非阻塞投递，显示任务来不及时丢弃本帧，不阻塞按键处理
+		osMessageQueuePut(hDisplayQueue, c_pstGetCalcDisplayMsg(), 0, 0);
 	}
 }

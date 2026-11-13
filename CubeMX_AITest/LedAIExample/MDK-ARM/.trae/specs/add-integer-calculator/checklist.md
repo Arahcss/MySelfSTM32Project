@@ -18,9 +18,9 @@
 ## 队列通信
 
 - [x] `vCalcTask` 阻塞读取 `KeyPadMsgQueue`，取出键号后调用 `vCalcInputKey()`
-- [x] `vCalcTask` 每次按键处理后向 `CalcDisplayMsgQueue` 投递一帧，投递为非阻塞（超时 0）
+- [x] `vCalcTask` 每次按键处理后向显示帧队列（`xGetCalcDisplayMsgQueue()`）投递一帧，投递为非阻塞（超时 0）
 - [x] `vKeyPadTask` 扫描后逐条投递所有 Press 事件键号，队列满时丢弃且不阻塞
-- [x] `vOledTask` 阻塞读取 `CalcDisplayMsgQueue`，无消息时不重绘、不空转延时
+- [x] `vOledTask` 阻塞读取显示帧队列，无消息时不重绘、不空转延时
 - [x] 无任务直接读取对方模块的内部状态（除只读 `c_pstGetCalcDisplayMsg()` 由 Calc 自己调用）
 
 ## 显示
@@ -37,7 +37,8 @@
 - [x] 命名遵循 `v/em/ul/sl/c_pst/st/uc/us` 前缀，Tab 缩进，Doxygen 注释，switch 带 default
 - [x] C89 风格：所有变量声明位于函数体首部
 - [x] 未修改 `Core/`、`.ioc`、`User/Device/`、`MDK-ARM/*.uvprojx`
-- [ ] 用户已在 CubeMX 完成：新增 `CalcTask`（128 Words、As weak、Dynamic）、`KeyPadMsgQueue`（16×4B）、`CalcDisplayMsgQueue`（8×34B）、堆提升至 8192
+- [ ] 用户已在 CubeMX 完成：新增 `CalcTask`（128 Words、As weak、Dynamic）、`KeyPadMsgQueue`（16×4B）、堆提升至 8192；并在 CubeMX 中删除 `CalcDisplayMsgQueue`
+- [ ] 显示帧队列由 `xGetCalcDisplayMsgQueue()` 按 `sizeof(stCalcDisplayMsgTdf)`（34 字节）× 8 创建，未沿用 CubeMX 的 2 字节队列项
 - [ ] 用户已在 Keil 把 `Calculator_Operation.c`、`Calc_Task.c` 加入 target，编译通过且无警告
 - [ ] `KeyPadMsgQueue` Item Size 为 4 字节（未沿用 BtnMsgQueue 的 1 字节）
 

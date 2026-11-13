@@ -76,10 +76,27 @@ const osThreadAttr_t KeyPadTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for CalcTask */
+osThreadId_t CalcTaskHandle;
+const osThreadAttr_t CalcTask_attributes = {
+  .name = "CalcTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for BtnMsgQueue */
 osMessageQueueId_t BtnMsgQueueHandle;
 const osMessageQueueAttr_t BtnMsgQueue_attributes = {
   .name = "BtnMsgQueue"
+};
+/* Definitions for KeyPadMsgQueue */
+osMessageQueueId_t KeyPadMsgQueueHandle;
+const osMessageQueueAttr_t KeyPadMsgQueue_attributes = {
+  .name = "KeyPadMsgQueue"
+};
+/* Definitions for CalcDisplayMsgQueue */
+osMessageQueueId_t CalcDisplayMsgQueueHandle;
+const osMessageQueueAttr_t CalcDisplayMsgQueue_attributes = {
+  .name = "CalcDisplayMsgQueue"
 };
 /* USER CODE BEGIN PV */
  osMessageQueueId_t BtnMsgQueueHandle;
@@ -93,6 +110,7 @@ void vBtnTask(void *argument);
 void vBtnProcessTask(void *argument);
 void vOledTask(void *argument);
 void vKeyPadTask(void *argument);
+void vCalcTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -155,6 +173,12 @@ int main(void)
   /* creation of BtnMsgQueue */
   BtnMsgQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &BtnMsgQueue_attributes);
 
+  /* creation of KeyPadMsgQueue */
+  KeyPadMsgQueueHandle = osMessageQueueNew (16, sizeof(uint32_t), &KeyPadMsgQueue_attributes);
+
+  /* creation of CalcDisplayMsgQueue */
+  CalcDisplayMsgQueueHandle = osMessageQueueNew (34, sizeof(uint16_t), &CalcDisplayMsgQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -174,6 +198,9 @@ int main(void)
 
   /* creation of KeyPadTask */
   KeyPadTaskHandle = osThreadNew(vKeyPadTask, NULL, &KeyPadTask_attributes);
+
+  /* creation of CalcTask */
+  CalcTaskHandle = osThreadNew(vCalcTask, NULL, &CalcTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -407,6 +434,24 @@ __weak void vKeyPadTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END vKeyPadTask */
+}
+
+/* USER CODE BEGIN Header_vCalcTask */
+/**
+* @brief Function implementing the CalcTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_vCalcTask */
+__weak void vCalcTask(void *argument)
+{
+  /* USER CODE BEGIN vCalcTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END vCalcTask */
 }
 
 /**

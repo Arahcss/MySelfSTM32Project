@@ -4,7 +4,31 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-extern osMessageQueueId_t CalcDisplayMsgQueueHandle;
+///	@brief			显示消息队列深度
+///
+///	@note			显示任务每处理一帧约需数十毫秒，8帧足够覆盖快速连按
+#define OLED_CALC_MSG_QUEUE_COUNT		8
+
+static osMessageQueueId_t s_hCalcDisplayMsgQueue = NULL;
+
+///	@brief			获取计算器显示消息队列（首次调用时创建）
+///
+///	@param					None
+///
+///	@return					队列句柄
+///
+///	@note				队列项大小为sizeof(stCalcDisplayMsgTdf)，必须按结构体整体投递，
+///							否则显示帧会被截断（例如只更新前2个字符）
+osMessageQueueId_t xGetCalcDisplayMsgQueue(void)
+{
+	if(s_hCalcDisplayMsgQueue == NULL)
+	{
+		s_hCalcDisplayMsgQueue = osMessageQueueNew(OLED_CALC_MSG_QUEUE_COUNT,
+				sizeof(stCalcDisplayMsgTdf), NULL);
+	}
+
+	return s_hCalcDisplayMsgQueue;
+}
 
 ///	@brief				OLED任务
 ///
@@ -15,12 +39,15 @@ void vOledTask(void *argument)
 {
 	(void)argument;
 	stCalcDisplayMsgTdf stDisplayMsg;
+	osMessageQueueId_t hQueue;
+
+	hQueue = xGetCalcDisplayMsgQueue();
 
 	vOledInitAll();
 
 	while(1)
 	{
-		osMessageQueueGet(CalcDisplayMsgQueueHandle, &stDisplayMsg, NULL, osWaitForever);
+		osMessageQueueGet(hQueue, &stDisplayMsg, NULL, osWaitForever);
 
 		vOledShowCalcFrame(&stDisplayMsg);
 	}
