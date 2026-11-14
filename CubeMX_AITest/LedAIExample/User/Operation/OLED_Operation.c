@@ -66,3 +66,106 @@ void vOledShowCalcFrame(const stCalcDisplayMsgTdf *pstMsg)
 
 	vOledRefreshFromBuffer(OLED);
 }
+
+///	@brief			渲染一帧列表界面
+///
+///	@param			pstMsg			:	已格式化的列表显示帧
+///
+///	@note			清显存→标题→逐行→整帧刷新；
+///					行文本缓冲固定DISPLAY_LINE_LENGTH字节，可能不含'\0'，
+///					写屏前先拷贝到局部缓冲并按屏宽截断（8x16每字符8像素，
+///					整行最多16字符；选中行'>'占一个字符位，故最多15字符）；
+///					选中行采用反显：字模为1的点清除、为0的点置亮，
+///					即笔画变黑、字符格底变白，形成明显的白色高亮块
+void vOledShowListFrame(const stListDisplayMsgTdf *pstMsg)
+{
+	uint8_t i;
+	uint8_t ucLineCount;
+	uint8_t ucMaxCharNum;
+	uint8_t ucCharNum;
+	uint16_t usY;
+	uint8_t aucLineBuf[DISPLAY_LINE_LENGTH];
+
+	if(pstMsg == NULL)
+	{
+		return;
+	}
+
+	vOledClearBuffer(OLED);
+
+	vOledWriteStringToBuffer(0, 0, pstMsg->aucTitle,
+			emOledFontSize_6x12, emOledPixelShowMode_Positive, OLED);
+
+	ucLineCount = pstMsg->ucLineCount;
+	if(ucLineCount > DISPLAY_LIST_LINE_NUM)
+	{
+		ucLineCount = DISPLAY_LIST_LINE_NUM;
+	}
+
+	for(i = 0; i < ucLineCount; i++)
+	{
+		usY = (uint16_t)(16 + (i * 16));
+
+		if(pstMsg->ucSelectedIndex == i)
+		{
+			ucMaxCharNum = 15;		//x=8起画，末字符右边界不超过127
+		}
+		else
+		{
+			ucMaxCharNum = 16;		//x=0起画，整行16字符
+		}
+
+		//按固定长度缓冲取有效字符，遇'\0'或缓冲区末尾即停止
+		ucCharNum = 0;
+		while((ucCharNum < ucMaxCharNum) && (ucCharNum < (DISPLAY_LINE_LENGTH - 1))
+				&& (pstMsg->aucLine[i][ucCharNum] != '\0'))
+		{
+			aucLineBuf[ucCharNum] = pstMsg->aucLine[i][ucCharNum];
+			ucCharNum++;
+		}
+		aucLineBuf[ucCharNum] = '\0';
+
+		if(pstMsg->ucSelectedIndex == i)
+		{
+			vOledWriteStringToBuffer(0, usY, (const uint8_t *)">",
+					emOledFontSize_8x16, emOledPixelShowMode_Positive, OLED);
+
+			vOledWriteStringToBuffer(8, usY, aucLineBuf,
+					emOledFontSize_8x16, emOledPixelShowMode_Negative, OLED);
+		}
+		else
+		{
+			vOledWriteStringToBuffer(0, usY, aucLineBuf,
+					emOledFontSize_8x16, emOledPixelShowMode_Positive, OLED);
+		}
+	}
+
+	vOledRefreshFromBuffer(OLED);
+}
+
+///	@brief			渲染一帧统一显示帧
+///
+///	@param			pstMsg			:	已格式化的显示帧
+///
+///	@note			按帧类型分发，未知类型不刷新屏幕
+void vOledShowFrame(const stDisplayMsgTdf *pstMsg)
+{
+	if(pstMsg == NULL)
+	{
+		return;
+	}
+
+	switch(pstMsg->emType)
+	{
+		case emDisplayFrameType_Calc:
+			vOledShowCalcFrame(&pstMsg->unFrame.stCalc);
+			break;
+
+		case emDisplayFrameType_List:
+			vOledShowListFrame(&pstMsg->unFrame.stList);
+			break;
+
+		default:
+			break;
+	}
+}

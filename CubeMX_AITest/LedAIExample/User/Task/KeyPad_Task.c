@@ -1,5 +1,6 @@
 #include "KeyPad_Task.h"
 #include "KeyPad_Operation.h"
+#include "Input_Operation.h"
 #include "cmsis_os.h"
 #include "FreeRTOS.h"
 #include "task.h"
@@ -10,7 +11,8 @@ extern osMessageQueueId_t KeyPadMsgQueueHandle;
 ///
 ///	@param			argument		:	CubeMX传入参数（未使用）
 ///
-///	@note				10ms周期扫描消抖，检测到Press事件后逐条投递键号到KeyPadMsgQueue；
+///	@note				10ms周期扫描消抖，检测到Press事件后把键号编码为统一输入事件
+///						逐条投递到KeyPadMsgQueue（菜单任务消费）；
 ///						键号 = 行索引*KEYPAD_COL_NUM + 列索引
 void vKeyPadTask(void *argument)
 {
@@ -26,7 +28,7 @@ void vKeyPadTask(void *argument)
 		//采集所有按下事件，逐条入队（非阻塞，队列满则丢弃）
 		while((emDevNum = emKeyPadGetPressEvent()) < KEYPAD_DEV_NUM)
 		{
-			uint32_t ulMsg = (uint32_t)emDevNum;
+			uint32_t ulMsg = INPUT_EVENT_MAKE(emInputSource_KeyPad, (uint8_t)emDevNum);
 			osMessageQueuePut(KeyPadMsgQueueHandle, &ulMsg, 0, 0);
 		}
 
