@@ -28,6 +28,7 @@ ledaiexample\btn_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash
 ledaiexample\btn_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 ledaiexample\btn_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 ledaiexample\btn_task.o: ../User/Project_Config.h
+ledaiexample\btn_task.o: ../User/Operation/Input_Operation.h
 ledaiexample\btn_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 ledaiexample\btn_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 ledaiexample\btn_task.o: ../Core/Inc/FreeRTOSConfig.h

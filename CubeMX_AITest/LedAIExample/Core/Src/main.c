@@ -55,13 +55,6 @@ const osThreadAttr_t BtnTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for BtnProcessTask */
-osThreadId_t BtnProcessTaskHandle;
-const osThreadAttr_t BtnProcessTask_attributes = {
-  .name = "BtnProcessTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal1,
-};
 /* Definitions for OledTask */
 osThreadId_t OledTaskHandle;
 const osThreadAttr_t OledTask_attributes = {
@@ -76,17 +69,12 @@ const osThreadAttr_t KeyPadTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
-/* Definitions for CalcTask */
-osThreadId_t CalcTaskHandle;
-const osThreadAttr_t CalcTask_attributes = {
-  .name = "CalcTask",
+/* Definitions for MenuTask */
+osThreadId_t MenuTaskHandle;
+const osThreadAttr_t MenuTask_attributes = {
+  .name = "MenuTask",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for BtnMsgQueue */
-osMessageQueueId_t BtnMsgQueueHandle;
-const osMessageQueueAttr_t BtnMsgQueue_attributes = {
-  .name = "BtnMsgQueue"
 };
 /* Definitions for KeyPadMsgQueue */
 osMessageQueueId_t KeyPadMsgQueueHandle;
@@ -107,10 +95,9 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 void vLedTask(void *argument);
 void vBtnTask(void *argument);
-void vBtnProcessTask(void *argument);
 void vOledTask(void *argument);
 void vKeyPadTask(void *argument);
-void vCalcTask(void *argument);
+void vMenuTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -170,9 +157,6 @@ int main(void)
   /* USER CODE END RTOS_TIMERS */
 
   /* Create the queue(s) */
-  /* creation of BtnMsgQueue */
-  BtnMsgQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &BtnMsgQueue_attributes);
-
   /* creation of KeyPadMsgQueue */
   KeyPadMsgQueueHandle = osMessageQueueNew (16, sizeof(uint32_t), &KeyPadMsgQueue_attributes);
 
@@ -190,17 +174,14 @@ int main(void)
   /* creation of BtnTask */
   BtnTaskHandle = osThreadNew(vBtnTask, NULL, &BtnTask_attributes);
 
-  /* creation of BtnProcessTask */
-  BtnProcessTaskHandle = osThreadNew(vBtnProcessTask, NULL, &BtnProcessTask_attributes);
-
   /* creation of OledTask */
   OledTaskHandle = osThreadNew(vOledTask, NULL, &OledTask_attributes);
 
   /* creation of KeyPadTask */
   KeyPadTaskHandle = osThreadNew(vKeyPadTask, NULL, &KeyPadTask_attributes);
 
-  /* creation of CalcTask */
-  CalcTaskHandle = osThreadNew(vCalcTask, NULL, &CalcTask_attributes);
+  /* creation of MenuTask */
+  MenuTaskHandle = osThreadNew(vMenuTask, NULL, &MenuTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -382,24 +363,6 @@ __weak void vBtnTask(void *argument)
   /* USER CODE END vBtnTask */
 }
 
-/* USER CODE BEGIN Header_vBtnProcessTask */
-/**
-* @brief Function implementing the BtnProcessTask thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_vBtnProcessTask */
-__weak void vBtnProcessTask(void *argument)
-{
-  /* USER CODE BEGIN vBtnProcessTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END vBtnProcessTask */
-}
-
 /* USER CODE BEGIN Header_vOledTask */
 /**
 * @brief Function implementing the OledTask thread.
@@ -436,22 +399,22 @@ __weak void vKeyPadTask(void *argument)
   /* USER CODE END vKeyPadTask */
 }
 
-/* USER CODE BEGIN Header_vCalcTask */
+/* USER CODE BEGIN Header_vMenuTask */
 /**
-* @brief Function implementing the CalcTask thread.
+* @brief Function implementing the MenuTask thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_vCalcTask */
-__weak void vCalcTask(void *argument)
+/* USER CODE END Header_vMenuTask */
+__weak void vMenuTask(void *argument)
 {
-  /* USER CODE BEGIN vCalcTask */
+  /* USER CODE BEGIN vMenuTask */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END vCalcTask */
+  /* USER CODE END vMenuTask */
 }
 
 /**

@@ -391,11 +391,6 @@
               <FilePath>..\User\Task\Btn_Task.c</FilePath>
             </File>
             <File>
-              <FileName>BtnProcess_Task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\Task\BtnProcess_Task.c</FilePath>
-            </File>
-            <File>
               <FileName>OLED_Task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Task\OLED_Task.c</FilePath>
@@ -406,9 +401,9 @@
               <FilePath>..\User\Task\KeyPad_Task.c</FilePath>
             </File>
             <File>
-              <FileName>Calc_Task.c</FileName>
+              <FileName>Menu_Task.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\Task\Calc_Task.c</FilePath>
+              <FilePath>..\User\Task\Menu_Task.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -469,6 +464,31 @@
               <FileName>Calculator_Operation.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\Operation\Calculator_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>Menu_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\Menu_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>LedApp_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\LedApp_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>GameApp_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\GameApp_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>CalcApp_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\CalcApp_Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>App_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\App_Operation.c</FilePath>
             </File>
           </Files>
         </Group>

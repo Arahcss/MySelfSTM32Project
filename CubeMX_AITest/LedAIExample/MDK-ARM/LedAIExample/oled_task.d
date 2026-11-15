@@ -38,5 +38,5 @@ ledaiexample\oled_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cort
 ledaiexample\oled_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 ledaiexample\oled_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 ledaiexample\oled_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-ledaiexample\oled_task.o: ../User/Operation/Calculator_Operation.h
 ledaiexample\oled_task.o: ../User/Project_Config.h
+ledaiexample\oled_task.o: ../User/Operation/Calculator_Operation.h

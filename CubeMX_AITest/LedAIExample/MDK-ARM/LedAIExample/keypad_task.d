@@ -28,6 +28,7 @@ ledaiexample\keypad_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_fl
 ledaiexample\keypad_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 ledaiexample\keypad_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 ledaiexample\keypad_task.o: ../User/Project_Config.h
+ledaiexample\keypad_task.o: ../User/Operation/Input_Operation.h
 ledaiexample\keypad_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 ledaiexample\keypad_task.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 ledaiexample\keypad_task.o: ../Core/Inc/FreeRTOSConfig.h
