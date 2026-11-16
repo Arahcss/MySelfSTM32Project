@@ -18,7 +18,7 @@
 
 - [x] Task 4: 菜单状态机
   - [x] SubTask 4.1: `Menu_Operation.h` 定义 `emMenuNodeTypeTdf`、`stMenuItemTdf`、`stMenuTdf`、`emMenuModeTdf`（Menu/App），声明 `vMenuInit`、`vMenuHandleKey`、`vMenuExecuteTick`、`c_pstMenuGetRender`、`c_pstGetActiveApp`
-  - [x] SubTask 4.2: `Menu_Operation.c` 定义菜单树：MAIN（CALCULATOR / LED CONTROL / GAME）、LED CONTROL（SINGLE LED / ALL LED）、SINGLE LED（LED0~LED8 → APP_LED_SINGLE，param=灯号）、ALL LED（ALL ON/OFF/TOGGLE/BREATH → APP_LED_ALL，param=动作）、GAME（SNAKE → APP_GAME_SNAKE）
+  - [x] SubTask 4.2: `Menu_Operation.c` 定义菜单树：MAIN（CALCULATOR / LED CONTROL / GAME）、LED CONTROL（SINGLE LED / ALL LED）、SINGLE LED（仅 LED0 → APP_LED_SINGLE，param=0；硬件只接入板载灯）、ALL LED（ALL ON/OFF/TOGGLE/BREATH → APP_LED_ALL，param=动作）、GAME（SNAKE → APP_GAME_SNAKE）
   - [x] SubTask 4.3: 实现导航：UP/DOWN 循环移动、ENTER 进子菜单或启动应用（`vEnter(param)`）、CANCEL 退出应用或回上级；用 `s_aucMenuStack[3]`/`s_aucSelectStack[3]` 记住各级选中项
   - [x] SubTask 4.4: 实现列表帧生成：标题=当前菜单标题，窗口 3 行随选中项滚动，`ucSelectedIndex`=选中行在窗口内位置（应用页填 0xFF）
   - [x] SubTask 4.5: 实现 `vMenuExecuteTick()`：仅在应用模式且 `vTick != NULL` 时调用

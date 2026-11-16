@@ -33,7 +33,7 @@
 | --- | --- | --- |
 | 0 | `MAIN` | `CALCULATOR`（应用）、`LED CONTROL`（子菜单）、`GAME`（子菜单） |
 | 1 | `LED CONTROL` | `SINGLE LED`（子菜单）、`ALL LED`（子菜单） |
-| 2 | `SINGLE LED` | `LED0` ~ `LED8`（应用，参数=灯号） |
+| 2 | `SINGLE LED` | `LED0`（板载灯，当前硬件唯一已接入的 LED） |
 | 2 | `ALL LED` | `ALL ON`、`ALL OFF`、`ALL TOGGLE`、`ALL BREATH`（应用，参数=动作） |
 | 1 | `GAME` | `SNAKE`（占位应用） |
 
@@ -96,15 +96,17 @@ typedef struct
 
 LED 应用 SHALL 通过 `vLedSetAction()` 驱动 LED，不新增 Device 层代码：
 
-- 单灯页（`LED0`~`LED8`）：ENTER 依次切换并执行 `ON → OFF → TOGGLE → BREATH` 循环，页面显示当前灯号与动作名
-- 全部页：进入即执行对应动作（`ALL ON/OFF/TOGGLE/BREATH`），ENTER 再执行一次同一动作，页面显示动作名
+- 硬件现状：`LED_DEV_NUM` 为 9，但 `vLedInitAll()` 只初始化了 `emLedDevNum0`（PC13 板载灯），其余设备槽位的 `pstGpioBase` 为 NULL，**不可对其调用 `vLedSetAction()`**（会写空指针触发 HardFault）
+- 单灯页：只列 `LED0`（板载灯），ENTER 依次切换并执行 `ON → OFF → TOGGLE → BREATH` 循环，页面显示当前灯号与动作名
+- 全部页：由于当前只有 1 个灯，"全部"等价于板载灯；进入即执行对应动作（`ALL ON/OFF/TOGGLE/BREATH`），ENTER 再执行一次同一动作，页面显示动作名
 - 页面固定 3 行：状态行、`ENTER: NEXT`（或 `ENTER: AGAIN`）、`CANCEL: BACK`
 - 同一时刻只允许一个 LED 应用处于活动状态；退出应用不强制改变 LED 当前状态
+- 以后接入更多 LED 时：在 `vLedInitAll()` 补对应设备初始化、`vLedExecuteAll()` 补周期执行、把灯号加回 `SINGLE LED` 菜单项表
 
 #### Scenario: 单灯呼吸
 
-- **WHEN** MAIN → LED CONTROL → SINGLE LED → `LED3`，连按 4 次 ENTER
-- **THEN** LED3 依次 点亮、熄灭、翻转、进入呼吸；页面动作名同步更新
+- **WHEN** MAIN → LED CONTROL → SINGLE LED → `LED0`，连按 4 次 ENTER
+- **THEN** 板载灯依次 点亮、熄灭、翻转、进入呼吸；页面动作名同步更新，不进入 HardFault
 
 ### Requirement: 统一输入事件
 

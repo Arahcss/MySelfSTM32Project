@@ -33,18 +33,11 @@ static const stMenuItemTdf s_astGameMenuItems[] =
 
 ///	@brief					单灯子菜单项表
 ///
-///	@note					ucParam即灯号0~8，对应LED_DEV_NUM个灯
+///	@note					ucParam即灯号；当前硬件仅接入板载LED（emLedDevNum0），
+///							故只保留LED0，其余设备槽位未初始化不可用
 static const stMenuItemTdf s_astSingleLedMenuItems[] =
 {
 	{"LED0",		emMenuNodeType_App,			APP_LED_SINGLE,	0},
-	{"LED1",		emMenuNodeType_App,			APP_LED_SINGLE,	1},
-	{"LED2",		emMenuNodeType_App,			APP_LED_SINGLE,	2},
-	{"LED3",		emMenuNodeType_App,			APP_LED_SINGLE,	3},
-	{"LED4",		emMenuNodeType_App,			APP_LED_SINGLE,	4},
-	{"LED5",		emMenuNodeType_App,			APP_LED_SINGLE,	5},
-	{"LED6",		emMenuNodeType_App,			APP_LED_SINGLE,	6},
-	{"LED7",		emMenuNodeType_App,			APP_LED_SINGLE,	7},
-	{"LED8",		emMenuNodeType_App,			APP_LED_SINGLE,	8},
 };
 
 ///	@brief					全部灯子菜单项表
@@ -66,7 +59,7 @@ static const stMenuTdf s_astMenuTable[5] =
 	{"MAIN",			3,	s_astMainMenuItems},
 	{"LED CONTROL",		2,	s_astLedControlMenuItems},
 	{"GAME",			1,	s_astGameMenuItems},
-	{"SINGLE LED",		9,	s_astSingleLedMenuItems},
+	{"SINGLE LED",		1,	s_astSingleLedMenuItems},
 	{"ALL LED",			4,	s_astAllLedMenuItems},
 };
 

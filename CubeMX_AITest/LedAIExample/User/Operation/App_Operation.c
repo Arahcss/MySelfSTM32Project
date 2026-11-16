@@ -10,7 +10,7 @@
 static const stAppInterfaceTdf s_astAppTable[APP_NUM] =
 {
 	{"CALC", vCalcAppEnter, vCalcAppExit, vCalcAppHandleKey, NULL, c_pstCalcAppRender},
-	{"LED1", vLedSingleAppEnter, vLedSingleAppExit, vLedSingleAppHandleKey, NULL, c_pstLedSingleAppRender},
+	{"LED", vLedSingleAppEnter, vLedSingleAppExit, vLedSingleAppHandleKey, NULL, c_pstLedSingleAppRender},
 	{"LEDA", vLedAllAppEnter, vLedAllAppExit, vLedAllAppHandleKey, NULL, c_pstLedAllAppRender},
 	{"GAME", vGameAppEnter, vGameAppExit, vGameAppHandleKey, NULL, c_pstGameAppRender},
 };

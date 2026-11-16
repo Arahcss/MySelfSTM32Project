@@ -3,7 +3,7 @@
 ## 菜单与导航
 
 - [x] MAIN 菜单含 3 项：`CALCULATOR`、`LED CONTROL`、`GAME`，上电默认选中第 1 项
-- [x] 三级路径可达：MAIN → LED CONTROL → SINGLE LED → LED0~LED8；MAIN → LED CONTROL → ALL LED → 4 个动作项
+- [x] 三级路径可达：MAIN → LED CONTROL → SINGLE LED → LED0；MAIN → LED CONTROL → ALL LED → 4 个动作项
 - [x] UP/DOWN 选择循环（首项再 UP 到末项，末项再 DOWN 到首项）
 - [x] ENTER 进入子菜单 / 启动应用；CANCEL 在子菜单返回上级、在应用内返回进入前的菜单
 - [x] 根菜单按 CANCEL 无动作、不崩溃
@@ -34,6 +34,7 @@
 - [x] 单灯页 ENTER 循环切换 `ON → OFF → TOGGLE → BREATH`，每次切换立即生效
 - [x] 单灯页正确显示当前灯号与动作名
 - [x] 全部页进入即执行动作（ON/OFF/TOGGLE/BREATH），ENTER 可重复执行
+- [x] LED 应用只驱动已初始化的 `emLedDevNum0`，未对 LED1~LED8 未初始化槽位调用 `vLedSetAction`（该调用会写 NULL GPIO 触发 HardFault）
 - [x] LED 应用只调用 `vLedSetAction()`，未直接操作 LedDevice 的 GPIO 层
 - [x] 退出 LED 应用不改变 LED 当前状态，LED 仍由 LedTask 1ms 驱动正常呼吸
 
@@ -61,6 +62,6 @@
 
 - [ ] 上电显示 MAIN 菜单，板载 UP/DOWN/ENTER/CANCEL 导航正常
 - [ ] 进入计算器完成一次四则运算后 CANCEL 返回菜单
-- [ ] 进入 LED 单灯页驱动 LED3 呼吸，返回后 LED 状态保持
+- [ ] 进入 LED 单灯页驱动板载灯呼吸，返回后 LED 状态保持
 - [ ] 进入 GAME → SNAKE 显示占位页并可返回
 - [ ] 连续快速按板载键不丢键、显示不卡死

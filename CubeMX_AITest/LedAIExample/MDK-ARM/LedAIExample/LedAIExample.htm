@@ -3,7 +3,7 @@
 <title>Static Call Graph - [LedAIExample\LedAIExample.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image LedAIExample\LedAIExample.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Nov 16 01:21:57 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Nov 17 00:26:45 2026
 <BR><P>
 <H3>Maximum Stack Usage =        352 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -105,7 +105,7 @@ Global Symbols
 <P><STRONG><a name="[37]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(.text)
 </UL>
-<P><STRONG><a name="[129]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[12a]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[50]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -115,21 +115,21 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[12a]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[12b]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[12b]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[12c]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[12c]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[12d]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[12d]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[12e]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[12e]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[12f]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[6]"></a>SVC_Handler</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, port.o(.emb_text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[123]"></a>__asm___6_port_c_39a90d8d__prvStartFirstTask</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, port.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<P><STRONG><a name="[124]"></a>__asm___6_port_c_39a90d8d__prvStartFirstTask</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, port.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, port.o(.emb_text))
@@ -137,8 +137,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[11c]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
+<P><STRONG><a name="[11d]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
 </UL>
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f103xb.o(.text))
@@ -283,20 +283,20 @@ Global Symbols
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
-<P><STRONG><a name="[12f]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[130]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[a8]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcAppRefresh
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 </UL>
 
-<P><STRONG><a name="[102]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceRunningParamInit
+<P><STRONG><a name="[103]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceRunningParamInit
 </UL>
 
-<P><STRONG><a name="[130]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
+<P><STRONG><a name="[131]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[54]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
@@ -304,21 +304,21 @@ Global Symbols
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[131]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[132]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[132]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[133]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[53]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
 <P><STRONG><a name="[79]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
+<BR><BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[133]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[134]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[55]"></a>memset</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -329,7 +329,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
@@ -341,7 +341,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 </UL>
 
@@ -350,7 +350,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
@@ -359,10 +359,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
 </UL>
 
-<P><STRONG><a name="[134]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, iusefp.o(.text), UNUSED)
+<P><STRONG><a name="[135]"></a>__I$use$fp</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, iusefp.o(.text), UNUSED)
 
 <P><STRONG><a name="[59]"></a>_double_round</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, depilogue.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
@@ -391,14 +391,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[135]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[136]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[5d]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
-<P><STRONG><a name="[136]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[137]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[5f]"></a>__aeabi_dadd</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, dadd.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
@@ -445,7 +445,7 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
 
-<P><STRONG><a name="[137]"></a>scalbn</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, dscalb.o(.text), UNUSED)
+<P><STRONG><a name="[138]"></a>scalbn</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, dscalb.o(.text), UNUSED)
 
 <P><STRONG><a name="[63]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __aeabi_i2d &rArr; _double_epilogue &rArr; _double_round
@@ -468,7 +468,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
-<P><STRONG><a name="[138]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
+<P><STRONG><a name="[139]"></a>_ll_sshift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llsshr.o(.text), UNUSED)
 
 <P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.BusFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
@@ -486,15 +486,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
-<P><STRONG><a name="[ea]"></a>HAL_GPIO_ReadPin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_ReadPin))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDeviceScanExecute
+<P><STRONG><a name="[ec]"></a>HAL_GPIO_ReadPin</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_ReadPin))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDeviceScanExecute
 </UL>
 
 <P><STRONG><a name="[73]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceColPinInit
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceColPinInit
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
@@ -510,9 +510,9 @@ Global Symbols
 <P><STRONG><a name="[65]"></a>HAL_Init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f1xx_hal.o(i.HAL_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_Init &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -520,8 +520,8 @@ Global Symbols
 <P><STRONG><a name="[67]"></a>HAL_InitTick</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, stm32f1xx_hal.o(i.HAL_InitTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; __NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
@@ -541,8 +541,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_GetPriorityGrouping
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 </UL>
 
 <P><STRONG><a name="[66]"></a>HAL_NVIC_SetPriorityGrouping</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping))
@@ -633,7 +633,7 @@ Global Symbols
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 </UL>
 
 <P><STRONG><a name="[7d]"></a>__kernel_cos</STRONG> (Thumb, 230 bytes, Stack size 48 bytes, cos_i.o(i.__kernel_cos))
@@ -646,7 +646,7 @@ Global Symbols
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 </UL>
 
 <P><STRONG><a name="[7e]"></a>__kernel_poly</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
@@ -671,7 +671,7 @@ Global Symbols
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 </UL>
 
 <P><STRONG><a name="[82]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_infnan))
@@ -679,7 +679,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 </UL>
 
 <P><STRONG><a name="[83]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_invalid))
@@ -687,7 +687,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 </UL>
 
 <P><STRONG><a name="[81]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_underflow))
@@ -698,14 +698,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 </UL>
 
-<P><STRONG><a name="[139]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[13a]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[13a]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[13b]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[13b]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[13c]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[e7]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno))
-<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<P><STRONG><a name="[e9]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno))
+<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 </UL>
 
 <P><STRONG><a name="[43]"></a>c_pstCalcAppRender</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, calcapp_operation.o(i.c_pstCalcAppRender))
@@ -723,10 +723,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[85]"></a>c_pstGetAppInterface</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, app_operation.o(i.c_pstGetAppInterface))
-<BR><BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuHandleKey
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuExecuteTick
+<BR><BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuHandleKey
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuExecuteTick
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;c_pstGetActiveApp
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
 </UL>
 
 <P><STRONG><a name="[c6]"></a>c_pstGetCalcDisplayMsg</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, calculator_operation.o(i.c_pstGetCalcDisplayMsg))
@@ -739,7 +739,7 @@ Global Symbols
 <P><STRONG><a name="[47]"></a>c_pstLedSingleAppRender</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, ledapp_operation.o(i.c_pstLedSingleAppRender))
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
-<P><STRONG><a name="[10e]"></a>c_pstMenuGetRender</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, menu_operation.o(i.c_pstMenuGetRender))
+<P><STRONG><a name="[10f]"></a>c_pstMenuGetRender</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, menu_operation.o(i.c_pstMenuGetRender))
 <BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuTask
 </UL>
 
@@ -816,7 +816,7 @@ Global Symbols
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vQueueAddToRegistry
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__get_IPSR
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xGetDisplayMsgQueue
+<BR>[Called By]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xGetDisplayMsgQueue
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -858,17 +858,17 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[e6]"></a>sin</STRONG> (Thumb, 150 bytes, Stack size 32 bytes, sin.o(i.sin))
+<P><STRONG><a name="[e8]"></a>sin</STRONG> (Thumb, 150 bytes, Stack size 32 bytes, sin.o(i.sin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
 </UL>
 
 <P><STRONG><a name="[cf]"></a>slCalcArithmetic</STRONG> (Thumb, 62 bytes, Stack size 12 bytes, calculator_operation.o(i.slCalcArithmetic))
@@ -885,45 +885,45 @@ Global Symbols
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessReceivedCommands
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessExpiredTimer
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
-<P><STRONG><a name="[11f]"></a>vApplicationGetIdleTaskMemory</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, cmsis_os2.o(i.vApplicationGetIdleTaskMemory))
+<P><STRONG><a name="[120]"></a>vApplicationGetIdleTaskMemory</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, cmsis_os2.o(i.vApplicationGetIdleTaskMemory))
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
-<P><STRONG><a name="[128]"></a>vApplicationGetTimerTaskMemory</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, cmsis_os2.o(i.vApplicationGetTimerTaskMemory))
-<BR><BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<P><STRONG><a name="[129]"></a>vApplicationGetTimerTaskMemory</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, cmsis_os2.o(i.vApplicationGetTimerTaskMemory))
+<BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
-<P><STRONG><a name="[ed]"></a>vBtnDeviceInit</STRONG> (Thumb, 18 bytes, Stack size 12 bytes, btndevice.o(i.vBtnDeviceInit))
+<P><STRONG><a name="[ef]"></a>vBtnDeviceInit</STRONG> (Thumb, 18 bytes, Stack size 12 bytes, btndevice.o(i.vBtnDeviceInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = vBtnDeviceInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnInitAll
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnInitAll
 </UL>
 
-<P><STRONG><a name="[e8]"></a>vBtnDevicePeriodExecute</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, btndevice.o(i.vBtnDevicePeriodExecute))
+<P><STRONG><a name="[ea]"></a>vBtnDevicePeriodExecute</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, btndevice.o(i.vBtnDevicePeriodExecute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vBtnDevicePeriodExecute &rArr; vBtnDeviceScanExecute
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDeviceScanExecute
+<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDeviceScanExecute
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnExecuteAll
+<BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnExecuteAll
 </UL>
 
-<P><STRONG><a name="[eb]"></a>vBtnExecuteAll</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, btn_operation.o(i.vBtnExecuteAll))
+<P><STRONG><a name="[ed]"></a>vBtnExecuteAll</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, btn_operation.o(i.vBtnExecuteAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = vBtnExecuteAll &rArr; vBtnDevicePeriodExecute &rArr; vBtnDeviceScanExecute
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDevicePeriodExecute
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDevicePeriodExecute
 </UL>
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnTask
 </UL>
 
-<P><STRONG><a name="[ec]"></a>vBtnInitAll</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, btn_operation.o(i.vBtnInitAll))
+<P><STRONG><a name="[ee]"></a>vBtnInitAll</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, btn_operation.o(i.vBtnInitAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = vBtnInitAll &rArr; vBtnDeviceInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDeviceInit
+<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDeviceInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnTask
 </UL>
@@ -931,11 +931,11 @@ Global Symbols
 <P><STRONG><a name="[39]"></a>vBtnTask</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, btn_task.o(i.vBtnTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = vBtnTask &rArr; osMessageQueuePut &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnInitAll
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnExecuteAll
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnInitAll
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnExecuteAll
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueuePut
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;emBtnGetPressEvent
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
@@ -943,7 +943,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = vCalcAppEnter &rArr; vCalcInit &rArr; s_vCalcBuildDisplay &rArr; s_vCalcAppendNumber &rArr; s_vCalcNumberToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcAppRefresh
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInit
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInit
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
@@ -954,28 +954,28 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = vCalcAppHandleKey &rArr; vCalcInputKey &rArr; s_vCalcBuildDisplay &rArr; s_vCalcAppendNumber &rArr; s_vCalcNumberToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcAppRefresh
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
-<P><STRONG><a name="[ef]"></a>vCalcInit</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, calculator_operation.o(i.vCalcInit))
+<P><STRONG><a name="[f1]"></a>vCalcInit</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, calculator_operation.o(i.vCalcInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = vCalcInit &rArr; s_vCalcBuildDisplay &rArr; s_vCalcAppendNumber &rArr; s_vCalcNumberToString
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcContextReset
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcContextReset
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcBuildDisplay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcAppEnter
 </UL>
 
-<P><STRONG><a name="[f0]"></a>vCalcInputKey</STRONG> (Thumb, 160 bytes, Stack size 16 bytes, calculator_operation.o(i.vCalcInputKey))
+<P><STRONG><a name="[f2]"></a>vCalcInputKey</STRONG> (Thumb, 160 bytes, Stack size 16 bytes, calculator_operation.o(i.vCalcInputKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 108<LI>Call Chain = vCalcInputKey &rArr; s_vCalcBuildDisplay &rArr; s_vCalcAppendNumber &rArr; s_vCalcNumberToString
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcPressOperator
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcPressEqual
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcContextReset
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcContextReset
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcBuildDisplay
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcBackspace
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcAppendDigit
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcBackspace
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcAppendDigit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcAppHandleKey
 </UL>
@@ -997,48 +997,48 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
-<P><STRONG><a name="[f4]"></a>vKeyPadDeviceColPinInit</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, keypaddevice.o(i.vKeyPadDeviceColPinInit))
+<P><STRONG><a name="[f6]"></a>vKeyPadDeviceColPinInit</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, keypaddevice.o(i.vKeyPadDeviceColPinInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vKeyPadDeviceColPinInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
 </UL>
 
-<P><STRONG><a name="[fa]"></a>vKeyPadDeviceInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, keypaddevice.o(i.vKeyPadDeviceInit))
-<BR><BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
+<P><STRONG><a name="[fc]"></a>vKeyPadDeviceInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, keypaddevice.o(i.vKeyPadDeviceInit))
+<BR><BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
 </UL>
 
-<P><STRONG><a name="[f5]"></a>vKeyPadDevicePeriodExecute</STRONG> (Thumb, 134 bytes, Stack size 32 bytes, keypaddevice.o(i.vKeyPadDevicePeriodExecute))
+<P><STRONG><a name="[f7]"></a>vKeyPadDevicePeriodExecute</STRONG> (Thumb, 134 bytes, Stack size 32 bytes, keypaddevice.o(i.vKeyPadDevicePeriodExecute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = vKeyPadDevicePeriodExecute
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vKeyPadDebounceUpdate
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vKeyPadDebounceUpdate
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadExecuteAll
+<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadExecuteAll
 </UL>
 
-<P><STRONG><a name="[f9]"></a>vKeyPadDeviceRowPinInit</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, keypaddevice.o(i.vKeyPadDeviceRowPinInit))
+<P><STRONG><a name="[fb]"></a>vKeyPadDeviceRowPinInit</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, keypaddevice.o(i.vKeyPadDeviceRowPinInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vKeyPadDeviceRowPinInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
+<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
 </UL>
 
-<P><STRONG><a name="[f7]"></a>vKeyPadExecuteAll</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, keypad_operation.o(i.vKeyPadExecuteAll))
+<P><STRONG><a name="[f9]"></a>vKeyPadExecuteAll</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, keypad_operation.o(i.vKeyPadExecuteAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = vKeyPadExecuteAll &rArr; vKeyPadDevicePeriodExecute
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadTask
 </UL>
 
-<P><STRONG><a name="[f8]"></a>vKeyPadInitAll</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, keypad_operation.o(i.vKeyPadInitAll))
+<P><STRONG><a name="[fa]"></a>vKeyPadInitAll</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, keypad_operation.o(i.vKeyPadInitAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = vKeyPadInitAll &rArr; vKeyPadDeviceColPinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceRowPinInit
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceInit
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceColPinInit
+<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceRowPinInit
+<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceInit
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDeviceColPinInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadTask
 </UL>
@@ -1046,125 +1046,124 @@ Global Symbols
 <P><STRONG><a name="[3b]"></a>vKeyPadTask</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, keypad_task.o(i.vKeyPadTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = vKeyPadTask &rArr; osMessageQueuePut &rArr; xQueueGenericSend &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadExecuteAll
+<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadInitAll
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadExecuteAll
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;emKeyPadGetPressEvent
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueuePut
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[48]"></a>vLedAllAppEnter</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, ledapp_operation.o(i.vLedAllAppEnter))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vLedAllAppEnter &rArr; vLedSetAction &rArr; vLedToggle &rArr; vLedUpdatePinLevel
+<P><STRONG><a name="[48]"></a>vLedAllAppEnter</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, ledapp_operation.o(i.vLedAllAppEnter))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vLedAllAppEnter &rArr; s_vLedAllAppApply &rArr; vLedSetAction &rArr; vLedToggle &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllAppApply
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
 <P><STRONG><a name="[49]"></a>vLedAllAppExit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, ledapp_operation.o(i.vLedAllAppExit))
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
-<P><STRONG><a name="[4a]"></a>vLedAllAppHandleKey</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, ledapp_operation.o(i.vLedAllAppHandleKey))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vLedAllAppHandleKey &rArr; vLedSetAction &rArr; vLedToggle &rArr; vLedUpdatePinLevel
+<P><STRONG><a name="[4a]"></a>vLedAllAppHandleKey</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, ledapp_operation.o(i.vLedAllAppHandleKey))
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vLedAllAppHandleKey &rArr; s_vLedAllAppApply &rArr; vLedSetAction &rArr; vLedToggle &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllAppApply
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
-<P><STRONG><a name="[fc]"></a>vLedDeviceBlinkExecute</STRONG> (Thumb, 164 bytes, Stack size 8 bytes, leddevice.o(i.vLedDeviceBlinkExecute))
+<P><STRONG><a name="[fd]"></a>vLedDeviceBlinkExecute</STRONG> (Thumb, 164 bytes, Stack size 8 bytes, leddevice.o(i.vLedDeviceBlinkExecute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = vLedDeviceBlinkExecute &rArr; vLedOn &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOn
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOff
+<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOn
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOff
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDevicePeriodExecute
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDevicePeriodExecute
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
 </UL>
 
-<P><STRONG><a name="[105]"></a>vLedDeviceInit</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, leddevice.o(i.vLedDeviceInit))
+<P><STRONG><a name="[106]"></a>vLedDeviceInit</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, leddevice.o(i.vLedDeviceInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vLedDeviceInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
 </UL>
 
-<P><STRONG><a name="[100]"></a>vLedDevicePeriodExecute</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, leddevice.o(i.vLedDevicePeriodExecute))
+<P><STRONG><a name="[101]"></a>vLedDevicePeriodExecute</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, leddevice.o(i.vLedDevicePeriodExecute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = vLedDevicePeriodExecute &rArr; vLedDeviceBreathExecute &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
+<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBreathExecute
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedExecuteAll
+<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedExecuteAll
 </UL>
 
-<P><STRONG><a name="[101]"></a>vLedDeviceRunningParamInit</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, leddevice.o(i.vLedDeviceRunningParamInit))
+<P><STRONG><a name="[102]"></a>vLedDeviceRunningParamInit</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, leddevice.o(i.vLedDeviceRunningParamInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vLedDeviceRunningParamInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<BR>[Calls]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
 </UL>
 
-<P><STRONG><a name="[103]"></a>vLedExecuteAll</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, led_operation.o(i.vLedExecuteAll))
+<P><STRONG><a name="[104]"></a>vLedExecuteAll</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, led_operation.o(i.vLedExecuteAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = vLedExecuteAll &rArr; vLedDevicePeriodExecute &rArr; vLedDeviceBreathExecute &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDevicePeriodExecute
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDevicePeriodExecute
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedTask
 </UL>
 
-<P><STRONG><a name="[104]"></a>vLedInitAll</STRONG> (Thumb, 72 bytes, Stack size 32 bytes, led_operation.o(i.vLedInitAll))
+<P><STRONG><a name="[105]"></a>vLedInitAll</STRONG> (Thumb, 72 bytes, Stack size 32 bytes, led_operation.o(i.vLedInitAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = vLedInitAll &rArr; vLedDeviceRunningParamInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceRunningParamInit
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceInit
+<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceRunningParamInit
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceInit
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedTask
 </UL>
 
-<P><STRONG><a name="[fe]"></a>vLedOff</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, leddevice.o(i.vLedOff))
+<P><STRONG><a name="[ff]"></a>vLedOff</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, leddevice.o(i.vLedOff))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vLedOff &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
 </UL>
 
-<P><STRONG><a name="[fd]"></a>vLedOn</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, leddevice.o(i.vLedOn))
+<P><STRONG><a name="[fe]"></a>vLedOn</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, leddevice.o(i.vLedOn))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vLedOn &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
 </UL>
 
-<P><STRONG><a name="[fb]"></a>vLedSetAction</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, led_operation.o(i.vLedSetAction))
+<P><STRONG><a name="[d4]"></a>vLedSetAction</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, led_operation.o(i.vLedSetAction))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = vLedSetAction &rArr; vLedToggle &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedToggle
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetMode
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOn
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOff
+<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedToggle
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetMode
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOn
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOff
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSingleAppHandleKey
-<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedAllAppHandleKey
-<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedAllAppEnter
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllAppApply
 </UL>
 
-<P><STRONG><a name="[107]"></a>vLedSetMode</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, leddevice.o(i.vLedSetMode))
+<P><STRONG><a name="[108]"></a>vLedSetMode</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, leddevice.o(i.vLedSetMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vLedSetMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
 </UL>
 
 <P><STRONG><a name="[44]"></a>vLedSingleAppEnter</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, ledapp_operation.o(i.vLedSingleAppEnter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vLedSingleAppEnter &rArr; s_vLedSingleBuildFrame &rArr; s_vLedAppAppendText
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
+<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
@@ -1174,36 +1173,36 @@ Global Symbols
 <P><STRONG><a name="[46]"></a>vLedSingleAppHandleKey</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, ledapp_operation.o(i.vLedSingleAppHandleKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = vLedSingleAppHandleKey &rArr; vLedSetAction &rArr; vLedToggle &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_operation.o(.constdata)
 </UL>
 <P><STRONG><a name="[38]"></a>vLedTask</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led_task.o(i.vLedTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = vLedTask &rArr; vLedExecuteAll &rArr; vLedDevicePeriodExecute &rArr; vLedDeviceBreathExecute &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedExecuteAll
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedInitAll
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedExecuteAll
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[108]"></a>vLedToggle</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, leddevice.o(i.vLedToggle))
+<P><STRONG><a name="[109]"></a>vLedToggle</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, leddevice.o(i.vLedToggle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = vLedToggle &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedUpdatePinLevel
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
+<BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
 </UL>
 
-<P><STRONG><a name="[106]"></a>vLedUpdatePinLevel</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, leddevice.o(i.vLedUpdatePinLevel))
+<P><STRONG><a name="[107]"></a>vLedUpdatePinLevel</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, leddevice.o(i.vLedUpdatePinLevel))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vLedUpdatePinLevel
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedToggle
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOn
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOff
+<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedToggle
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOn
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedOff
 </UL>
 
 <P><STRONG><a name="[a4]"></a>vListInitialise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
@@ -1219,7 +1218,7 @@ Global Symbols
 <P><STRONG><a name="[9e]"></a>vListInsert</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, list.o(i.vListInsert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vListInsert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<BR>[Called By]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSwitchTimerLists
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertTimerInActiveList
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
@@ -1228,36 +1227,36 @@ Global Symbols
 <P><STRONG><a name="[9d]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
-<P><STRONG><a name="[109]"></a>vMenuExecuteTick</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, menu_operation.o(i.vMenuExecuteTick))
+<P><STRONG><a name="[10a]"></a>vMenuExecuteTick</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, menu_operation.o(i.vMenuExecuteTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = vMenuExecuteTick &rArr; s_vMenuBuildFrame
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;c_pstGetAppInterface
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuTask
 </UL>
 
-<P><STRONG><a name="[10a]"></a>vMenuHandleKey</STRONG> (Thumb, 290 bytes, Stack size 24 bytes, menu_operation.o(i.vMenuHandleKey))
+<P><STRONG><a name="[10b]"></a>vMenuHandleKey</STRONG> (Thumb, 290 bytes, Stack size 24 bytes, menu_operation.o(i.vMenuHandleKey))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vMenuHandleKey &rArr; s_vMenuBuildFrame
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;c_pstGetAppInterface
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuTask
 </UL>
 
-<P><STRONG><a name="[10b]"></a>vMenuInit</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, menu_operation.o(i.vMenuInit))
+<P><STRONG><a name="[10c]"></a>vMenuInit</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, menu_operation.o(i.vMenuInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = vMenuInit &rArr; s_vMenuBuildFrame
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuClearFrame
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
+<BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuClearFrame
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuTask
 </UL>
@@ -1265,128 +1264,128 @@ Global Symbols
 <P><STRONG><a name="[3c]"></a>vMenuTask</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, menu_task.o(i.vMenuTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = vMenuTask &rArr; xGetDisplayMsgQueue &rArr; osMessageQueueNew &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuInit
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuHandleKey
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuExecuteTick
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;c_pstMenuGetRender
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuInit
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuHandleKey
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuExecuteTick
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;c_pstMenuGetRender
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;c_pstGetActiveApp
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_emMenuDecodeInput
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_emMenuDecodeInput
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueueGet
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xGetDisplayMsgQueue
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xGetDisplayMsgQueue
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueuePut
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[110]"></a>vOledClearBuffer</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, oleddevice.o(i.vOledClearBuffer))
+<P><STRONG><a name="[111]"></a>vOledClearBuffer</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, oleddevice.o(i.vOledClearBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vOledClearBuffer
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
 </UL>
 
-<P><STRONG><a name="[11a]"></a>vOledClearOnePointToBuffer</STRONG> (Thumb, 58 bytes, Stack size 20 bytes, oleddevice.o(i.vOledClearOnePointToBuffer))
+<P><STRONG><a name="[11b]"></a>vOledClearOnePointToBuffer</STRONG> (Thumb, 58 bytes, Stack size 20 bytes, oleddevice.o(i.vOledClearOnePointToBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = vOledClearOnePointToBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteOneCharToBuffer
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteOneCharToBuffer
 </UL>
 
-<P><STRONG><a name="[111]"></a>vOledDeviceInit</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, oleddevice.o(i.vOledDeviceInit))
+<P><STRONG><a name="[112]"></a>vOledDeviceInit</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, oleddevice.o(i.vOledDeviceInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vOledDeviceInit &rArr; s_vOledCmdInit &rArr; s_vOledWriteOneByteCmd &rArr; s_vOledIicSendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledCmdInit
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledCmdInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
 </UL>
 
-<P><STRONG><a name="[119]"></a>vOledDrawOnePointToBuffer</STRONG> (Thumb, 58 bytes, Stack size 20 bytes, oleddevice.o(i.vOledDrawOnePointToBuffer))
+<P><STRONG><a name="[11a]"></a>vOledDrawOnePointToBuffer</STRONG> (Thumb, 58 bytes, Stack size 20 bytes, oleddevice.o(i.vOledDrawOnePointToBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = vOledDrawOnePointToBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteOneCharToBuffer
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteOneCharToBuffer
 </UL>
 
-<P><STRONG><a name="[112]"></a>vOledInitAll</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, oled_operation.o(i.vOledInitAll))
+<P><STRONG><a name="[113]"></a>vOledInitAll</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, oled_operation.o(i.vOledInitAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = vOledInitAll &rArr; vOledRefreshFromBuffer &rArr; s_vOledWriteFewBytesData &rArr; s_vOledIicSendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledDeviceInit
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
+<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledDeviceInit
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledTask
 </UL>
 
-<P><STRONG><a name="[113]"></a>vOledRefreshFromBuffer</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, oleddevice.o(i.vOledRefreshFromBuffer))
+<P><STRONG><a name="[114]"></a>vOledRefreshFromBuffer</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, oleddevice.o(i.vOledRefreshFromBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vOledRefreshFromBuffer &rArr; s_vOledWriteFewBytesData &rArr; s_vOledIicSendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
 </UL>
 
-<P><STRONG><a name="[114]"></a>vOledShowCalcFrame</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, oled_operation.o(i.vOledShowCalcFrame))
+<P><STRONG><a name="[115]"></a>vOledShowCalcFrame</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, oled_operation.o(i.vOledShowCalcFrame))
 <BR><BR>[Stack]<UL><LI>Max Depth = 132<LI>Call Chain = vOledShowCalcFrame &rArr; vOledWriteStringToBuffer &rArr; vOledWriteOneCharToBuffer &rArr; vOledDrawOnePointToBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteStringToBuffer
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
+<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteStringToBuffer
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowFrame
+<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowFrame
 </UL>
 
-<P><STRONG><a name="[116]"></a>vOledShowFrame</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, oled_operation.o(i.vOledShowFrame))
+<P><STRONG><a name="[117]"></a>vOledShowFrame</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, oled_operation.o(i.vOledShowFrame))
 <BR><BR>[Stack]<UL><LI>Max Depth = 180<LI>Call Chain = vOledShowFrame &rArr; vOledShowListFrame &rArr; vOledWriteStringToBuffer &rArr; vOledWriteOneCharToBuffer &rArr; vOledDrawOnePointToBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
+<BR>[Calls]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledTask
 </UL>
 
-<P><STRONG><a name="[117]"></a>vOledShowListFrame</STRONG> (Thumb, 204 bytes, Stack size 56 bytes, oled_operation.o(i.vOledShowListFrame))
+<P><STRONG><a name="[118]"></a>vOledShowListFrame</STRONG> (Thumb, 204 bytes, Stack size 56 bytes, oled_operation.o(i.vOledShowListFrame))
 <BR><BR>[Stack]<UL><LI>Max Depth = 172<LI>Call Chain = vOledShowListFrame &rArr; vOledWriteStringToBuffer &rArr; vOledWriteOneCharToBuffer &rArr; vOledDrawOnePointToBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteStringToBuffer
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
+<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteStringToBuffer
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowFrame
+<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowFrame
 </UL>
 
 <P><STRONG><a name="[3a]"></a>vOledTask</STRONG> (Thumb, 36 bytes, Stack size 80 bytes, oled_task.o(i.vOledTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = vOledTask &rArr; vOledShowFrame &rArr; vOledShowListFrame &rArr; vOledWriteStringToBuffer &rArr; vOledWriteOneCharToBuffer &rArr; vOledDrawOnePointToBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowFrame
-<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
+<BR>[Calls]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowFrame
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledInitAll
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueueGet
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xGetDisplayMsgQueue
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xGetDisplayMsgQueue
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[118]"></a>vOledWriteOneCharToBuffer</STRONG> (Thumb, 208 bytes, Stack size 60 bytes, oleddevice.o(i.vOledWriteOneCharToBuffer))
+<P><STRONG><a name="[119]"></a>vOledWriteOneCharToBuffer</STRONG> (Thumb, 208 bytes, Stack size 60 bytes, oleddevice.o(i.vOledWriteOneCharToBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = vOledWriteOneCharToBuffer &rArr; vOledDrawOnePointToBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledDrawOnePointToBuffer
-<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearOnePointToBuffer
+<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledDrawOnePointToBuffer
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledClearOnePointToBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteStringToBuffer
+<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteStringToBuffer
 </UL>
 
-<P><STRONG><a name="[115]"></a>vOledWriteStringToBuffer</STRONG> (Thumb, 72 bytes, Stack size 36 bytes, oleddevice.o(i.vOledWriteStringToBuffer))
+<P><STRONG><a name="[116]"></a>vOledWriteStringToBuffer</STRONG> (Thumb, 72 bytes, Stack size 36 bytes, oleddevice.o(i.vOledWriteStringToBuffer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = vOledWriteStringToBuffer &rArr; vOledWriteOneCharToBuffer &rArr; vOledDrawOnePointToBuffer
 </UL>
-<BR>[Calls]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteOneCharToBuffer
+<BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledWriteOneCharToBuffer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
+<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowListFrame
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledShowCalcFrame
 </UL>
 
 <P><STRONG><a name="[a0]"></a>vPortEnterCritical</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
@@ -1401,7 +1400,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a2]"></a>vPortExitCritical</STRONG> (Thumb, 56 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
@@ -1427,14 +1426,14 @@ Global Symbols
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 
-<P><STRONG><a name="[122]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, port.o(i.vPortSetupTimerInterrupt))
-<BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<P><STRONG><a name="[123]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, port.o(i.vPortSetupTimerInterrupt))
+<BR><BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
-<P><STRONG><a name="[11b]"></a>vPortValidateInterruptPriority</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, port.o(i.vPortValidateInterruptPriority))
+<P><STRONG><a name="[11c]"></a>vPortValidateInterruptPriority</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, port.o(i.vPortValidateInterruptPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vPortValidateInterruptPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortGetIPSR
+<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortGetIPSR
 </UL>
 <BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceiveFromISR
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
@@ -1448,7 +1447,7 @@ Global Symbols
 <P><STRONG><a name="[bb]"></a>vQueueWaitForMessageRestricted</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, queue.o(i.vQueueWaitForMessageRestricted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = vQueueWaitForMessageRestricted &rArr; vTaskPlaceOnEventListRestricted &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
+<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
@@ -1456,7 +1455,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
 </UL>
 
-<P><STRONG><a name="[ee]"></a>vTaskDelay</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, tasks.o(i.vTaskDelay))
+<P><STRONG><a name="[f0]"></a>vTaskDelay</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, tasks.o(i.vTaskDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
@@ -1468,8 +1467,8 @@ Global Symbols
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedTask
 </UL>
 
-<P><STRONG><a name="[125]"></a>vTaskInternalSetTimeOutState</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, tasks.o(i.vTaskInternalSetTimeOutState))
-<BR><BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<P><STRONG><a name="[126]"></a>vTaskInternalSetTimeOutState</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, tasks.o(i.vTaskInternalSetTimeOutState))
+<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
@@ -1478,7 +1477,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
-<P><STRONG><a name="[11e]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventList))
+<P><STRONG><a name="[11f]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
@@ -1488,7 +1487,7 @@ Global Symbols
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 </UL>
 
-<P><STRONG><a name="[11d]"></a>vTaskPlaceOnEventListRestricted</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventListRestricted))
+<P><STRONG><a name="[11e]"></a>vTaskPlaceOnEventListRestricted</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventListRestricted))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = vTaskPlaceOnEventListRestricted &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
@@ -1500,16 +1499,16 @@ Global Symbols
 <P><STRONG><a name="[8f]"></a>vTaskStartScheduler</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, tasks.o(i.vTaskStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = vTaskStartScheduler &rArr; xTimerCreateTimerTask &rArr; prvCheckForValidListAndQueue &rArr; xQueueGenericCreateStatic &rArr; prvInitialiseNewQueue &rArr; xQueueGenericReset &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
-<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetIdleTaskMemory
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetIdleTaskMemory
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
 </UL>
 
 <P><STRONG><a name="[b9]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
-<BR><BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR><BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
@@ -1521,7 +1520,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
 </UL>
 
-<P><STRONG><a name="[10d]"></a>xGetDisplayMsgQueue</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, oled_task.o(i.xGetDisplayMsgQueue))
+<P><STRONG><a name="[10e]"></a>xGetDisplayMsgQueue</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, oled_task.o(i.xGetDisplayMsgQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = xGetDisplayMsgQueue &rArr; osMessageQueueNew &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueueNew
@@ -1530,11 +1529,11 @@ Global Symbols
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledTask
 </UL>
 
-<P><STRONG><a name="[121]"></a>xPortStartScheduler</STRONG> (Thumb, 228 bytes, Stack size 16 bytes, port.o(i.xPortStartScheduler))
+<P><STRONG><a name="[122]"></a>xPortStartScheduler</STRONG> (Thumb, 228 bytes, Stack size 16 bytes, port.o(i.xPortStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xPortStartScheduler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvStartFirstTask
+<BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvStartFirstTask
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
@@ -1542,7 +1541,7 @@ Global Symbols
 <P><STRONG><a name="[77]"></a>xPortSysTickHandler</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, port.o(i.xPortSysTickHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = xPortSysTickHandler &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
@@ -1581,9 +1580,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueFull
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
@@ -1600,7 +1599,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = xQueueGenericSendFromISR &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueuePut
@@ -1612,9 +1611,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetSchedulerState
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
@@ -1631,16 +1630,16 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = xQueueReceiveFromISR &rArr; xTaskRemoveFromEventList
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osMessageQueueGet
 </UL>
 
-<P><STRONG><a name="[126]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, tasks.o(i.xTaskCheckForTimeOut))
+<P><STRONG><a name="[127]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, tasks.o(i.xTaskCheckForTimeOut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskCheckForTimeOut
 </UL>
-<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
+<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskInternalSetTimeOutState
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
@@ -1666,7 +1665,7 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osThreadNew
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
@@ -1681,12 +1680,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvSampleTimeNow
 </UL>
 
-<P><STRONG><a name="[124]"></a>xTaskIncrementTick</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
+<P><STRONG><a name="[125]"></a>xTaskIncrementTick</STRONG> (Thumb, 280 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
 <BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortSysTickHandler
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
@@ -1722,10 +1721,10 @@ Global Symbols
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueReceive
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSend
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
@@ -1733,10 +1732,10 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvProcessTimerOrBlockTask
 </UL>
 
-<P><STRONG><a name="[120]"></a>xTimerCreateTimerTask</STRONG> (Thumb, 100 bytes, Stack size 32 bytes, timers.o(i.xTimerCreateTimerTask))
+<P><STRONG><a name="[121]"></a>xTimerCreateTimerTask</STRONG> (Thumb, 100 bytes, Stack size 32 bytes, timers.o(i.xTimerCreateTimerTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = xTimerCreateTimerTask &rArr; prvCheckForValidListAndQueue &rArr; xQueueGenericCreateStatic &rArr; prvInitialiseNewQueue &rArr; xQueueGenericReset &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetTimerTaskMemory
+<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationGetTimerTaskMemory
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckForValidListAndQueue
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreateStatic
 </UL>
@@ -1758,138 +1757,138 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[10f]"></a>s_emMenuDecodeInput</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, menu_task.o(i.s_emMenuDecodeInput))
+<P><STRONG><a name="[110]"></a>s_emMenuDecodeInput</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, menu_task.o(i.s_emMenuDecodeInput))
 <BR><BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuTask
 </UL>
 
-<P><STRONG><a name="[ff]"></a>vLedDeviceBreathExecute</STRONG> (Thumb, 278 bytes, Stack size 88 bytes, leddevice.o(i.vLedDeviceBreathExecute))
+<P><STRONG><a name="[100]"></a>vLedDeviceBreathExecute</STRONG> (Thumb, 278 bytes, Stack size 88 bytes, leddevice.o(i.vLedDeviceBreathExecute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 336<LI>Call Chain = vLedDeviceBreathExecute &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDeviceBlinkExecute
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDevicePeriodExecute
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedDevicePeriodExecute
 </UL>
 
-<P><STRONG><a name="[e9]"></a>vBtnDeviceScanExecute</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, btndevice.o(i.vBtnDeviceScanExecute))
+<P><STRONG><a name="[eb]"></a>vBtnDeviceScanExecute</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, btndevice.o(i.vBtnDeviceScanExecute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vBtnDeviceScanExecute
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDevicePeriodExecute
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vBtnDevicePeriodExecute
 </UL>
 
-<P><STRONG><a name="[db]"></a>s_vOledCmdInit</STRONG> (Thumb, 230 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledCmdInit))
+<P><STRONG><a name="[dd]"></a>s_vOledCmdInit</STRONG> (Thumb, 230 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledCmdInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = s_vOledCmdInit &rArr; s_vOledWriteOneByteCmd &rArr; s_vOledIicSendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledDeviceInit
+<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledDeviceInit
 </UL>
 
-<P><STRONG><a name="[dd]"></a>s_vOledIicSendByte</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, oleddevice.o(i.s_vOledIicSendByte))
+<P><STRONG><a name="[df]"></a>s_vOledIicSendByte</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, oleddevice.o(i.s_vOledIicSendByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = s_vOledIicSendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaSet
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaSet
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
 </UL>
 
-<P><STRONG><a name="[e2]"></a>s_vOledIicStart</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledIicStart))
+<P><STRONG><a name="[e4]"></a>s_vOledIicStart</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledIicStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = s_vOledIicStart
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaSet
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaSet
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
 </UL>
 
-<P><STRONG><a name="[e3]"></a>s_vOledIicStop</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledIicStop))
+<P><STRONG><a name="[e5]"></a>s_vOledIicStop</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledIicStop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = s_vOledIicStop
 </UL>
-<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaSet
-<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
+<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaSet
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
 </UL>
 
-<P><STRONG><a name="[e4]"></a>s_vOledIicWaitAck</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledIicWaitAck))
+<P><STRONG><a name="[e6]"></a>s_vOledIicWaitAck</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, oleddevice.o(i.s_vOledIicWaitAck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = s_vOledIicWaitAck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
-<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSdaReset
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclSet
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledSclReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
-</UL>
-
-<P><STRONG><a name="[de]"></a>s_vOledSclReset</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSclReset))
-<BR><BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
+<BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteOneByteCmd
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledWriteFewBytesData
 </UL>
 
-<P><STRONG><a name="[e1]"></a>s_vOledSclSet</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSclSet))
-<BR><BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
+<P><STRONG><a name="[e0]"></a>s_vOledSclReset</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSclReset))
+<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
 </UL>
 
-<P><STRONG><a name="[e0]"></a>s_vOledSdaReset</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSdaReset))
-<BR><BR>[Called By]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
+<P><STRONG><a name="[e3]"></a>s_vOledSclSet</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSclSet))
+<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
 </UL>
 
-<P><STRONG><a name="[df]"></a>s_vOledSdaSet</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSdaSet))
-<BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
+<P><STRONG><a name="[e2]"></a>s_vOledSdaReset</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSdaReset))
+<BR><BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
 </UL>
 
-<P><STRONG><a name="[e5]"></a>s_vOledWriteFewBytesData</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, oleddevice.o(i.s_vOledWriteFewBytesData))
+<P><STRONG><a name="[e1]"></a>s_vOledSdaSet</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, oleddevice.o(i.s_vOledSdaSet))
+<BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
+</UL>
+
+<P><STRONG><a name="[e7]"></a>s_vOledWriteFewBytesData</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, oleddevice.o(i.s_vOledWriteFewBytesData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = s_vOledWriteFewBytesData &rArr; s_vOledIicSendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
+<BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
 </UL>
 
-<P><STRONG><a name="[dc]"></a>s_vOledWriteOneByteCmd</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, oleddevice.o(i.s_vOledWriteOneByteCmd))
+<P><STRONG><a name="[de]"></a>s_vOledWriteOneByteCmd</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, oleddevice.o(i.s_vOledWriteOneByteCmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = s_vOledWriteOneByteCmd &rArr; s_vOledIicSendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
+<BR>[Calls]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicWaitAck
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStop
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicStart
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledIicSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
-<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledCmdInit
+<BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vOledRefreshFromBuffer
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vOledCmdInit
 </UL>
 
-<P><STRONG><a name="[f6]"></a>s_vKeyPadDebounceUpdate</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, keypaddevice.o(i.s_vKeyPadDebounceUpdate))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
+<P><STRONG><a name="[f8]"></a>s_vKeyPadDebounceUpdate</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, keypaddevice.o(i.s_vKeyPadDebounceUpdate))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vKeyPadDevicePeriodExecute
 </UL>
 
 <P><STRONG><a name="[c8]"></a>s_pucCalcGetStringEnd</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, calculator_operation.o(i.s_pucCalcGetStringEnd))
@@ -1909,10 +1908,10 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcBuildDisplay
 </UL>
 
-<P><STRONG><a name="[f2]"></a>s_vCalcAppendDigit</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, calculator_operation.o(i.s_vCalcAppendDigit))
+<P><STRONG><a name="[f4]"></a>s_vCalcAppendDigit</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, calculator_operation.o(i.s_vCalcAppendDigit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = s_vCalcAppendDigit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
 </UL>
 
 <P><STRONG><a name="[c9]"></a>s_vCalcAppendNumber</STRONG> (Thumb, 34 bytes, Stack size 40 bytes, calculator_operation.o(i.s_vCalcAppendNumber))
@@ -1925,8 +1924,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcBuildDisplay
 </UL>
 
-<P><STRONG><a name="[f3]"></a>s_vCalcBackspace</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, calculator_operation.o(i.s_vCalcBackspace))
-<BR><BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
+<P><STRONG><a name="[f5]"></a>s_vCalcBackspace</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, calculator_operation.o(i.s_vCalcBackspace))
+<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
 </UL>
 
 <P><STRONG><a name="[cc]"></a>s_vCalcBuildDisplay</STRONG> (Thumb, 202 bytes, Stack size 16 bytes, calculator_operation.o(i.s_vCalcBuildDisplay))
@@ -1938,13 +1937,13 @@ Local Symbols
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcAppendChar
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_ucCalcGetOperatorChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInit
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInit
 </UL>
 
-<P><STRONG><a name="[f1]"></a>s_vCalcContextReset</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, calculator_operation.o(i.s_vCalcContextReset))
-<BR><BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInit
+<P><STRONG><a name="[f3]"></a>s_vCalcContextReset</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, calculator_operation.o(i.s_vCalcContextReset))
+<BR><BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInit
 </UL>
 
 <P><STRONG><a name="[ca]"></a>s_vCalcNumberToString</STRONG> (Thumb, 86 bytes, Stack size 36 bytes, calculator_operation.o(i.s_vCalcNumberToString))
@@ -1959,7 +1958,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;slCalcArithmetic
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
 </UL>
 
 <P><STRONG><a name="[d0]"></a>s_vCalcPressOperator</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, calculator_operation.o(i.s_vCalcPressOperator))
@@ -1967,7 +1966,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;slCalcArithmetic
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vCalcInputKey
 </UL>
 
 <P><STRONG><a name="[cb]"></a>s_vCalcWriteText</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, calculator_operation.o(i.s_vCalcWriteText))
@@ -1975,65 +1974,74 @@ Local Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vCalcAppendNumber
 </UL>
 
-<P><STRONG><a name="[d9]"></a>s_ucMenuTextLength</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, menu_operation.o(i.s_ucMenuTextLength))
-<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
+<P><STRONG><a name="[db]"></a>s_ucMenuTextLength</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, menu_operation.o(i.s_ucMenuTextLength))
+<BR><BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
 </UL>
 
-<P><STRONG><a name="[d8]"></a>s_vMenuBuildFrame</STRONG> (Thumb, 236 bytes, Stack size 32 bytes, menu_operation.o(i.s_vMenuBuildFrame))
+<P><STRONG><a name="[da]"></a>s_vMenuBuildFrame</STRONG> (Thumb, 236 bytes, Stack size 32 bytes, menu_operation.o(i.s_vMenuBuildFrame))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = s_vMenuBuildFrame
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;c_pstGetAppInterface
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuSetText
-<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_ucMenuTextLength
+<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuSetText
+<LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_ucMenuTextLength
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuInit
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuHandleKey
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuExecuteTick
+<BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuInit
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuHandleKey
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuExecuteTick
 </UL>
 
-<P><STRONG><a name="[10c]"></a>s_vMenuClearFrame</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, menu_operation.o(i.s_vMenuClearFrame))
-<BR><BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuInit
+<P><STRONG><a name="[10d]"></a>s_vMenuClearFrame</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, menu_operation.o(i.s_vMenuClearFrame))
+<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vMenuInit
 </UL>
 
-<P><STRONG><a name="[da]"></a>s_vMenuSetText</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, menu_operation.o(i.s_vMenuSetText))
-<BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
+<P><STRONG><a name="[dc]"></a>s_vMenuSetText</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, menu_operation.o(i.s_vMenuSetText))
+<BR><BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vMenuBuildFrame
 </UL>
 
-<P><STRONG><a name="[d4]"></a>s_ucLedAppTextLength</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, ledapp_operation.o(i.s_ucLedAppTextLength))
-<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
+<P><STRONG><a name="[d6]"></a>s_ucLedAppTextLength</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, ledapp_operation.o(i.s_ucLedAppTextLength))
+<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
 </UL>
 
-<P><STRONG><a name="[d3]"></a>s_vLedAllBuildFrame</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, ledapp_operation.o(i.s_vLedAllBuildFrame))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = s_vLedAllBuildFrame &rArr; s_vLedAppAppendText
+<P><STRONG><a name="[d3]"></a>s_vLedAllAppApply</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, ledapp_operation.o(i.s_vLedAllAppApply))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = s_vLedAllAppApply &rArr; vLedSetAction &rArr; vLedToggle &rArr; vLedUpdatePinLevel
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppSetText
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppAppendText
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_ucLedAppTextLength
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSetAction
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedAllAppHandleKey
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedAllAppEnter
 </UL>
 
-<P><STRONG><a name="[d6]"></a>s_vLedAppAppendText</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, ledapp_operation.o(i.s_vLedAppAppendText))
+<P><STRONG><a name="[d5]"></a>s_vLedAllBuildFrame</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, ledapp_operation.o(i.s_vLedAllBuildFrame))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = s_vLedAllBuildFrame &rArr; s_vLedAppAppendText
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppSetText
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppAppendText
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_ucLedAppTextLength
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedAllAppHandleKey
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedAllAppEnter
+</UL>
+
+<P><STRONG><a name="[d8]"></a>s_vLedAppAppendText</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, ledapp_operation.o(i.s_vLedAppAppendText))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = s_vLedAppAppendText
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
+<BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
 </UL>
 
-<P><STRONG><a name="[d5]"></a>s_vLedAppSetText</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ledapp_operation.o(i.s_vLedAppSetText))
-<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
+<P><STRONG><a name="[d7]"></a>s_vLedAppSetText</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ledapp_operation.o(i.s_vLedAppSetText))
+<BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedSingleBuildFrame
+<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAllBuildFrame
 </UL>
 
-<P><STRONG><a name="[d7]"></a>s_vLedSingleBuildFrame</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, ledapp_operation.o(i.s_vLedSingleBuildFrame))
+<P><STRONG><a name="[d9]"></a>s_vLedSingleBuildFrame</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, ledapp_operation.o(i.s_vLedSingleBuildFrame))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = s_vLedSingleBuildFrame &rArr; s_vLedAppAppendText
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppSetText
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppAppendText
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_ucLedAppTextLength
+<BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppSetText
+<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_vLedAppAppendText
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;s_ucLedAppTextLength
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSingleAppHandleKey
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vLedSingleAppEnter
@@ -2084,8 +2092,8 @@ Local Symbols
 <P><STRONG><a name="[6c]"></a>__NVIC_SetPriority</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, stm32f1xx_hal_cortex.o(i.__NVIC_SetPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
+<BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 </UL>
 
 <P><STRONG><a name="[a7]"></a>prvCopyDataFromQueue</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, queue.o(i.prvCopyDataFromQueue))
@@ -2154,9 +2162,9 @@ Local Symbols
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventListRestricted
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
 </UL>
 
 <P><STRONG><a name="[9f]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, tasks.o(i.prvAddNewTaskToReadyList))
@@ -2216,9 +2224,9 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
-<P><STRONG><a name="[127]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
+<P><STRONG><a name="[128]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
 <BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 
 <P><STRONG><a name="[a3]"></a>prvCheckForValidListAndQueue</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, timers.o(i.prvCheckForValidListAndQueue))
@@ -2230,7 +2238,7 @@ Local Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
+<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTimerCreateTimerTask
 </UL>
 
 <P><STRONG><a name="[be]"></a>prvGetNextExpireTime</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, timers.o(i.prvGetNextExpireTime))

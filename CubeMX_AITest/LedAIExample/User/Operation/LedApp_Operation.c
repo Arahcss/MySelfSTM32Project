@@ -219,6 +219,18 @@ const stDisplayMsgTdf *c_pstLedSingleAppRender(void)
 	return &s_stSingleFrame;
 }
 
+///	@brief					对所有已接入的LED执行一次动作
+///
+///	@param			emAction		:	目标动作
+///
+///	@note				当前硬件只接入板载LED（emLedDevNum0），LED1~LED8 设备槽位
+///						未初始化（GpioBase为NULL），对其调用vLedSetAction会写空指针
+///						触发HardFault，故这里只作用于已初始化的设备
+static void s_vLedAllAppApply(emLedActionTdf emAction)
+{
+	vLedSetAction(emLedDevNum0, emAction);
+}
+
 ///	@brief					进入全部灯应用
 ///
 ///	@param			ucParam			:	动作索引0~3，越界钳到0
@@ -226,8 +238,6 @@ const stDisplayMsgTdf *c_pstLedSingleAppRender(void)
 ///	@note					进入即对全部灯执行一次该动作
 void vLedAllAppEnter(uint8_t ucParam)
 {
-	uint8_t ucIndex = 0;
-
 	if(ucParam < LED_APP_ACTION_NUM)
 	{
 		s_ucAllActionIndex = ucParam;
@@ -237,10 +247,7 @@ void vLedAllAppEnter(uint8_t ucParam)
 		s_ucAllActionIndex = 0;
 	}
 
-	for(ucIndex = 0; ucIndex < LED_DEV_NUM; ucIndex++)
-	{
-		vLedSetAction((emLedDevNumTdf)ucIndex, s_aemSingleActions[s_ucAllActionIndex]);
-	}
+	s_vLedAllAppApply(s_aemSingleActions[s_ucAllActionIndex]);
 
 	s_vLedAllBuildFrame();
 }
@@ -262,14 +269,9 @@ void vLedAllAppExit(void)
 ///	@note					仅ENTER有效：对全部灯重复执行当前动作
 void vLedAllAppHandleKey(emInputKeyTdf emKey)
 {
-	uint8_t ucIndex = 0;
-
 	if(emKey == emInputKey_Enter)
 	{
-		for(ucIndex = 0; ucIndex < LED_DEV_NUM; ucIndex++)
-		{
-			vLedSetAction((emLedDevNumTdf)ucIndex, s_aemSingleActions[s_ucAllActionIndex]);
-		}
+		s_vLedAllAppApply(s_aemSingleActions[s_ucAllActionIndex]);
 
 		s_vLedAllBuildFrame();
 	}
