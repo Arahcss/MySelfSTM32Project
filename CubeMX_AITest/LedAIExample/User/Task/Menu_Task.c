@@ -32,8 +32,8 @@ static emInputKeyTdf s_emMenuDecodeInput(uint32_t ulMsg)
 ///	@param			argument		:	CubeMX传入参数（未使用）
 ///
 ///	@note				上电先投递一帧初始画面，然后以MENU_TICK_PERIOD_MS为周期
-///						阻塞等待统一输入队列：收到按键则交给菜单处理，超时则驱动
-///						当前应用的周期逻辑；处理完把最新显示帧投递到显示队列
+///						阻塞等待统一输入队列：收到按键则交给菜单处理并投递显示帧，
+///						超时则驱动当前应用的周期逻辑，仅在应用报告显示帧变化时投递
 void vMenuTask(void *argument)
 {
 	uint32_t ulMsg;
@@ -61,12 +61,14 @@ void vMenuTask(void *argument)
 		else
 		{
 			c_pstApp = c_pstGetActiveApp();
-			if((c_pstApp != NULL) && (c_pstApp->vTick != NULL))
+			if((c_pstApp != NULL) && (c_pstApp->ucTick != NULL))
 			{
-				vMenuExecuteTick();
-
-				//非阻塞投递，显示任务来不及时丢弃本帧
-				osMessageQueuePut(hDisplayQueue, c_pstMenuGetRender(), 0, 0);
+				//仅显示帧变化时才投递，避免周期全屏重绘
+				if(ucMenuExecuteTick() != 0)
+				{
+					//非阻塞投递，显示任务来不及时丢弃本帧
+					osMessageQueuePut(hDisplayQueue, c_pstMenuGetRender(), 0, 0);
+				}
 			}
 		}
 	}

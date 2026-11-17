@@ -19,6 +19,7 @@
 "ledaiexample\gameapp_operation.o"
 "ledaiexample\calcapp_operation.o"
 "ledaiexample\app_operation.o"
+"ledaiexample\snakegame_operation.o"
 "ledaiexample\startup_stm32f103xb.o"
 "ledaiexample\main.o"
 "ledaiexample\freertos.o"

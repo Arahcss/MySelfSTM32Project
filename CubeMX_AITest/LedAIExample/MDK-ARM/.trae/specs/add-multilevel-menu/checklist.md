@@ -12,12 +12,22 @@
 
 ## 应用框架
 
-- [x] `stAppInterfaceTdf` 六个成员齐全（`c_pcName`、`vEnter`、`vExit`、`vHandleKey`、`vTick`、`c_pstRender`）
+- [x] `stAppInterfaceTdf` 六个成员齐全（`c_pcName`、`vEnter`、`vExit`、`vHandleKey`、`ucTick`、`c_pstRender`）
 - [x] 注册表为 `static const` 数组，`c_pstGetAppInterface()` 越界返回 NULL
 - [x] 新增应用只需：实现接口 + 注册表加一行 + 菜单项表加一项（无需改 Menu_Task/Menu_Operation/OLED_Task）
 - [x] 应用模式下 CANCEL 由菜单统一处理，应用自身不处理返回
-- [x] `vTick` 为 NULL 时不产生周期刷新；非 NULL 时按 `MENU_TICK_PERIOD_MS` 被调用
-- [x] 贪吃蛇为占位应用，显示 `SNAKE` / `COMING SOON` / `CANCEL: BACK`
+- [x] `ucTick` 为 NULL 时不产生周期刷新；非 NULL 时按 `MENU_TICK_PERIOD_MS` 被调用，仅返回非 0 才投递帧
+- [x] 贪吃蛇已从占位应用升级为可玩应用（见下节）
+
+## 贪吃蛇
+
+- [x] 网格帧 16 列 × 6 行、每格 8 像素、起始 y=16，恰好铺满 128×64
+- [x] 初始长度 3、蛇头 (5,3)、向右移动；食物不生成在蛇身上
+- [x] 矩阵键盘 2/4/6/8 转向，禁止 180° 反向；3 重开、11 暂停/继续
+- [x] 撞墙/撞自身转 `GAME OVER`，占满整盘转 `YOU WIN`；尾巴格不算撞身
+- [x] 吃食物后长度 +1、得分 +1，标题同步显示 `SNAKE S:n`
+- [x] 结束页 3 行：`SCORE: n`、`ENTER: RESTART`、`CANCEL: BACK`；ENTER 重开一局
+- [x] 暂停时不走步、不刷屏；恢复后继续
 
 ## 计算器应用
 
@@ -43,8 +53,8 @@
 - [x] `vBtnTask`、`vKeyPadTask` 均投递到 `KeyPadMsgQueue`（16 × uint32_t），编码符合 `INPUT_EVENT_MAKE`
 - [x] 板载键 code 0~3 解码为 Up/Down/Enter/Cancel，矩阵键号 0~19 解码为 `emInputKey_KeyPadBase + 键号`
 - [x] 菜单模式下矩阵键盘按键被忽略，不误触发菜单项
-- [x] 显示队列项为 `sizeof(stDisplayMsgTdf)`（76 字节），8 项，经 `xGetDisplayMsgQueue()` 获取
-- [x] 计算器帧与列表帧切换无残影、无越界绘制
+- [x] 显示队列项为 `sizeof(stDisplayMsgTdf)`（约 124 字节），8 项，经 `xGetDisplayMsgQueue()` 获取
+- [x] 计算器帧 / 列表帧 / 网格帧切换无残影、无越界绘制
 - [x] 无消息时 OLED 任务阻塞、不重绘、不空转
 
 ## 工程与规范
@@ -56,12 +66,13 @@
 - [x] 已删除 `Calc_Task.c/.h`、`BtnProcess_Task.c/.h`，`User/` 全仓无残留引用
 - [x] Task→Operation→Device 单向调用；仅 Device 层包含 HAL 头
 - [ ] 用户已在 CubeMX 新增 `MenuTask`（128 Words、As weak、Dynamic）并删除 `CalcTask`、`BtnProcessTask`
-- [ ] 用户已在 Keil 加入 6 个新源文件、移除 2 个旧源文件，编译无错误无警告
+- [ ] 用户已在 Keil 加入 6 个新源文件（含 `SnakeGame_Operation.c`、`GameApp_Operation.c`）、移除 2 个旧源文件，编译无错误无警告
+- [ ] 显示队列 8 项 × 124 字节，若 `MenuTaskHandle == NULL` 需将 `configTOTAL_HEAP_SIZE` 提到 10240
 
 ## 实物联调（用户执行）
 
 - [ ] 上电显示 MAIN 菜单，板载 UP/DOWN/ENTER/CANCEL 导航正常
 - [ ] 进入计算器完成一次四则运算后 CANCEL 返回菜单
 - [ ] 进入 LED 单灯页驱动板载灯呼吸，返回后 LED 状态保持
-- [ ] 进入 GAME → SNAKE 显示占位页并可返回
+- [ ] 进入 GAME → SNAKE 可正常游玩：转向、吃食物加分、暂停、撞墙结束、重开、CANCEL 返回
 - [ ] 连续快速按板载键不丢键、显示不卡死

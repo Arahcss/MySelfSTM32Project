@@ -23,7 +23,7 @@ typedef struct
 	void (*vEnter)(uint8_t ucParam);					//	进入应用，参数来自菜单项
 	void (*vExit)(void);								//	退出应用
 	void (*vHandleKey)(emInputKeyTdf emKey);			//	处理归一化按键
-	void (*vTick)(void);								//	周期回调，可为NULL
+	uint8_t (*ucTick)(void);							//	周期回调，返回非0表示显示帧已变化需要刷新，可为NULL
 	const stDisplayMsgTdf *(*c_pstRender)(void);		//	返回当前显示帧
 }stAppInterfaceTdf;
 

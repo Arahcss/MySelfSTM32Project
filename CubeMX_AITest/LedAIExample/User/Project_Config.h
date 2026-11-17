@@ -26,5 +26,7 @@
 #define	MENU_TICK_PERIOD_MS			50
 #define	DISPLAY_LINE_LENGTH			17
 #define	DISPLAY_LIST_LINE_NUM		3
+#define	DISPLAY_GRID_MAX_CELL		96		/* 16列×6行，网格帧最大格子数 */
+#define	DISPLAY_GRID_ORIGIN_Y		16		/* 网格起始y，上方留给6x12标题 */
 
 #endif

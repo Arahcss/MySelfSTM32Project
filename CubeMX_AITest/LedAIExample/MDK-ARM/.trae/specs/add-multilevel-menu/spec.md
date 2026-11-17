@@ -35,7 +35,7 @@
 | 1 | `LED CONTROL` | `SINGLE LED`（子菜单）、`ALL LED`（子菜单） |
 | 2 | `SINGLE LED` | `LED0`（板载灯，当前硬件唯一已接入的 LED） |
 | 2 | `ALL LED` | `ALL ON`、`ALL OFF`、`ALL TOGGLE`、`ALL BREATH`（应用，参数=动作） |
-| 1 | `GAME` | `SNAKE`（占位应用） |
+| 1 | `GAME` | `SNAKE`（贪吃蛇应用） |
 
 - 导航语义：UP/DOWN 移动选中项并循环、ENTER 进入子菜单或启动应用、CANCEL 返回上一级（在 MAIN 根菜单下 CANCEL 无动作）
 - 菜单项超过 3 项时列表窗口按选中项滚动，每级菜单各自记住选中位置，返回上级后回到原位置
@@ -62,16 +62,34 @@ typedef struct
 	void (*vEnter)(uint8_t ucParam);					//	进入应用，ucParam 来自菜单项
 	void (*vExit)(void);								//	退出应用
 	void (*vHandleKey)(emInputKeyTdf emKey);			//	处理归一化按键
-	void (*vTick)(void);								//	周期回调，可为NULL（游戏类扩展点）
+	uint8_t (*ucTick)(void);							//	周期回调，返回非0表示显示帧已变化，可为NULL
 	const stDisplayMsgTdf *(*c_pstRender)(void);		//	返回当前显示帧
 }stAppInterfaceTdf;
 ```
 
 - 注册表为 `App_Operation.c` 内的静态常量数组，`c_pstGetAppInterface(uint8_t ucAppIndex)` 按下标取接口
-- 应用模式下 `vMenuExecuteTick()` 周期调用当前应用的 `vTick`（为 NULL 则跳过，不产生刷新）
+- 应用模式下 `ucMenuExecuteTick()` 周期调用当前应用的 `ucTick`（为 NULL 则跳过），仅当其返回非 0 时才重建并投递显示帧，避免周期全屏重绘（软 I2C 刷一屏约 28ms）
 - 应用模式下 CANCEL 由菜单统一拦截：先调 `vExit` 再回到进入前的菜单，应用不必自己处理返回
-- 新增应用的最小步骤 MUST 只有 4 步：①按接口实现 5 个函数（`vTick` 可空）②在注册表加一行 ③在菜单项表加一个 `App` 项 ④若需周期刷新则实现 `vTick`
-- 贪吃蛇本次只做占位应用（显示 `COMING SOON`），不改动游戏逻辑；图形类应用如需逐像素绘制，扩展点为"新增帧类型 + union 成员 + `vOledShowFrame` 增加分支"
+- 新增应用的最小步骤 MUST 只有 4 步：①按接口实现 5 个函数（`ucTick` 可空）②在注册表加一行 ③在菜单项表加一个 `App` 项 ④若需周期刷新则实现 `ucTick`
+- 图形类应用按"新增帧类型 + union 成员 + `vOledShowFrame` 增加分支"扩展；贪吃蛇即通过新增 `emDisplayFrameType_Grid` / `stGridDisplayMsgTdf` 接入
+
+### Requirement: 贪吃蛇应用
+
+贪吃蛇 SHALL 作为独立逻辑模块 `SnakeGame_Operation` + 应用适配 `GameApp_Operation` 实现：
+
+- 网格：16 列 × 6 行，每格 8×8 像素，起始 y=16（顶部 6×12 标题行）；`DISPLAY_GRID_MAX_CELL` 上限 96
+- 节奏：`MENU_TICK_PERIOD_MS`（50ms）× `SNAKE_STEP_TICK_NUM`（4）= 每 200ms 走一步
+- 初始：长度 3，蛇头 (5,3)，方向 Right，得分 0
+- 键位：矩阵键盘 2=上、4=左、6=右、8=下，3(AC)=重开，11(`=`)=暂停/继续；板载 ENTER 仅在结束/胜利时重开；CANCEL 由菜单框架退出
+- 转向规则：禁止 180° 反向；暂停/结束状态忽略方向输入
+- 判定：撞墙或撞自身（尾巴格豁免）转 `GameOver`；蛇占满整盘转 `Win`；得分 = 吃掉的食物数
+- 显示：运行帧为网格帧，标题 `SNAKE S:n`；暂停标题 `PAUSE S:n`；结束帧为列表帧，标题 `GAME OVER`/`YOU WIN`，行 `SCORE: n`、`ENTER: RESTART`、`CANCEL: BACK`
+- 食物：线性同余伪随机 + 线性探测，落在空格；无空格则判胜
+
+#### Scenario: 吃食物与死亡
+
+- **WHEN** 进入 SNAKE 后按矩阵键盘 2 转向并吃到食物，随后撞墙
+- **THEN** 标题得分递增、蛇身变长；撞墙后显示 `GAME OVER` 页，按 ENTER 或 AC 重开一局
 
 #### Scenario: 新增应用不改框架代码
 

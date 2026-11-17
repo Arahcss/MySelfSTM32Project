@@ -335,24 +335,33 @@ void vMenuHandleKey(emInputKeyTdf emKey)
 ///
 ///	@param					None
 ///
-///	@note					仅应用模式下调用应用vTick（非NULL时）并重建显示帧
-void vMenuExecuteTick(void)
+///	@return					非0表示显示帧已变化需要刷新，0表示无需刷新
+///
+///	@note					仅应用模式下调用应用ucTick（非NULL时），
+///							返回非0时重建显示帧
+uint8_t ucMenuExecuteTick(void)
 {
 	const stAppInterfaceTdf *c_pstApp = NULL;
+	uint8_t ucFrameChanged = 0;
 
 	if(s_emMode != emMenuMode_App)
 	{
-		return;
+		return 0;
 	}
 
 	c_pstApp = c_pstGetAppInterface(s_ucActiveApp);
-	if((c_pstApp == NULL) || (c_pstApp->vTick == NULL))
+	if((c_pstApp == NULL) || (c_pstApp->ucTick == NULL))
 	{
-		return;
+		return 0;
 	}
 
-	c_pstApp->vTick();
-	s_vMenuBuildFrame();
+	ucFrameChanged = c_pstApp->ucTick();
+	if(ucFrameChanged != 0)
+	{
+		s_vMenuBuildFrame();
+	}
+
+	return ucFrameChanged;
 }
 
 ///	@brief					获取当前显示帧（只读）

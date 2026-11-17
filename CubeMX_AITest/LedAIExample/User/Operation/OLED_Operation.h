@@ -23,6 +23,7 @@ typedef enum
 {
 	emDisplayFrameType_Calc		=	0,
 	emDisplayFrameType_List,
+	emDisplayFrameType_Grid,				//	网格帧
 }emDisplayFrameTypeTdf;
 
 ///	@brief					列表显示帧
@@ -38,6 +39,19 @@ typedef struct
 	uint8_t	aucLine[DISPLAY_LIST_LINE_NUM][DISPLAY_LINE_LENGTH];	//	行文本
 }stListDisplayMsgTdf;
 
+///	@brief					网格显示帧
+///
+///	@note					标题6x12@(0,0)，网格从 y=ucOriginY 开始，每格 ucCellSize 像素
+typedef struct
+{
+	uint8_t	ucColNum;								//	列数
+	uint8_t	ucRowNum;								//	行数
+	uint8_t	ucCellSize;								//	每格边长（像素）
+	uint8_t	ucOriginY;								//	网格起始y
+	uint8_t	aucTitle[DISPLAY_LINE_LENGTH];			//	标题文本（含分数）
+	uint8_t	aucCell[DISPLAY_GRID_MAX_CELL];			//	格子内容，行优先 row*ucColNum+col
+}stGridDisplayMsgTdf;
+
 ///	@brief					统一显示帧
 ///
 ///	@note
@@ -48,6 +62,7 @@ typedef struct
 	{
 		stCalcDisplayMsgTdf	stCalc;									//	计算器帧
 		stListDisplayMsgTdf	stList;									//	列表帧
+		stGridDisplayMsgTdf	stGrid;									//	网格帧
 	}unFrame;
 }stDisplayMsgTdf;
 
@@ -59,11 +74,20 @@ typedef struct
 ///					选中行加'>'前缀并反显，超长行按屏宽截断
 void vOledShowListFrame(const stListDisplayMsgTdf *pstMsg);
 
+///	@brief			渲染一帧网格界面
+///
+///	@param			pstMsg			:	已格式化的网格显示帧
+///
+///	@note			标题6x12@(0,0)；格子按行列铺在网格区，
+///					值0跳过、1/2画满格实心块、3画4x4食物块；
+///					超出128x64的格子直接跳过（显存无越界检查）
+void vOledShowGridFrame(const stGridDisplayMsgTdf *pstMsg);
+
 ///	@brief			渲染一帧统一显示帧
 ///
 ///	@param			pstMsg			:	已格式化的显示帧
 ///
-///	@note			按帧类型分发到计算器帧或列表帧渲染
+///	@note			按帧类型分发到计算器帧/列表帧/网格帧渲染
 void vOledShowFrame(const stDisplayMsgTdf *pstMsg);
 
 

@@ -490,6 +490,11 @@
               <FileType>1</FileType>
               <FilePath>..\User\Operation\App_Operation.c</FilePath>
             </File>
+            <File>
+              <FileName>SnakeGame_Operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\Operation\SnakeGame_Operation.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
