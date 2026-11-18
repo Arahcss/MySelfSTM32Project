@@ -207,7 +207,8 @@ void vGameAppExit(void)
 ///
 ///	@param			emKey			:	归一化按键值
 ///
-///	@note					矩阵键盘2/4/6/8转向、11暂停、3重开；
+///	@note					矩阵键盘(3,3)上、(2,3)下、(0,0)左、(0,2)右，
+///							(4,3)暂停/继续、(0,3)AC重开；
 ///							Enter在结束/胜利时重开；Cancel由菜单框架处理
 void vGameAppHandleKey(emInputKeyTdf emKey)
 {
@@ -241,34 +242,34 @@ void vGameAppHandleKey(emInputKeyTdf emKey)
 
 	switch(ucKeyIndex)
 	{
-		case 2:		//	上
+		case 15:	//	(3,3)：上
 		{
 			vSnakeGameSetDirection(emSnakeDirection_Up);
 			break;
 		}
-		case 4:		//	左
-		{
-			vSnakeGameSetDirection(emSnakeDirection_Left);
-			break;
-		}
-		case 6:		//	右
-		{
-			vSnakeGameSetDirection(emSnakeDirection_Right);
-			break;
-		}
-		case 8:		//	下
+		case 11:	//	(2,3)：下
 		{
 			vSnakeGameSetDirection(emSnakeDirection_Down);
 			break;
 		}
-		case 3:		//	AC：重开一局
+		case 0:		//	(0,0)：左
+		{
+			vSnakeGameSetDirection(emSnakeDirection_Left);
+			break;
+		}
+		case 2:		//	(0,2)：右
+		{
+			vSnakeGameSetDirection(emSnakeDirection_Right);
+			break;
+		}
+		case 3:		//	(0,3) AC：重开一局
 		{
 			vSnakeGameInit();
 			s_ucGameTickCounter = 0;
 			s_vGameAppBuildGridFrame();
 			break;
 		}
-		case 11:	//	=：暂停/继续
+		case 19:	//	(4,3) /：暂停/继续
 		{
 			vSnakeGameTogglePause();
 			s_vGameAppBuildGridFrame();

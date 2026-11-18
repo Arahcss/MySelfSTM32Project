@@ -22,7 +22,8 @@ void vGameAppExit(void);
 ///
 ///	@param			emKey			:	归一化按键值
 ///
-///	@note					矩阵键盘2/4/6/8转向、11暂停、3重开；
+///	@note					矩阵键盘(3,3)上、(2,3)下、(0,0)左、(0,2)右，
+///							(4,3)暂停/继续、(0,3)AC重开；
 ///							Enter在结束/胜利时重开；Cancel由菜单框架处理
 void vGameAppHandleKey(emInputKeyTdf emKey);
 

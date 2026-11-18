@@ -80,7 +80,7 @@ typedef struct
 - 网格：16 列 × 6 行，每格 8×8 像素，起始 y=16（顶部 6×12 标题行）；`DISPLAY_GRID_MAX_CELL` 上限 96
 - 节奏：`MENU_TICK_PERIOD_MS`（50ms）× `SNAKE_STEP_TICK_NUM`（4）= 每 200ms 走一步
 - 初始：长度 3，蛇头 (5,3)，方向 Right，得分 0
-- 键位：矩阵键盘 2=上、4=左、6=右、8=下，3(AC)=重开，11(`=`)=暂停/继续；板载 ENTER 仅在结束/胜利时重开；CANCEL 由菜单框架退出
+- 键位：矩阵键盘 (3,3)=上、(2,3)=下、(0,0)=左、(0,2)=右，(4,3)=暂停/继续，(0,3) AC=重开；板载 ENTER 仅在结束/胜利时重开；CANCEL 由菜单框架退出
 - 转向规则：禁止 180° 反向；暂停/结束状态忽略方向输入
 - 判定：撞墙或撞自身（尾巴格豁免）转 `GameOver`；蛇占满整盘转 `Win`；得分 = 吃掉的食物数
 - 显示：运行帧为网格帧，标题 `SNAKE S:n`；暂停标题 `PAUSE S:n`；结束帧为列表帧，标题 `GAME OVER`/`YOU WIN`，行 `SCORE: n`、`ENTER: RESTART`、`CANCEL: BACK`
@@ -88,7 +88,7 @@ typedef struct
 
 #### Scenario: 吃食物与死亡
 
-- **WHEN** 进入 SNAKE 后按矩阵键盘 2 转向并吃到食物，随后撞墙
+- **WHEN** 进入 SNAKE 后按矩阵键盘 (3,3) 转向并吃到食物，随后撞墙
 - **THEN** 标题得分递增、蛇身变长；撞墙后显示 `GAME OVER` 页，按 ENTER 或 AC 重开一局
 
 #### Scenario: 新增应用不改框架代码

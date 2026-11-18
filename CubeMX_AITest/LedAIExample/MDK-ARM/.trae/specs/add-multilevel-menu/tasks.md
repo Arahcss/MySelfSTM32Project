@@ -49,7 +49,7 @@
 - [x] Task 9: 贪吃蛇游戏
   - [x] SubTask 9.1: `User/Operation/SnakeGame_Operation.h/.c`：16×6 网格、长度 3、初始 (5,3) 向右、LCG 随机食物 + 线性探测；`ucSnakeGameStep()` 处理移动/增长/撞墙/撞身/胜利，撞身检测豁免尾巴格
   - [x] SubTask 9.2: `OLED_Operation.h/.c` 新增 `emDisplayFrameType_Grid`、`stGridDisplayMsgTdf`（列/行/格边长/起始 y/标题/96 格）与 `vOledShowGridFrame()`：逐点填充实心格，超出 128×64 的格子整格跳过
-  - [x] SubTask 9.3: `GameApp_Operation.c/.h` 实现应用适配：键 2/4/6/8 转向、3 重开、11 暂停、ENTER 结束后重开；`ucGameAppTick()` 每 4 个 50ms 走一步，仅在帧变化时返回 1，结束/胜利切换为列表帧
+  - [x] SubTask 9.3: `GameApp_Operation.c/.h` 实现应用适配：(3,3)/(2,3)/(0,0)/(0,2) 转向、(4,3) 暂停/继续、(0,3) AC 重开、ENTER 结束后重开；`ucGameAppTick()` 每 4 个 50ms 走一步，仅在帧变化时返回 1，结束/胜利切换为列表帧
   - [x] SubTask 9.4: `App_Operation.c` 注册表 GAME 行填 `ucGameAppTick`；`Menu_Task.c` 仅 `ucTick` 返回非 0 时投递帧
   - [x] 验证：网格 16×8=128 宽、6×8+16=64 高恰好铺满；`SnakeGame_Operation.c` 需用户在 Keil 手动加入 target
 
