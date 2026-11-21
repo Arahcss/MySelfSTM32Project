@@ -1,0 +1,2 @@
+source D:/ESP-IDF/v5.5.6/esp-idf/tools/templates/sample_project/build/gdbinit/symbols
+source D:/ESP-IDF/v5.5.6/esp-idf/tools/templates/sample_project/build/gdbinit/connect
