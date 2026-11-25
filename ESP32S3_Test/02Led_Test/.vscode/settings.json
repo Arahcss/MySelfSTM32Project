@@ -1,6 +1,6 @@
 {
     "idf.currentSetup": "D:\\ESP-IDF\\v5.5.6\\esp-idf",
-    "idf.port": "COM6",
+    "idf.port": "COM7",
     "idf.flashType": "JTAG",
     "idf.customExtraVars": {
       "IDF_TARGET": "esp32s3"
@@ -9,7 +9,7 @@
     "clangd.arguments": [
       "--background-index",
       "--query-driver=**",
-      "--compile-commands-dir=d:\\zhuomian\\32project\\ESP32S3_Test\\First_Test\\build"
+      "--compile-commands-dir=d:\\zhuomian\\32project\\ESP32S3_Test\\02Led_Test\\build"
     ],
     "idf.openOcdConfigs": [
       "board/esp32s3-builtin.cfg"
