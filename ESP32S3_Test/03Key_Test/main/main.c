@@ -2,11 +2,13 @@
 #include "freertos/task.h"
 #include "Led_Device.h"
 #include "Key_Device.h"
+#include "RGB_Device.h"
 
 void app_main(void)
 {
     led_init();
     key_init();
+    RGB_Init();
 
     uint8_t key;
 
@@ -18,7 +20,7 @@ void app_main(void)
         {
             case BOOT_PRES:
             {
-                LED_TOGGLE();
+                RGB_Toggle();
                 break;
             }   
             default:

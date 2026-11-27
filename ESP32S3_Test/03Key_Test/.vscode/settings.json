@@ -9,7 +9,7 @@
     "clangd.arguments": [
       "--background-index",
       "--query-driver=**",
-      "--compile-commands-dir=d:\\zhuomian\\32project\\ESP32S3_Test\\02Led_Test\\build"
+      "--compile-commands-dir=d:\\zhuomian\\32project\\ESP32S3_Test\\03Key_Test\\build"
     ],
     "idf.openOcdConfigs": [
       "board/esp32s3-builtin.cfg"
